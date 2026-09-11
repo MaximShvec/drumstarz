@@ -1,0 +1,244 @@
+import { useEffect, useState, type CSSProperties } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { EXTRAS, NAV, SITE } from "../../data/site";
+import { useBooking } from "../../context/BookingContext";
+import { Button } from "../ui/Button";
+import { cn } from "../../lib/cn";
+
+export function Header() {
+  const { openBooking } = useBooking();
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [extrasOpen, setExtrasOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+    setExtrasOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+          scrolled || open ? "bg-void/85 backdrop-blur-md" : "bg-transparent",
+        )}
+      >
+        <div className="container-site flex h-[72px] items-center justify-between gap-4 lg:h-[88px]">
+          <Link to="/" className="flex shrink-0 items-center gap-3" aria-label="DRUMSTARZ RIGA — на главную">
+            <img src="/assets/img/logo.svg" alt="" className="h-10 w-10 lg:h-12 lg:w-12" />
+            <span className="hidden font-display text-sm font-semibold tracking-[0.18em] text-cream sm:block">
+              DRUMSTARZ
+            </span>
+          </Link>
+
+          <nav className="hidden items-center gap-1 min-[980px]:flex" aria-label="Основная навигация">
+            {NAV.map((item) => (
+              <HashOrRoute key={item.to} to={item.to} className="link-draw px-3 py-2 text-sm text-cream/75">
+                {item.label}
+              </HashOrRoute>
+            ))}
+            <div className="relative">
+              <button
+                type="button"
+                className="link-draw flex cursor-pointer items-center gap-1 px-3 py-2 text-sm text-cream/75"
+                aria-expanded={extrasOpen}
+                aria-haspopup="true"
+                onClick={() => setExtrasOpen((v) => !v)}
+              >
+                Экстры
+                <svg
+                  viewBox="0 0 24 24"
+                  className={cn("h-4 w-4 transition-transform duration-300", extrasOpen && "rotate-180")}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              {extrasOpen ? (
+                <ul className="absolute left-0 top-full mt-2 min-w-56 rounded-2xl border border-white/10 bg-panel p-2 shadow-glow">
+                  {EXTRAS.map((item) => (
+                    <li key={item.to}>
+                      <NavLink
+                        to={item.to}
+                        className="relative block rounded-xl px-4 py-2.5 text-sm text-cream/80 transition-colors before:absolute before:left-2 before:top-1/2 before:h-0 before:w-0.5 before:-translate-y-1/2 before:rounded-full before:bg-mint before:transition-all hover:text-mint hover:before:h-4"
+                      >
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <span className="hidden text-xs font-semibold tracking-[0.16em] text-cream/40 xl:inline">RU</span>
+            <a href={SITE.phoneHref} className="link-draw hidden text-sm text-cream/80 md:inline">
+              {SITE.phone}
+            </a>
+            <Button variant="primary" className="hidden px-5 py-2.5 text-xs uppercase tracking-[0.14em] sm:inline-flex" onClick={openBooking}>
+              Записаться
+            </Button>
+            <a
+              href={SITE.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Написать в WhatsApp"
+              className="icon-btn hidden h-10 w-10 items-center justify-center rounded-full border border-white/10 sm:flex"
+            >
+              <img src="/assets/icons/whatsapp.png" alt="" className="h-5 w-5" />
+            </a>
+            <button
+              type="button"
+              className="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/15 min-[980px]:hidden"
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? "Закрыть меню" : "Открыть меню"}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span className="relative block h-3.5 w-[18px]" aria-hidden="true">
+                <span
+                  className="absolute left-0 right-0 h-px bg-cream"
+                  style={{
+                    top: "50%",
+                    transform: open ? "translateY(-50%) rotate(45deg)" : "translateY(-6px)",
+                    transition: "transform 0.3s ease",
+                  }}
+                />
+                <span
+                  className="absolute left-0 right-0 h-px bg-cream"
+                  style={{
+                    top: "50%",
+                    transform: open ? "translateY(-50%) rotate(-45deg)" : "translateY(6px)",
+                    transition: "transform 0.3s ease",
+                  }}
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div
+        id="mobile-nav"
+        className={cn("mobile-nav fixed inset-0 z-40 bg-void min-[980px]:hidden", open && "is-open")}
+        role="dialog"
+        aria-modal={open}
+        aria-label="Мобильное меню"
+        aria-hidden={!open}
+        inert={!open ? true : undefined}
+      >
+        <div className="flex h-full flex-col overflow-y-auto overscroll-contain pt-[72px]">
+          <nav
+            className="container-site flex min-h-full flex-col pb-[max(2.5rem,env(safe-area-inset-bottom))]"
+            aria-label="Основная навигация (мобильная)"
+          >
+            {NAV.map((item, i) => (
+              <HashOrRoute
+                key={item.to}
+                to={item.to}
+                className="mobile-nav-item block border-b border-white/10 py-4 font-display text-3xl tracking-tight text-cream"
+                style={{ animationDelay: `${90 + i * 55}ms` }}
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </HashOrRoute>
+            ))}
+            <p
+              className="mobile-nav-item pt-6 text-xs uppercase tracking-[0.2em] text-mint"
+              style={{ animationDelay: `${90 + NAV.length * 55}ms` }}
+            >
+              Экстры
+            </p>
+            {EXTRAS.map((item, i) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className="mobile-nav-item py-2.5 text-lg text-cream/80"
+                style={{ animationDelay: `${140 + (NAV.length + i) * 55}ms` }}
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+            <div
+              className="mobile-nav-item mt-auto flex flex-col gap-3 pt-10"
+              style={{ animationDelay: `${200 + (NAV.length + EXTRAS.length) * 55}ms` }}
+            >
+              <a href={SITE.phoneHref} className="link-draw w-fit text-cream/70">
+                {SITE.phone}
+              </a>
+              <Button
+                className="w-full py-4"
+                onClick={() => {
+                  setOpen(false);
+                  openBooking();
+                }}
+              >
+                Записаться
+              </Button>
+              <a
+                href={SITE.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 py-2 text-mint"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function HashOrRoute({
+  to,
+  className,
+  children,
+  onClick,
+  style,
+}: {
+  to: string;
+  className?: string;
+  children: string;
+  onClick?: () => void;
+  style?: CSSProperties;
+}) {
+  const location = useLocation();
+  const [path, hash] = to.split("#");
+  const isHash = Boolean(hash);
+
+  if (isHash && (location.pathname === "/" || path === "" || path === "/")) {
+    return (
+      <a href={`#${hash}`} className={className} style={style} onClick={onClick}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <NavLink to={to} className={className} style={style} onClick={onClick}>
+      {children}
+    </NavLink>
+  );
+}
