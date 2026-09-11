@@ -1,9 +1,14 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" style="background-color: #070a08; color-scheme: dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/icons/logo-placeholder.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#070a08" />
+    <meta name="theme-color" content="#070a08" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#070a08" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>DRUMSTARZ — школа барабанов №1 в Риге</title>
     <meta
       name="description"
@@ -15,9 +20,26 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <script>
+      (function () {
+        var color = "#070a08";
+        document.documentElement.style.backgroundColor = color;
+        function post(event, data) {
+          try {
+            if (window.TelegramWebviewProxy && window.TelegramWebviewProxy.postEvent) {
+              window.TelegramWebviewProxy.postEvent(event, JSON.stringify(data));
+            }
+          } catch (e) {}
+        }
+        post("web_app_set_header_color", { color: color });
+        post("web_app_set_background_color", { color: color });
+        post("web_app_set_bottom_bar_color", { color: color });
+      })();
+    </script>
   </head>
-  <body>
+  <body style="background-color: #070a08">
     <div id="root"></div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
