@@ -301,6 +301,42 @@ textarea:focus-visible {
   }
 }
 
+.drum-lightbox {
+  --yarl__color_backdrop: rgba(7, 10, 8, 0.92);
+  --yarl__color_button: rgba(243, 241, 234, 0.82);
+  --yarl__color_button_active: var(--color-mint);
+  --yarl__color_button_disabled: rgba(243, 241, 234, 0.28);
+  --yarl__button_filter: none;
+  --yarl__counter_filter: none;
+  --yarl__counter_color: rgba(243, 241, 234, 0.55);
+  --yarl__fade_animation_timing_function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.drum-lightbox .yarl__container {
+  backdrop-filter: blur(10px);
+}
+
+.drum-lightbox .yarl__slide_image {
+  border-radius: 1.2rem;
+}
+
+.drum-lightbox .yarl__button {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  background: rgba(7, 10, 8, 0.45);
+}
+
+.drum-lightbox .yarl__button:focus-visible {
+  outline: 2px solid var(--color-mint);
+  outline-offset: 3px;
+}
+
+.drum-lightbox .yarl__counter {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.18em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
   .reveal,

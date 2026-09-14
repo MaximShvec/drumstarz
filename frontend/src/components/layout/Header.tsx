@@ -269,19 +269,25 @@ function HashOrRoute({
   style?: CSSProperties;
 }) {
   const location = useLocation();
-  const [path, hash] = to.split("#");
-  const isHash = Boolean(hash);
+  const hashIndex = to.indexOf("#");
+  const pathname = hashIndex === -1 ? to : to.slice(0, hashIndex) || "/";
+  const hash = hashIndex === -1 ? "" : to.slice(hashIndex);
 
-  if (isHash && (location.pathname === "/" || path === "" || path === "/")) {
+  if (hash && location.pathname === pathname) {
     return (
-      <a href={`#${hash}`} className={className} style={style} onClick={onClick}>
+      <a href={hash} className={className} style={style} onClick={onClick}>
         {children}
       </a>
     );
   }
 
   return (
-    <NavLink to={to} className={className} style={style} onClick={onClick}>
+    <NavLink
+      to={hash ? { pathname, hash } : to}
+      className={className}
+      style={style}
+      onClick={onClick}
+    >
       {children}
     </NavLink>
   );

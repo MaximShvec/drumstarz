@@ -4,13 +4,13 @@ import { BookingProvider } from "./context/BookingContext";
 import { useLenis, scrollToId } from "./hooks/useLenis";
 import { SiteLayout } from "./components/layout/SiteLayout";
 import { HomePage } from "./pages/HomePage";
-import { PlaceholderPage } from "./pages/PlaceholderPage";
 import { TrainersPage } from "./pages/TrainersPage";
 import { ContactsPage } from "./pages/ContactsPage";
 import { PercussionsPage } from "./pages/PercussionsPage";
 import { EventsPage } from "./pages/EventsPage";
 import { KidsPage } from "./pages/KidsPage";
 import { GiftcardPage } from "./pages/GiftcardPage";
+import { CampPage } from "./pages/CampPage";
 
 export default function App() {
   return (
@@ -36,7 +36,7 @@ function AppShell() {
         <Route path="/events" element={<EventsPage />} />
         <Route path="/kids" element={<KidsPage />} />
         <Route path="/giftcard" element={<GiftcardPage />} />
-        <Route path="/camp" element={<PlaceholderPage title="Летний лагерь" />} />
+        <Route path="/camp" element={<CampPage />} />
       </Routes>
     </SiteLayout>
   );
