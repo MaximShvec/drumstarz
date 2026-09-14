@@ -25,6 +25,7 @@ html {
   scroll-behavior: auto;
   background-color: var(--color-void);
   color-scheme: dark;
+  --scrollbar-compensation: 0px;
 }
 
 html,

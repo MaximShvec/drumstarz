@@ -1,5 +1,6 @@
-export function youtubePoster(id: string) {
-  return `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg`;
+export function youtubePoster(id: string, quality: "hq" | "maxres" = "hq") {
+  const file = quality === "maxres" ? "maxresdefault.jpg" : "hqdefault.jpg";
+  return `https://i.ytimg.com/vi/${encodeURIComponent(id)}/${file}`;
 }
 
 export function youtubeEmbed(id: string) {

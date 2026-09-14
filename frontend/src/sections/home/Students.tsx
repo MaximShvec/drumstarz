@@ -49,6 +49,8 @@ export function Students() {
               data-student-tile
               src={src}
               alt=""
+              width={1600}
+              height={1068}
               loading="lazy"
               className="h-72 w-[78%] shrink-0 snap-center rounded-[1.2rem] object-cover"
             />
@@ -64,8 +66,10 @@ export function Students() {
               key={src}
               src={src}
               alt=""
+              width={1600}
+              height={1068}
               loading="lazy"
-              className={`h-full min-h-40 w-full rounded-[1.1rem] object-cover ${i === 7 ? "col-span-2 row-span-2 min-h-80" : ""} ${i === 0 ? "row-span-2 min-h-80" : ""}`}
+              className={`h-full min-h-44 w-full rounded-[1.1rem] object-cover ${i === 0 ? "col-span-2 row-span-2 min-h-[22rem]" : ""}`}
             />
           ))}
         </div>

@@ -1,16 +1,19 @@
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { EXTRAS, NAV, SITE } from "../../data/site";
 import { useBooking } from "../../context/BookingContext";
 import { Button } from "../ui/Button";
 import { cn } from "../../lib/cn";
+import { lockBodyScroll } from "../../lib/scrollLock";
 
 export function Header() {
   const { openBooking } = useBooking();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [extrasOpen, setExtrasOpen] = useState(false);
+  const extrasRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const extrasActive = EXTRAS.some((item) => location.pathname === item.to);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,20 +28,44 @@ export function Header() {
   }, [location]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    if (!open) return;
+    return lockBodyScroll();
   }, [open]);
+
+  useEffect(() => {
+    if (!extrasOpen) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (extrasRef.current?.contains(e.target as Node)) return;
+      setExtrasOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setExtrasOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown, true);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown, true);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [extrasOpen]);
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-          scrolled || open ? "bg-void/85 backdrop-blur-md" : "bg-transparent",
-        )}
-      >
+      {extrasOpen ? (
+        <div
+          className="fixed inset-0 z-40"
+          aria-hidden="true"
+          onPointerDown={() => setExtrasOpen(false)}
+        />
+      ) : null}
+      <header className="fixed inset-x-0 top-0 z-50 pr-[var(--scrollbar-compensation)]">
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-0 -z-10 transition-colors duration-300",
+            scrolled || open ? "bg-void/85 backdrop-blur-md" : "bg-transparent",
+          )}
+          aria-hidden="true"
+        />
         <div className="container-site flex h-[72px] items-center justify-between gap-4 lg:h-[88px]">
           <Link to="/" className="flex shrink-0 items-center gap-3" aria-label="DRUMSTARZ RIGA — на главную">
             <img src="/assets/img/logo.svg" alt="" className="h-10 w-10 lg:h-12 lg:w-12" />
@@ -49,14 +76,24 @@ export function Header() {
 
           <nav className="hidden items-center gap-1 min-[980px]:flex" aria-label="Основная навигация">
             {NAV.map((item) => (
-              <HashOrRoute key={item.to} to={item.to} className="link-draw px-3 py-2 text-sm text-cream/75">
+              <HashOrRoute
+                key={item.to}
+                to={item.to}
+                className={cn(
+                  "link-draw px-3 py-2 text-sm",
+                  location.pathname === item.to ? "text-mint" : "text-cream/75",
+                )}
+              >
                 {item.label}
               </HashOrRoute>
             ))}
-            <div className="relative">
+            <div className="relative" ref={extrasRef}>
               <button
                 type="button"
-                className="link-draw flex cursor-pointer items-center gap-1 px-3 py-2 text-sm text-cream/75"
+                className={cn(
+                  "link-draw flex cursor-pointer items-center gap-1 px-3 py-2 text-sm",
+                  extrasActive ? "text-mint" : "text-cream/75",
+                )}
                 aria-expanded={extrasOpen}
                 aria-haspopup="true"
                 onClick={() => setExtrasOpen((v) => !v)}
@@ -73,12 +110,17 @@ export function Header() {
                 </svg>
               </button>
               {extrasOpen ? (
-                <ul className="absolute left-0 top-full mt-2 min-w-56 rounded-2xl border border-white/10 bg-panel p-2 shadow-glow">
+                <ul className="absolute left-0 top-full z-10 mt-2 min-w-56 rounded-2xl border border-white/10 bg-panel p-2 shadow-glow">
                   {EXTRAS.map((item) => (
                     <li key={item.to}>
                       <NavLink
                         to={item.to}
-                        className="relative block rounded-xl px-4 py-2.5 text-sm text-cream/80 transition-colors before:absolute before:left-2 before:top-1/2 before:h-0 before:w-0.5 before:-translate-y-1/2 before:rounded-full before:bg-mint before:transition-all hover:text-mint hover:before:h-4"
+                        className={({ isActive }) =>
+                          cn(
+                            "relative block rounded-xl px-4 py-2.5 text-sm transition-colors before:absolute before:left-2 before:top-1/2 before:h-0 before:w-0.5 before:-translate-y-1/2 before:rounded-full before:bg-mint before:transition-all hover:text-mint hover:before:h-4",
+                            isActive ? "text-mint before:h-4" : "text-cream/80",
+                          )
+                        }
                       >
                         {item.label}
                       </NavLink>
@@ -172,7 +214,9 @@ export function Header() {
               <NavLink
                 key={item.to}
                 to={item.to}
-                className="mobile-nav-item py-2.5 text-lg text-cream/80"
+                className={({ isActive }) =>
+                  cn("mobile-nav-item py-2.5 text-lg", isActive ? "text-mint" : "text-cream/80")
+                }
                 style={{ animationDelay: `${140 + (NAV.length + i) * 55}ms` }}
                 onClick={() => setOpen(false)}
               >

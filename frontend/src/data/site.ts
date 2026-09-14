@@ -29,7 +29,7 @@ export const EXTRAS = [
 
 export const FOOTER_SCHOOL = [
   { label: "Цены и тарифы", to: "/#prices" },
-  { label: "Преподаватели школы", to: "/#teachers" },
+  { label: "Преподаватели школы", to: "/trainers" },
   { label: "Частые вопросы", to: "/#faq" },
 ] as const;
 
