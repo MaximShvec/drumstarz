@@ -1,6 +1,8 @@
 export const SITE = {
   name: "DRUMSTARZ",
   city: "RIGA",
+  origin: (import.meta.env.VITE_SITE_URL ?? "https://drumstarz.vercel.app").replace(/\/$/, ""),
+  ogImage: "/og.jpg",
   phone: "+371 26 25 31 58",
   phoneHref: "tel:+37126253158",
   whatsapp: "https://wa.me/37126253158",

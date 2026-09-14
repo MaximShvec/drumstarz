@@ -33,6 +33,10 @@ export function EventsPage() {
           <img
             src="/assets/img/events/hero-drummer.jpg"
             alt=""
+            width={1600}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover object-[center_20%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.4)_0%,rgba(7,10,8,0.18)_35%,rgba(7,10,8,0.92)_100%)]" />
@@ -95,7 +99,7 @@ export function EventsPage() {
 
       <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="timeline-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img src="/assets/img/events/why-bg.jpg" alt="" className="h-full w-full object-cover" />
+          <img src="/assets/img/events/why-bg.jpg" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-void/82" />
         </div>
         <div className="container-site relative z-10">
@@ -178,7 +182,7 @@ export function EventsPage() {
 
       <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="why-drums-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img src="/assets/img/events/why-bg.jpg" alt="" className="h-full w-full object-cover" />
+          <img src="/assets/img/events/why-bg.jpg" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-void/84" />
         </div>
         <div className="container-site relative z-10">
@@ -241,6 +245,8 @@ export function EventsPage() {
                   <img
                     src={item.src}
                     alt=""
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </button>

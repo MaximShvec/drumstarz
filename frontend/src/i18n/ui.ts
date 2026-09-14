@@ -14,6 +14,23 @@ export type UiCopy = {
   closeMenu: string;
   mobileMenu: string;
   langAria: string;
+  crumbs: {
+    home: string;
+    trainers: string;
+    contacts: string;
+    percussions: string;
+    events: string;
+    kids: string;
+    giftcard: string;
+    camp: string;
+  };
+  notFound: {
+    metaTitle: string;
+    metaDescription: string;
+    title: string;
+    lead: string;
+    home: string;
+  };
   nav: {
     prices: string;
     trainers: string;
@@ -125,6 +142,23 @@ const lv: UiCopy = {
   closeMenu: "Aizvērt izvēlni",
   mobileMenu: "Mobilā izvēlne",
   langAria: "Valoda",
+  crumbs: {
+    home: "Sākums",
+    trainers: "Pasniedzēji",
+    contacts: "Kontakti",
+    percussions: "Perkusija",
+    events: "Pasākumi",
+    kids: "Bērnu ballīte",
+    giftcard: "Dāvanu karte",
+    camp: "Vasaras nometne",
+  },
+  notFound: {
+    metaTitle: "Lapa nav atrasta — DRUMSTARZ",
+    metaDescription: "Šī lapa neeksistē. Atgriezieties uz DRUMSTARZ sākumlapu.",
+    title: "Lapa nav atrasta",
+    lead: "Iespējams, saite ir novecojusi. Atgriezieties uz sākumu un turpiniet no turienes.",
+    home: "Uz sākumu",
+  },
   nav: {
     prices: "Cenas",
     trainers: "Pasniedzēji",
@@ -236,6 +270,23 @@ const ru: UiCopy = {
   closeMenu: "Закрыть меню",
   mobileMenu: "Мобильное меню",
   langAria: "Язык",
+  crumbs: {
+    home: "Главная",
+    trainers: "Преподаватели",
+    contacts: "Контакты",
+    percussions: "Перкуссия",
+    events: "Мероприятия",
+    kids: "Детский праздник",
+    giftcard: "Подарочная карта",
+    camp: "Летний лагерь",
+  },
+  notFound: {
+    metaTitle: "Страница не найдена — DRUMSTARZ",
+    metaDescription: "Такой страницы нет. Вернитесь на главную DRUMSTARZ.",
+    title: "Страница не найдена",
+    lead: "Возможно, ссылка устарела. Вернитесь на главную и продолжите оттуда.",
+    home: "На главную",
+  },
   nav: {
     prices: "Цены",
     trainers: "Преподаватели",
@@ -347,6 +398,23 @@ const en: UiCopy = {
   closeMenu: "Close menu",
   mobileMenu: "Mobile menu",
   langAria: "Language",
+  crumbs: {
+    home: "Home",
+    trainers: "Teachers",
+    contacts: "Contacts",
+    percussions: "Percussion",
+    events: "Events",
+    kids: "Kids party",
+    giftcard: "Gift card",
+    camp: "Summer camp",
+  },
+  notFound: {
+    metaTitle: "Page not found — DRUMSTARZ",
+    metaDescription: "This page does not exist. Go back to the DRUMSTARZ homepage.",
+    title: "Page not found",
+    lead: "This link may be outdated. Head back home and continue from there.",
+    home: "Back home",
+  },
   nav: {
     prices: "Prices",
     trainers: "Teachers",

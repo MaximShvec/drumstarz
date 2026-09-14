@@ -10,6 +10,10 @@ export function Why() {
       <img
         src="/assets/img/section3/why-drumstarz-bg.jpg"
         alt=""
+        width={1920}
+        height={1080}
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-void/78" />

@@ -59,6 +59,8 @@ export function Teachers() {
                     <img
                       src={t.photo}
                       alt={`${t.name} — ${ui.common.trainerPhoto}`}
+                      loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />

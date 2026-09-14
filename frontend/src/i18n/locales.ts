@@ -16,6 +16,12 @@ export const LOCALE_HTML: Record<Locale, string> = {
   en: "en",
 };
 
+export const LOCALE_OG: Record<Locale, string> = {
+  lv: "lv_LV",
+  ru: "ru_RU",
+  en: "en_US",
+};
+
 export function isLocale(value: string | undefined): value is Locale {
   return value === "lv" || value === "ru" || value === "en";
 }

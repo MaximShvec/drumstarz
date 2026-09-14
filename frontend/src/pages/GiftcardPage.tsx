@@ -30,6 +30,10 @@ export function GiftcardPage() {
           <img
             src="/assets/img/giftcard/hero-drummer.jpg"
             alt=""
+            width={1600}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover object-[center_20%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.42)_0%,rgba(7,10,8,0.2)_40%,rgba(7,10,8,0.92)_100%)]" />

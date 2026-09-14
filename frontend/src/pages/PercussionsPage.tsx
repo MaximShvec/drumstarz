@@ -36,6 +36,10 @@ export function PercussionsPage() {
           <img
             src="/assets/img/percussions/hero-group.jpg"
             alt=""
+            width={1600}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover object-[center_30%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.35)_0%,rgba(7,10,8,0.2)_35%,rgba(7,10,8,0.92)_100%)]" />
@@ -203,6 +207,8 @@ export function PercussionsPage() {
                   <img
                     src={item.src}
                     alt=""
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </button>

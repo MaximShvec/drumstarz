@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://drumstarz.vercel.app/</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/" />
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/trainers</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/trainers" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/trainers" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/trainers" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/trainers" />
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/contacts</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/contacts" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/contacts" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/contacts" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/contacts" />
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/percussions</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/percussions" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/percussions" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/percussions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/percussions" />
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/events</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/events" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/events" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/events" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/events" />
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/kids</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/kids" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/kids" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/kids" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/kids" />
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/giftcard</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/giftcard" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/giftcard" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/giftcard" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/giftcard" />
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/camp</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/camp" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/camp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/camp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/camp" />
+    <changefreq>weekly</changefreq>
+  </url>
+</urlset>

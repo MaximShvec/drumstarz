@@ -34,6 +34,10 @@ export function KidsPage() {
           <img
             src="/assets/img/kids/hero-child-drummer.jpg"
             alt=""
+            width={1600}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover object-[70%_top]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.45)_0%,rgba(7,10,8,0.18)_40%,rgba(7,10,8,0.92)_100%)]" />
@@ -268,6 +272,8 @@ export function KidsPage() {
                   <img
                     src={item.src}
                     alt=""
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </button>

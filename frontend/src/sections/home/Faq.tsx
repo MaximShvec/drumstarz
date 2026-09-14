@@ -24,7 +24,7 @@ export function Faq() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mint-dim">{copy.faq.intro}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-soft">{copy.faq.intro}</p>
             <ul className="mt-6 divide-y divide-ink/10 border-y border-ink/10">
               {copy.faq.items.map((item, i) => {
                 const expanded = open === i;
@@ -37,7 +37,7 @@ export function Faq() {
                       onClick={() => setOpen(expanded ? -1 : i)}
                     >
                       <span className="font-display text-lg font-medium leading-snug">{item.q}</span>
-                      <span className="mt-1 text-mint-dim" aria-hidden="true">
+                      <span className="mt-1 text-ink-soft" aria-hidden="true">
                         {expanded ? "—" : "+"}
                       </span>
                     </button>

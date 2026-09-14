@@ -72,7 +72,7 @@ export function Header() {
         />
         <div className="container-site flex h-[72px] items-center justify-between gap-4 lg:h-[88px]">
           <Link to={href("/")} className="flex shrink-0 items-center gap-3" aria-label={t.homeAria}>
-            <img src="/assets/img/logo.svg" alt="" className="h-10 w-10 lg:h-12 lg:w-12" />
+            <img src="/assets/img/logo.svg" alt="" width={48} height={48} className="h-10 w-10 lg:h-12 lg:w-12" />
             <span className="hidden font-display text-sm font-semibold tracking-[0.18em] text-cream sm:block">
               DRUMSTARZ
             </span>

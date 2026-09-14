@@ -65,6 +65,10 @@ export function ContactsPage() {
           <img
             src="/assets/images/contacts-hero-drums-backdrop.jpg"
             alt=""
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.4)_0%,rgba(7,10,8,0.25)_40%,rgba(7,10,8,0.92)_100%)]" />

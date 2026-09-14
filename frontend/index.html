@@ -2,24 +2,87 @@
 <html lang="lv" style="background-color: #070a08; color-scheme: dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/icons/logo-placeholder.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
+    <link rel="apple-touch-icon" href="/assets/img/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#070a08" />
     <meta name="theme-color" content="#070a08" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#070a08" media="(prefers-color-scheme: dark)" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="DRUMSTARZ" />
     <title>DRUMSTARZ — bungu skola Nr. 1 Rīgā</title>
     <meta
       name="description"
       content="DRUMSTARZ — bungu skola Nr. 1 Rīgā. Iemācieties spēlēt bungas no nulles trīs mēnešos."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
+    <link rel="canonical" href="https://drumstarz.vercel.app/" />
+    <link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/" />
+    <link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru" />
+    <link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en" />
+    <link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/" />
+    <meta property="og:site_name" content="DRUMSTARZ" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="lv_LV" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:title" content="DRUMSTARZ — bungu skola Nr. 1 Rīgā" />
+    <meta
+      property="og:description"
+      content="DRUMSTARZ — bungu skola Nr. 1 Rīgā. Iemācieties spēlēt bungas no nulles trīs mēnešos."
     />
+    <meta property="og:url" content="https://drumstarz.vercel.app/" />
+    <meta property="og:image" content="https://drumstarz.vercel.app/og.jpg" />
+    <meta property="og:image:alt" content="DRUMSTARZ — bungu skola Nr. 1 Rīgā" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DRUMSTARZ — bungu skola Nr. 1 Rīgā" />
+    <meta
+      name="twitter:description"
+      content="DRUMSTARZ — bungu skola Nr. 1 Rīgā. Iemācieties spēlēt bungas no nulles trīs mēnešos."
+    />
+    <meta name="twitter:image" content="https://drumstarz.vercel.app/og.jpg" />
+    <link rel="preload" as="image" href="/assets/images/hero-drums-bw-poster.jpg" fetchpriority="high" />
+    <script type="application/ld+json" id="seo-graph">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "MusicSchool",
+            "@id": "https://drumstarz.vercel.app/#school",
+            "name": "DRUMSTARZ",
+            "alternateName": "DRUMSTARZ Riga",
+            "url": "https://drumstarz.vercel.app/",
+            "logo": "https://drumstarz.vercel.app/assets/img/logo.svg",
+            "image": "https://drumstarz.vercel.app/og.jpg",
+            "telephone": "+37126253158",
+            "email": "drumstarz.riga@gmail.com",
+            "priceRange": "€€",
+            "foundingDate": "2013",
+            "sameAs": [
+              "https://instagram.com/drumstarzlv",
+              "https://facebook.com/drumstarz.riga",
+              "https://youtube.com/@drumstarzriga9082"
+            ],
+            "areaServed": { "@type": "City", "name": "Riga", "addressCountry": "LV" },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Šarlotes iela 18A, Rīga, Latvia",
+              "addressLocality": "Rīga",
+              "addressCountry": "LV"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://drumstarz.vercel.app/#website",
+            "url": "https://drumstarz.vercel.app/",
+            "name": "DRUMSTARZ",
+            "inLanguage": ["lv", "ru", "en"],
+            "publisher": { "@id": "https://drumstarz.vercel.app/#school" }
+          }
+        ]
+      }
+    </script>
     <script>
       (function () {
         var color = "#070a08";
@@ -39,7 +102,6 @@
   </head>
   <body style="background-color: #070a08">
     <div id="root"></div>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

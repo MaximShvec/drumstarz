@@ -87,7 +87,7 @@ export function Contacts() {
             />
 
             <div key={slug} className="branch-swap mt-6 rounded-[1.4rem] border border-white/8 bg-panel p-6" role="tabpanel">
-              <p className="text-xs uppercase tracking-[0.18em] text-cream/40">
+              <p className="text-xs uppercase tracking-[0.18em] text-cream/65">
                 {slug === "first" ? contacts.firstName : contacts.secondName}
               </p>
               <p className="mt-2 font-display text-2xl">{displayAddress(slug)}</p>
@@ -104,13 +104,13 @@ export function Contacts() {
 
             <ul className="mt-8 space-y-4">
               <li>
-                <p className="text-xs uppercase tracking-[0.16em] text-cream/40">{copy.contacts.phoneLabel}</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-cream/65">{copy.contacts.phoneLabel}</p>
                 <a href={SITE.phoneHref} className="link-draw text-lg">
                   {SITE.phone}
                 </a>
               </li>
               <li>
-                <p className="text-xs uppercase tracking-[0.16em] text-cream/40">{copy.contacts.emailLabel}</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-cream/65">{copy.contacts.emailLabel}</p>
                 <a href={SITE.emailHref} className="link-draw text-lg">
                   {SITE.email}
                 </a>
@@ -138,7 +138,7 @@ export function Contacts() {
             >
               <div className="flex flex-col items-center gap-3">
                 <span className="map-loader size-12 rounded-full border-[3px] border-mint/20 border-t-mint" />
-                <span className="text-xs uppercase tracking-[0.2em] text-cream/40">{t.common.mapLoading}</span>
+                <span className="text-xs uppercase tracking-[0.2em] text-cream/65">{t.common.mapLoading}</span>
               </div>
             </div>
             <iframe

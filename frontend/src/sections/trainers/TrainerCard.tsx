@@ -38,6 +38,8 @@ export function TrainerCard({ trainer, index }: { trainer: Trainer; index: numbe
             <img
               src={trainer.photo}
               alt={`${trainer.name} — ${t.common.trainerPhoto}`}
+              loading="lazy"
+              decoding="async"
               className="relative z-10 mx-auto h-[22rem] w-full object-cover object-top transition-transform duration-700 group-hover/card:scale-[1.03] sm:h-[28rem] lg:h-[36rem]"
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-void to-transparent lg:hidden" />

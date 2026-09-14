@@ -1,40 +1,56 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useBooking } from "../../context/BookingContext";
 import { useHome } from "../../content/useCopy";
 import { Button } from "../../components/ui/Button";
+
+const HERO_VIDEO = "/assets/video/hero-drums-bw.mp4";
+const HERO_POSTER = "/assets/images/hero-drums-bw-poster.jpg";
 
 export function Hero() {
   const { openBooking } = useBooking();
   const copy = useHome();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = useState<string>();
+
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const forceImage = new URLSearchParams(window.location.search).get("hero") === "image" || reduced.matches;
+    if (forceImage) return;
+    const timer = window.setTimeout(() => setVideoSrc(HERO_VIDEO), 600);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const params = new URLSearchParams(window.location.search);
-    const forceImage = params.get("hero") === "image" || reduced.matches;
-    if (forceImage) {
-      video.pause();
-      return;
-    }
+    if (!video || !videoSrc) return;
     video.muted = true;
     video.play().catch(() => undefined);
-  }, []);
+  }, [videoSrc]);
 
   return (
     <section id="top" className="relative isolate min-h-svh overflow-hidden">
       <div className="absolute inset-0" aria-hidden="true">
-        <video
-          ref={videoRef}
+        <img
+          src={HERO_POSTER}
+          alt=""
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
           className="h-full w-full object-cover"
-          src="/assets/video/hero-drums-bw.mp4"
-          poster="/assets/images/hero-drums-bw-poster.jpg"
-          muted
-          loop
-          playsInline
-          preload="auto"
         />
+        {videoSrc ? (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover"
+            src={videoSrc}
+            poster={HERO_POSTER}
+            muted
+            loop
+            playsInline
+            preload="none"
+          />
+        ) : null}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.35)_0%,rgba(7,10,8,0.2)_40%,rgba(7,10,8,0.88)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(7,10,8,0.45)_100%)]" />
       </div>
@@ -61,7 +77,7 @@ export function Hero() {
           <Button variant="outline" className="px-8 py-4 text-base" onClick={openBooking}>
             {copy.hero.ctaBefore} <strong className="ml-1">{copy.hero.ctaStrong}</strong>
           </Button>
-          <span className="text-xs uppercase tracking-[0.2em] text-cream/35">{copy.hero.scroll}</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-cream/55">{copy.hero.scroll}</span>
         </div>
       </div>
     </section>

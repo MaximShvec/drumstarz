@@ -24,6 +24,15 @@ function postNative(event: string, data: Record<string, string>) {
   }
 }
 
+function paintWebApp() {
+  const webApp = window.Telegram?.WebApp;
+  if (!webApp) return;
+  webApp.ready?.();
+  webApp.setHeaderColor?.(VOID);
+  webApp.setBackgroundColor?.(VOID);
+  webApp.setBottomBarColor?.(VOID);
+}
+
 export function applyTelegramChrome() {
   document.documentElement.style.backgroundColor = VOID;
   document.body.style.backgroundColor = VOID;
@@ -35,11 +44,16 @@ export function applyTelegramChrome() {
   postNative("web_app_set_background_color", { color: VOID });
   postNative("web_app_set_bottom_bar_color", { color: VOID });
 
-  const webApp = window.Telegram?.WebApp;
-  if (!webApp) return;
+  if (!/Telegram/i.test(navigator.userAgent)) return;
 
-  webApp.ready?.();
-  webApp.setHeaderColor?.(VOID);
-  webApp.setBackgroundColor?.(VOID);
-  webApp.setBottomBarColor?.(VOID);
+  if (window.Telegram?.WebApp) {
+    paintWebApp();
+    return;
+  }
+
+  const script = document.createElement("script");
+  script.src = "https://telegram.org/js/telegram-web-app.js";
+  script.async = true;
+  script.onload = paintWebApp;
+  document.head.appendChild(script);
 }

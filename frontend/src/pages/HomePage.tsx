@@ -14,7 +14,7 @@ import { Why } from "../sections/home/Why";
 
 export function HomePage() {
   const copy = useHome();
-  useDocumentMeta(copy.metaTitle, copy.metaDescription);
+  useDocumentMeta(copy.metaTitle, copy.metaDescription, { faqs: copy.faq.items });
 
   return (
     <>

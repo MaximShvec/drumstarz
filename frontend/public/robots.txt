@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /lv
+Disallow: /lv/
+
+Sitemap: https://drumstarz.vercel.app/sitemap.xml

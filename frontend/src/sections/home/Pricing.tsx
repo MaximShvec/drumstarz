@@ -31,6 +31,10 @@ export function Pricing() {
             <img
               src="/assets/img/events/why-bg.jpg"
               alt=""
+              width={1600}
+              height={900}
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover opacity-35"
             />
             <div className="relative flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
@@ -70,7 +74,7 @@ export function Pricing() {
                 )}
               >
                 <div className="relative h-52">
-                  <img src={card.photo} alt="" className="h-full w-full object-cover" />
+                  <img src={card.photo} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-panel to-transparent" />
                   {text.ribbon ? (
                     <span

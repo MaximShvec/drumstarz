@@ -13,7 +13,7 @@ export function LineField({
 }) {
   return (
     <label className="block" htmlFor={id}>
-      <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-cream/45">{label}</span>
+      <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-cream/60">{label}</span>
       <span className={cn("input-line", error && "is-invalid")}>
         <input
           id={id}
@@ -54,7 +54,7 @@ export function LineTextarea({
 }) {
   return (
     <label className="block" htmlFor={id}>
-      <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-cream/45">{label}</span>
+      <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-cream/60">{label}</span>
       <span className={cn("input-line", error && "is-invalid")}>
         <textarea
           id={id}
@@ -86,7 +86,7 @@ export function LineSelect({
 }) {
   return (
     <label className="block" htmlFor={id}>
-      <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-cream/45">{label}</span>
+      <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-cream/60">{label}</span>
       <span className={cn("relative input-line", error && "is-invalid")}>
         <select
           id={id}
@@ -117,5 +117,5 @@ export function LineSelect({
 }
 
 export function FieldHint({ children }: { children: ReactNode }) {
-  return <p className="text-center text-xs uppercase tracking-[0.16em] text-cream/35">{children}</p>;
+  return <p className="text-center text-xs uppercase tracking-[0.16em] text-cream/60">{children}</p>;
 }

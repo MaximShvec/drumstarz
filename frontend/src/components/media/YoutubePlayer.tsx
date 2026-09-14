@@ -49,6 +49,10 @@ export function YoutubePlayer({
           <img
             src={poster ?? youtubePoster(id)}
             alt=""
+            width={1280}
+            height={720}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-void/25" />

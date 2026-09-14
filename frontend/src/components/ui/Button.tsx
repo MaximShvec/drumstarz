@@ -14,7 +14,7 @@ const fill: Record<Variant, string> = {
 };
 
 const styles: Record<Variant, string> = {
-  primary: "bg-mint-deep text-cream hover:text-void",
+  primary: "bg-mint-deep text-void hover:text-void",
   outline: "border border-mint/70 text-inherit hover:text-void hover:border-mint",
   ghost: "text-inherit hover:text-mint",
   lime: "bg-lime text-ink hover:text-ink",

@@ -11,7 +11,7 @@ export function Footer() {
       <div className="container-site grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link to={href("/")} className="inline-flex items-center gap-3">
-            <img src="/assets/img/logo.svg" alt="" className="h-10 w-10" />
+            <img src="/assets/img/logo.svg" alt="" width={40} height={40} className="h-10 w-10" />
             <span className="font-display text-sm tracking-[0.16em]">Drumstarz Riga</span>
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/55">{t.footer.blurb}</p>
@@ -45,7 +45,7 @@ export function Footer() {
             </li>
           ))}
           <li>
-            <span className="text-sm text-cream/30">{t.footer.news}</span>
+            <span className="text-sm text-cream/60">{t.footer.news}</span>
           </li>
         </FooterCol>
 
@@ -73,7 +73,7 @@ export function Footer() {
         </FooterCol>
       </div>
 
-      <div className="container-site flex flex-col gap-3 border-t border-white/8 py-6 text-xs text-cream/35 sm:flex-row sm:items-center sm:justify-between">
+      <div className="container-site flex flex-col gap-3 border-t border-white/8 py-6 text-xs text-cream/60 sm:flex-row sm:items-center sm:justify-between">
         <p>DRUMSTARZ © {SITE.year}. {t.footer.rights}</p>
         <p className="flex gap-4">
           <span>{t.footer.privacy}</span>
