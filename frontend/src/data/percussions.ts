@@ -41,11 +41,11 @@ export const PERCUSSION_WHY = [
 ] as const;
 
 export const PERCUSSION_GALLERY = [
-  { src: "/assets/img/percussions/gallery-tambourine.jpg", alt: "Участник с бубном на занятии перкуссии" },
-  { src: "/assets/img/percussions/gallery-instructor.jpg", alt: "Инструктор ведёт групповое занятие" },
-  { src: "/assets/img/percussions/gallery-hands.jpg", alt: "Руки на джембе" },
-  { src: "/assets/img/percussions/gallery-portrait.jpg", alt: "Участница занятия по перкуссии" },
-  { src: "/assets/img/percussions/gallery-shaker.jpg", alt: "Шейкер на занятии" },
+  { src: "/assets/img/percussions/gallery-tambourine.webp", alt: "Участник с бубном на занятии перкуссии" },
+  { src: "/assets/img/percussions/gallery-instructor.webp", alt: "Инструктор ведёт групповое занятие" },
+  { src: "/assets/img/percussions/gallery-hands.webp", alt: "Руки на джембе" },
+  { src: "/assets/img/percussions/gallery-portrait.webp", alt: "Участница занятия по перкуссии" },
+  { src: "/assets/img/percussions/gallery-shaker.webp", alt: "Шейкер на занятии" },
 ] as const;
 
 export const PERCUSSION_FAQ = [

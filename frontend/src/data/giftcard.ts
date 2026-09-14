@@ -5,7 +5,7 @@ export const GIFTCARD_PLANS = [
     price: "35",
     meta: "1 урок · 50 минут",
     copy: "Индивидуальный урок: основы ритма, настоящая установка и музыка.",
-    photo: "/assets/img/giftcard/card-photo-pricing1.jpg",
+    photo: "/assets/img/giftcard/card-photo-pricing1.webp",
     ribbon: null,
   },
   {
@@ -14,7 +14,7 @@ export const GIFTCARD_PLANS = [
     price: "115",
     meta: "4 урока · 50 минут",
     copy: "Четыре индивидуальных занятия для более уверенного старта и закрепления навыка.",
-    photo: "/assets/img/giftcard/card-photo-pricing2.jpg",
+    photo: "/assets/img/giftcard/card-photo-pricing2.webp",
     ribbon: "Хит продаж",
   },
 ] as const;

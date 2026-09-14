@@ -1,6 +1,8 @@
 # DRUMSTARZ — Design System
 
-Source of truth for the new frontend. Content still comes from `static/`; this file is visual only.
+Source of truth for the new frontend look. This file is visual only. Copy lives in `src/content/` and `src/i18n/`.
+
+Generated once from [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) plus the mint brand DNA. Later agents: read this file and the live pages. Do not re-run the skill unless the visual language itself is changing.
 
 ## Product
 

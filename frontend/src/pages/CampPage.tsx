@@ -30,7 +30,7 @@ export function CampPage() {
       <section className="relative isolate min-h-[92svh]" aria-labelledby="camp-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <img
-            src="/assets/img/camp/hero-outdoor-stage.jpg"
+            src="/assets/img/camp/hero-outdoor-stage.webp"
             alt=""
             width={1600}
             height={900}
@@ -107,7 +107,7 @@ export function CampPage() {
             </Reveal>
             <Reveal delay={80}>
               <img
-                src="/assets/img/camp/concept-girl-drummer.jpg"
+                src="/assets/img/camp/concept-girl-drummer.webp"
                 alt={copy.introAlt}
                 className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
               />
@@ -201,7 +201,7 @@ export function CampPage() {
               id={CAMP_YOUTUBE_ID}
               title={copy.videoAria}
               className="aspect-video w-full rounded-[1.6rem]"
-              poster="/assets/img/camp/hero-outdoor-stage.jpg"
+              poster="/assets/img/camp/hero-outdoor-stage.webp"
             />
           </Reveal>
         </div>

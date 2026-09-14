@@ -63,7 +63,7 @@ export function ContactsPage() {
       <section className="relative isolate min-h-[78svh] overflow-hidden" aria-labelledby="contacts-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <img
-            src="/assets/images/contacts-hero-drums-backdrop.jpg"
+            src="/assets/images/contacts-hero-drums-backdrop.webp"
             alt=""
             width={1920}
             height={1080}

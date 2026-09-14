@@ -31,7 +31,7 @@ export function EventsPage() {
       <section className="relative isolate min-h-[88svh] overflow-hidden" aria-labelledby="events-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <img
-            src="/assets/img/events/hero-drummer.jpg"
+            src="/assets/img/events/hero-drummer.webp"
             alt=""
             width={1600}
             height={900}
@@ -77,7 +77,7 @@ export function EventsPage() {
               id={EVENTS_YOUTUBE_ID}
               title={copy.videoTitle}
               className="aspect-video w-full rounded-[1.6rem]"
-              poster="/assets/img/events/showcase-crowd.jpg"
+              poster="/assets/img/events/showcase-crowd.webp"
             />
           </Reveal>
         </div>
@@ -99,7 +99,7 @@ export function EventsPage() {
 
       <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="timeline-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img src="/assets/img/events/why-bg.jpg" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+          <img src="/assets/img/events/why-bg.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-void/82" />
         </div>
         <div className="container-site relative z-10">
@@ -182,7 +182,7 @@ export function EventsPage() {
 
       <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="why-drums-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img src="/assets/img/events/why-bg.jpg" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+          <img src="/assets/img/events/why-bg.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-void/84" />
         </div>
         <div className="container-site relative z-10">

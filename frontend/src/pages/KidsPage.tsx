@@ -32,7 +32,7 @@ export function KidsPage() {
       <section className="relative isolate min-h-[92svh]" aria-labelledby="kids-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <img
-            src="/assets/img/kids/hero-child-drummer.jpg"
+            src="/assets/img/kids/hero-child-drummer.webp"
             alt=""
             width={1600}
             height={900}
@@ -108,7 +108,7 @@ export function KidsPage() {
           </Reveal>
           <Reveal delay={80}>
             <img
-              src="/assets/img/kids/concept-group-jam.jpg"
+              src="/assets/img/kids/concept-group-jam.webp"
               alt={copy.conceptAlt}
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
@@ -213,7 +213,7 @@ export function KidsPage() {
             <Reveal>
               <article className="relative isolate overflow-hidden rounded-[1.6rem]">
                 <img
-                  src="/assets/img/kids/gallery-main-three-girls.jpg"
+                  src="/assets/img/kids/gallery-main-three-girls.webp"
                   alt={copy.whyAlt}
                   className="h-full min-h-[28rem] w-full object-cover"
                 />

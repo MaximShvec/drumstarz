@@ -72,11 +72,11 @@ export const KIDS_WHY = [
 ] as const;
 
 export const KIDS_GALLERY = [
-  { src: "/assets/img/kids/gallery-main-three-girls.jpg", alt: "Трое детей с малыми барабанами на сцене DRUMSTARZ" },
-  { src: "/assets/img/kids/concept-group-jam.jpg", alt: "Дети и ведущий играют вместе на барабанной установке" },
-  { src: "/assets/img/kids/gallery-mentor-girl.jpg", alt: "Ведущий помогает девочке за барабанной установкой" },
-  { src: "/assets/img/kids/gallery-boy-closeup.jpg", alt: "Мальчик играет на барабанной установке" },
-  { src: "/assets/img/kids/gallery-boy-kit.jpg", alt: "Мальчик за барабанной установкой в студии" },
+  { src: "/assets/img/kids/gallery-main-three-girls.webp", alt: "Трое детей с малыми барабанами на сцене DRUMSTARZ" },
+  { src: "/assets/img/kids/concept-group-jam.webp", alt: "Дети и ведущий играют вместе на барабанной установке" },
+  { src: "/assets/img/kids/gallery-mentor-girl.webp", alt: "Ведущий помогает девочке за барабанной установкой" },
+  { src: "/assets/img/kids/gallery-boy-closeup.webp", alt: "Мальчик играет на барабанной установке" },
+  { src: "/assets/img/kids/gallery-boy-kit.webp", alt: "Мальчик за барабанной установкой в студии" },
 ] as const;
 
 export const KIDS_BOOKING_STEPS = [

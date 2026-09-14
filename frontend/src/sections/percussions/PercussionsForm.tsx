@@ -69,7 +69,7 @@ export function PercussionsForm() {
     >
       <div className="absolute inset-0" aria-hidden="true">
         <img
-          src="/assets/img/percussions/forest-form-bg.jpg"
+          src="/assets/img/percussions/forest-form-bg.webp"
           alt=""
           className="h-full w-full object-cover"
         />

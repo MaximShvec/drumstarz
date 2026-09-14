@@ -68,9 +68,9 @@ export const EVENTS_WHY = [
 ] as const;
 
 export const EVENTS_GALLERY = [
-  { src: "/assets/img/events/gallery-01.jpg", alt: "Корпоративная барабанная программа — гости играют на джембе" },
-  { src: "/assets/img/events/gallery-02.jpg", alt: "Гости играют на джембе в кругу" },
-  { src: "/assets/img/events/gallery-03.jpg", alt: "Рок-концерт со светом и залом" },
-  { src: "/assets/img/events/gallery-04.jpg", alt: "Два барабанщика играют на сцене под конфетти" },
-  { src: "/assets/img/events/gallery-05.jpg", alt: "Групповое барабанное выступление перед залом" },
+  { src: "/assets/img/events/gallery-01.webp", alt: "Корпоративная барабанная программа — гости играют на джембе" },
+  { src: "/assets/img/events/gallery-02.webp", alt: "Гости играют на джембе в кругу" },
+  { src: "/assets/img/events/gallery-03.webp", alt: "Рок-концерт со светом и залом" },
+  { src: "/assets/img/events/gallery-04.webp", alt: "Два барабанщика играют на сцене под конфетти" },
+  { src: "/assets/img/events/gallery-05.webp", alt: "Групповое барабанное выступление перед залом" },
 ] as const;

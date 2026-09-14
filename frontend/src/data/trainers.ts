@@ -6,7 +6,7 @@ export const TRAINERS = [
     role: "Преподаватель DRUMSTARZ",
     bio: "Спокойно раскладывает сложный ритм по полочкам — и внезапно руки начинают понимать голову.",
     youtubeId: "iCoX1LOyCxk",
-    photo: "/assets/img/trainers/andrejs.png",
+    photo: "/assets/img/trainers/andrejs.webp",
   },
   {
     id: "arturs",
@@ -15,7 +15,7 @@ export const TRAINERS = [
     role: "Преподаватель DRUMSTARZ",
     bio: "За точность без скуки: поможет приручить метроном и оставить в игре живой драйв.",
     youtubeId: "nT4bxZtkDd0",
-    photo: "/assets/img/trainers/arturs.png",
+    photo: "/assets/img/trainers/arturs.webp",
   },
   {
     id: "edgars",
@@ -24,7 +24,7 @@ export const TRAINERS = [
     role: "Преподаватель DRUMSTARZ",
     bio: "Любит искать характер в каждой партии — от тихого грува до большого сценического удара.",
     youtubeId: "LbQfws3v2KU",
-    photo: "/assets/img/trainers/edgars.png",
+    photo: "/assets/img/trainers/edgars.webp",
   },
   {
     id: "fjodors",
@@ -33,7 +33,7 @@ export const TRAINERS = [
     role: "Преподаватель DRUMSTARZ",
     bio: "Заряжает энергией так, что даже упражнение на координацию звучит как начало концерта.",
     youtubeId: "LkPEbsTEaOY",
-    photo: "/assets/img/trainers/fjodors.png",
+    photo: "/assets/img/trainers/fjodors.webp",
   },
   {
     id: "patriks",
@@ -42,7 +42,7 @@ export const TRAINERS = [
     role: "Преподаватель DRUMSTARZ",
     bio: "Собирает технику, мощь и хороший вкус в один уверенный грув — без лишней суеты.",
     youtubeId: "kfQa9Brh4dQ",
-    photo: "/assets/img/trainers/patriks.png",
+    photo: "/assets/img/trainers/patriks.webp",
   },
   {
     id: "rudolfs",
@@ -51,7 +51,7 @@ export const TRAINERS = [
     role: "Преподаватель DRUMSTARZ",
     bio: "Покажет, как играть свободнее, смелее и с характером — и почему пауза тоже часть музыки.",
     youtubeId: "RSULXVe9w04",
-    photo: "/assets/img/trainers/rudolfs.png",
+    photo: "/assets/img/trainers/rudolfs.webp",
   },
   {
     id: "valerijs",
@@ -60,7 +60,7 @@ export const TRAINERS = [
     role: "Преподаватель DRUMSTARZ",
     bio: "Опыт, спокойствие и точный слух: умеет объяснить сложное просто и поддержать в нужный момент.",
     youtubeId: "zzz_Klg-Dg4",
-    photo: "/assets/img/trainers/valerijs.png",
+    photo: "/assets/img/trainers/valerijs.webp",
   },
   {
     id: "vladislavs",
@@ -69,7 +69,7 @@ export const TRAINERS = [
     role: "Преподаватель DRUMSTARZ",
     bio: "Внимателен к деталям и любит крепкий фундамент — чтобы ритм держался уверенно в любой песне.",
     youtubeId: "tN-DrgQNz1g",
-    photo: "/assets/img/trainers/vladislavs.png",
+    photo: "/assets/img/trainers/vladislavs.webp",
   },
   {
     id: "alberts",
@@ -78,7 +78,7 @@ export const TRAINERS = [
     role: "Преподаватель DRUMSTARZ",
     bio: "Альберт умеет превратить сложный ритм в понятную последовательность и спокойно довести её до уверенной игры. На занятиях — внимание к технике, музыкальности и удовольствие от каждого нового результата.",
     youtubeId: "LS_IADAzZV4",
-    photo: "/assets/img/trainers/alberts.png",
+    photo: "/assets/img/trainers/alberts.webp",
   },
 ] as const;
 

@@ -28,7 +28,7 @@ export function GiftcardPage() {
       <section className="relative isolate min-h-[88svh]" aria-labelledby="giftcard-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <img
-            src="/assets/img/giftcard/hero-drummer.jpg"
+            src="/assets/img/giftcard/hero-drummer.webp"
             alt=""
             width={1600}
             height={900}
@@ -60,7 +60,7 @@ export function GiftcardPage() {
 
           <Reveal delay={80}>
             <img
-              src="/assets/img/giftcard/real-cert.jpg"
+              src="/assets/img/giftcard/real-cert.webp"
               alt={copy.certAlt}
               className="w-full max-w-sm rounded-[1.4rem] object-cover shadow-[0_24px_60px_-20px_rgba(0,0,0,0.65)] xl:max-w-none"
             />
@@ -83,7 +83,7 @@ export function GiftcardPage() {
           </Reveal>
           <Reveal delay={80} className="relative">
             <img
-              src="/assets/img/giftcard/emotion-studio.jpg"
+              src="/assets/img/giftcard/emotion-studio.webp"
               alt={copy.emotionAlt}
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
@@ -178,7 +178,7 @@ export function GiftcardPage() {
           </Reveal>
           <Reveal delay={80}>
             <img
-              src="/assets/img/giftcard/experience-main.jpg"
+              src="/assets/img/giftcard/experience-main.webp"
               alt={copy.expAlt}
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />

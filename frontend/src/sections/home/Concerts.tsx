@@ -20,7 +20,7 @@ export function Concerts() {
             <YoutubePlayer
               id={CONCERT_YOUTUBE_ID}
               title={copy.concerts.videoTitle}
-              poster="/assets/img/events/gallery-04.jpg"
+              poster="/assets/img/events/gallery-04.webp"
               className="aspect-video w-full"
             />
             <span className="pointer-events-none absolute left-6 top-6 rounded-full bg-void/70 px-4 py-2 text-xs uppercase tracking-[0.18em] text-cream/80">

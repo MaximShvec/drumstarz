@@ -34,7 +34,7 @@ export function PercussionsPage() {
       <section className="relative isolate min-h-[88svh] overflow-hidden" aria-labelledby="percussions-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <img
-            src="/assets/img/percussions/hero-group.jpg"
+            src="/assets/img/percussions/hero-group.webp"
             alt=""
             width={1600}
             height={900}
@@ -121,7 +121,7 @@ export function PercussionsPage() {
           </Reveal>
           <Reveal delay={80}>
             <img
-              src="/assets/img/percussions/circle-djembe.jpg"
+              src="/assets/img/percussions/circle-djembe.webp"
               alt={copy.introAlt}
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
@@ -167,7 +167,7 @@ export function PercussionsPage() {
           </Reveal>
           <Reveal delay={80}>
             <img
-              src="/assets/img/percussions/ensemble-instruments.jpg"
+              src="/assets/img/percussions/ensemble-instruments.webp"
               alt={copy.ensembleAlt}
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />

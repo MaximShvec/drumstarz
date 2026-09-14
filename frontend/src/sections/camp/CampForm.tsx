@@ -68,7 +68,7 @@ export function CampForm() {
       aria-labelledby="camp-form-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        <img src="/assets/img/camp/gallery-lake-pier.jpg" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+        <img src="/assets/img/camp/gallery-lake-pier.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-void/80" />
       </div>
 

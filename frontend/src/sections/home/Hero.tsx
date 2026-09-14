@@ -4,7 +4,7 @@ import { useHome } from "../../content/useCopy";
 import { Button } from "../../components/ui/Button";
 
 const HERO_VIDEO = "/assets/video/hero-drums-bw.mp4";
-const HERO_POSTER = "/assets/images/hero-drums-bw-poster.jpg";
+const HERO_POSTER = "/assets/images/hero-drums-bw-poster.webp";
 
 export function Hero() {
   const { openBooking } = useBooking();

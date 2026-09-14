@@ -100,13 +100,13 @@ export const CAMP_INCLUDED = [
 ] as const;
 
 export const CAMP_GALLERY = [
-  { src: "/assets/img/camp/gallery-boy-focus.jpg", alt: "Мальчик играет на барабанной установке на летнем лагере" },
-  { src: "/assets/img/camp/gallery-two-boys.jpg", alt: "Двое мальчиков играют на барабанах у домика лагеря" },
-  { src: "/assets/img/camp/gallery-trainer.jpg", alt: "Преподаватель лагеря играет на барабанной установке" },
-  { src: "/assets/img/camp/gallery-river-swim.jpg", alt: "Дети купаются в реке на территории лагеря" },
-  { src: "/assets/img/camp/gallery-drum-room.jpg", alt: "Барабанные установки на крытой сцене лагеря" },
-  { src: "/assets/img/camp/gallery-lake-pier.jpg", alt: "Дети на мостках у озера на территории лагеря" },
-  { src: "/assets/img/camp/gallery-cabin.jpg", alt: "Деревянный домик на территории лагеря" },
+  { src: "/assets/img/camp/gallery-boy-focus.webp", alt: "Мальчик играет на барабанной установке на летнем лагере" },
+  { src: "/assets/img/camp/gallery-two-boys.webp", alt: "Двое мальчиков играют на барабанах у домика лагеря" },
+  { src: "/assets/img/camp/gallery-trainer.webp", alt: "Преподаватель лагеря играет на барабанной установке" },
+  { src: "/assets/img/camp/gallery-river-swim.webp", alt: "Дети купаются в реке на территории лагеря" },
+  { src: "/assets/img/camp/gallery-drum-room.webp", alt: "Барабанные установки на крытой сцене лагеря" },
+  { src: "/assets/img/camp/gallery-lake-pier.webp", alt: "Дети на мостках у озера на территории лагеря" },
+  { src: "/assets/img/camp/gallery-cabin.webp", alt: "Деревянный домик на территории лагеря" },
 ] as const;
 
 export const CAMP_FAQ = [

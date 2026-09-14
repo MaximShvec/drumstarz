@@ -8,7 +8,7 @@ export function Why() {
   return (
     <section id="why" className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="why-title">
       <img
-        src="/assets/img/section3/why-drumstarz-bg.jpg"
+        src="/assets/img/section3/why-drumstarz-bg.webp"
         alt=""
         width={1920}
         height={1080}

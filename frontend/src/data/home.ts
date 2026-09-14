@@ -1,34 +1,34 @@
 export const LEVEL_CARDS = {
   new: [
     {
-      img: "/assets/img/giftcard/hero-drummer.jpg",
+      img: "/assets/img/giftcard/hero-drummer.webp",
       title: "Изучи",
       text: "основы игры на барабанах",
     },
     {
-      img: "/assets/img/giftcard/emotion-studio.jpg",
+      img: "/assets/img/giftcard/emotion-studio.webp",
       title: "Научись",
       text: "играть один из твоих любимых треков",
     },
     {
-      img: "/assets/img/events/hero-concert-stage.jpg",
+      img: "/assets/img/events/hero-concert-stage.webp",
       title: "Выступи",
       text: "на настоящем концерте",
     },
   ],
   experienced: [
     {
-      img: "/assets/img/events/hero-drumstick.jpg",
+      img: "/assets/img/events/hero-drumstick.webp",
       title: "Прокачивай",
       text: "свой уровень",
     },
     {
-      img: "/assets/img/events/hero-drummer.jpg",
+      img: "/assets/img/events/hero-drummer.webp",
       title: "Сними",
       text: "видео кавер",
     },
     {
-      img: "/assets/img/events/showcase-crowd.jpg",
+      img: "/assets/img/events/showcase-crowd.webp",
       title: "Отыграй",
       text: "на настоящем концерте",
     },
@@ -64,7 +64,7 @@ export const PRICING = [
   {
     name: "Разовое",
     kind: "Посещение",
-    photo: "/assets/img/giftcard/card-photo-pricing2.jpg",
+    photo: "/assets/img/giftcard/card-photo-pricing2.webp",
     lessons: "1 занятие",
     discount: null,
     ribbon: null,
@@ -76,7 +76,7 @@ export const PRICING = [
   {
     name: "Стартовый",
     kind: "Абонемент",
-    photo: "/assets/img/kids/hero-child-drummer.jpg",
+    photo: "/assets/img/kids/hero-child-drummer.webp",
     lessons: "4 занятия",
     discount: "-18%",
     ribbon: null,
@@ -88,7 +88,7 @@ export const PRICING = [
   {
     name: "Эксперт",
     kind: "Абонемент",
-    photo: "/assets/img/giftcard/card-photo-pricing1.jpg",
+    photo: "/assets/img/giftcard/card-photo-pricing1.webp",
     lessons: "12 занятий",
     discount: "-30%",
     ribbon: "Хит продаж",
@@ -100,7 +100,7 @@ export const PRICING = [
   {
     name: "Премиум",
     kind: "Абонемент",
-    photo: "/assets/img/events/showcase-crowd.jpg",
+    photo: "/assets/img/events/showcase-crowd.webp",
     lessons: "24 занятия",
     discount: "-40%",
     ribbon: "Лучшая цена",
@@ -145,15 +145,15 @@ export const TRIAL_STEPS = [
 ] as const;
 
 export const STUDENT_PHOTOS = [
-  "/assets/img/gallery/g5.jpg",
-  "/assets/img/gallery/g4.jpg",
-  "/assets/img/gallery/g2.jpg",
-  "/assets/img/gallery/g8.jpg",
-  "/assets/img/gallery/g1.jpg",
-  "/assets/img/gallery/g6.jpg",
-  "/assets/img/gallery/g9.jpg",
-  "/assets/img/gallery/g3.jpg",
-  "/assets/img/gallery/g7.jpg",
+  "/assets/img/gallery/g5.webp",
+  "/assets/img/gallery/g4.webp",
+  "/assets/img/gallery/g2.webp",
+  "/assets/img/gallery/g8.webp",
+  "/assets/img/gallery/g1.webp",
+  "/assets/img/gallery/g6.webp",
+  "/assets/img/gallery/g9.webp",
+  "/assets/img/gallery/g3.webp",
+  "/assets/img/gallery/g7.webp",
 ] as const;
 
 export const FAQ = [

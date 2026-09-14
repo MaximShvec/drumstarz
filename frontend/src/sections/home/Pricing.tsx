@@ -29,7 +29,7 @@ export function Pricing() {
         <Reveal className="mt-10">
           <div className="relative overflow-hidden rounded-[1.8rem] border border-mint/25 bg-panel">
             <img
-              src="/assets/img/events/why-bg.jpg"
+              src="/assets/img/events/why-bg.webp"
               alt=""
               width={1600}
               height={900}

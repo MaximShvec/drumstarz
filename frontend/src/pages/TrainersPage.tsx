@@ -17,7 +17,7 @@ export function TrainersPage() {
       <section className="relative isolate min-h-[78svh] overflow-hidden" aria-labelledby="trainers-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <img
-            src="/assets/images/contacts-hero-drums-backdrop.jpg"
+            src="/assets/images/contacts-hero-drums-backdrop.webp"
             alt=""
             width={1920}
             height={1080}
@@ -58,7 +58,7 @@ export function TrainersPage() {
           </Reveal>
           <Reveal delay={80}>
             <img
-              src="/assets/img/section3/why-drumstarz-bg.jpg"
+              src="/assets/img/section3/why-drumstarz-bg.webp"
               alt={copy.introAlt}
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
