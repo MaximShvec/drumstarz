@@ -8,6 +8,7 @@ import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { useLocale } from "../i18n/LocaleContext";
 import { scrollToId } from "../hooks/useLenis";
 import { Reveal } from "../components/Reveal";
+import { Photo } from "../components/media/Photo";
 import { Button, ButtonAnchor } from "../components/ui/Button";
 import { BranchBlock } from "../sections/contacts/BranchBlock";
 import { ContactsMap } from "../sections/contacts/ContactsMap";
@@ -62,13 +63,11 @@ export function ContactsPage() {
     <>
       <section className="relative isolate min-h-[78svh] overflow-hidden" aria-labelledby="contacts-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img
+          <Photo
             src="/assets/images/contacts-hero-drums-backdrop.webp"
             alt=""
-            width={1920}
-            height={1080}
+            sizes="100vw"
             fetchPriority="high"
-            decoding="async"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.4)_0%,rgba(7,10,8,0.25)_40%,rgba(7,10,8,0.92)_100%)]" />

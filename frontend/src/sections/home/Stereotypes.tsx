@@ -2,6 +2,7 @@ import { useState } from "react";
 import { LEVEL_CARDS, type LevelKey } from "../../data/home";
 import { useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
+import { Photo } from "../../components/media/Photo";
 import { Segmented } from "../../components/ui/Segmented";
 
 export function Stereotypes() {
@@ -56,11 +57,11 @@ export function Stereotypes() {
               delay={i * 80}
               className="group relative isolate min-h-[420px] overflow-hidden rounded-[1.6rem] bg-ink"
             >
-              <img
+              <Photo
                 src={card.img}
                 alt=""
+                sizes="(min-width: 768px) 33vw, 100vw"
                 loading="lazy"
-                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-void via-void/20 to-transparent" />

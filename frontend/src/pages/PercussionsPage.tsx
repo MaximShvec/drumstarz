@@ -5,6 +5,7 @@ import { useLocale } from "../i18n/LocaleContext";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { scrollToId } from "../hooks/useLenis";
 import { Reveal } from "../components/Reveal";
+import { Photo } from "../components/media/Photo";
 import { Button, ButtonAnchor } from "../components/ui/Button";
 import { Lightbox } from "../components/ui/Lightbox";
 import { PercussionsForm } from "../sections/percussions/PercussionsForm";
@@ -33,13 +34,11 @@ export function PercussionsPage() {
     <>
       <section className="relative isolate min-h-[88svh] overflow-hidden" aria-labelledby="percussions-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img
+          <Photo
             src="/assets/img/percussions/hero-group.webp"
             alt=""
-            width={1600}
-            height={900}
+            sizes="100vw"
             fetchPriority="high"
-            decoding="async"
             className="h-full w-full object-cover object-[center_30%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.35)_0%,rgba(7,10,8,0.2)_35%,rgba(7,10,8,0.92)_100%)]" />
@@ -120,9 +119,11 @@ export function PercussionsPage() {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">{copy.introLead}</p>
           </Reveal>
           <Reveal delay={80}>
-            <img
+            <Photo
               src="/assets/img/percussions/circle-djembe.webp"
               alt={copy.introAlt}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              loading="lazy"
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
           </Reveal>
@@ -166,9 +167,11 @@ export function PercussionsPage() {
             </ol>
           </Reveal>
           <Reveal delay={80}>
-            <img
+            <Photo
               src="/assets/img/percussions/ensemble-instruments.webp"
               alt={copy.ensembleAlt}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              loading="lazy"
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
           </Reveal>
@@ -204,11 +207,11 @@ export function PercussionsPage() {
                   onClick={() => setGalleryIndex(i)}
                   aria-label={`${t.common.openPhoto}: ${item.alt}`}
                 >
-                  <img
+                  <Photo
                     src={item.src}
                     alt=""
+                    sizes="(min-width: 768px) 50vw, 100vw"
                     loading="lazy"
-                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </button>

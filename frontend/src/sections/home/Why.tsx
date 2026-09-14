@@ -1,19 +1,18 @@
 import { WHY_ITEMS } from "../../data/home";
 import { useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
+import { Photo } from "../../components/media/Photo";
 
 export function Why() {
   const copy = useHome();
 
   return (
     <section id="why" className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="why-title">
-      <img
+      <Photo
         src="/assets/img/section3/why-drumstarz-bg.webp"
         alt=""
-        width={1920}
-        height={1080}
+        sizes="100vw"
         loading="lazy"
-        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-void/78" />

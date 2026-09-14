@@ -138,7 +138,7 @@ This is a client-rendered SPA. Google runs JS. Social crawlers that do not run J
 
 ## Media and performance
 
-- Hero: poster is LCP (`/assets/images/hero-drums-bw-poster.webp`). Video (`/assets/video/hero-drums-bw.mp4`) mounts after a short delay. `?hero=image` or `prefers-reduced-motion` skips the video. Photos in `public/` are WebP; keep `og.jpg` for social crawlers.
+- Hero: poster is LCP (`/assets/images/hero-drums-bw-poster.webp`). Video (`/assets/video/hero-drums-bw.mp4`) mounts after a short delay. `?hero=image` or `prefers-reduced-motion` skips the video. Photos in `public/` are WebP with 800/1280 `srcset` via `Photo`. Keep `og.jpg` for social crawlers. New photos: `npm install --no-save sharp && node scripts/to-webp.mjs && node scripts/gen-srcset.mjs`.
 - Below-fold images: `loading="lazy"` `decoding="async"`. Page heroes: `fetchPriority="high"`.
 - YouTube: click-to-play via `YoutubePlayer` (`youtube-nocookie`).
 - Telegram WebApp script loads only if the UA contains `Telegram`.

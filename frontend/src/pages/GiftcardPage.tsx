@@ -4,6 +4,7 @@ import { useGiftcard } from "../content/useCopy";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { scrollToId } from "../hooks/useLenis";
 import { Reveal } from "../components/Reveal";
+import { Photo } from "../components/media/Photo";
 import { Button } from "../components/ui/Button";
 import { GiftcardForm } from "../sections/giftcard/GiftcardForm";
 import { cn } from "../lib/cn";
@@ -27,13 +28,11 @@ export function GiftcardPage() {
     <>
       <section className="relative isolate min-h-[88svh]" aria-labelledby="giftcard-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img
+          <Photo
             src="/assets/img/giftcard/hero-drummer.webp"
             alt=""
-            width={1600}
-            height={900}
+            sizes="100vw"
             fetchPriority="high"
-            decoding="async"
             className="h-full w-full object-cover object-[center_20%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.42)_0%,rgba(7,10,8,0.2)_40%,rgba(7,10,8,0.92)_100%)]" />
@@ -59,9 +58,10 @@ export function GiftcardPage() {
           </div>
 
           <Reveal delay={80}>
-            <img
+            <Photo
               src="/assets/img/giftcard/real-cert.webp"
               alt={copy.certAlt}
+              sizes="(min-width: 1280px) 22rem, (min-width: 768px) 40vw, 100vw"
               className="w-full max-w-sm rounded-[1.4rem] object-cover shadow-[0_24px_60px_-20px_rgba(0,0,0,0.65)] xl:max-w-none"
             />
           </Reveal>
@@ -82,9 +82,11 @@ export function GiftcardPage() {
             <p className="mt-8 font-display text-2xl font-semibold leading-snug sm:text-3xl">{copy.emotionPunch}</p>
           </Reveal>
           <Reveal delay={80} className="relative">
-            <img
+            <Photo
               src="/assets/img/giftcard/emotion-studio.webp"
               alt={copy.emotionAlt}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              loading="lazy"
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
             <p className="absolute bottom-5 left-5 rounded-full bg-void/80 px-4 py-2 text-sm text-cream backdrop-blur-sm">
@@ -140,7 +142,7 @@ export function GiftcardPage() {
                       </p>
                     </div>
                   </div>
-                  <img src={item.photo} alt="" className="h-44 w-full rounded-[1.2rem] object-cover md:h-52" />
+                  <Photo src={item.photo} alt="" sizes="(min-width: 768px) 16rem, 100vw" loading="lazy" className="h-44 w-full rounded-[1.2rem] object-cover md:h-52" />
                 </button>
               </Reveal>
             ))}
@@ -177,9 +179,11 @@ export function GiftcardPage() {
             <p className="mt-8 font-display text-2xl font-semibold leading-snug">{copy.expPunch}</p>
           </Reveal>
           <Reveal delay={80}>
-            <img
+            <Photo
               src="/assets/img/giftcard/experience-main.webp"
               alt={copy.expAlt}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              loading="lazy"
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
           </Reveal>

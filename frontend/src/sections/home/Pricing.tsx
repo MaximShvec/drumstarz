@@ -1,6 +1,7 @@
 import { PRICING } from "../../data/home";
 import { useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
+import { Photo } from "../../components/media/Photo";
 import { Button } from "../../components/ui/Button";
 import { useBooking } from "../../context/BookingContext";
 import { useLocale } from "../../i18n/LocaleContext";
@@ -28,13 +29,11 @@ export function Pricing() {
 
         <Reveal className="mt-10">
           <div className="relative overflow-hidden rounded-[1.8rem] border border-mint/25 bg-panel">
-            <img
+            <Photo
               src="/assets/img/events/why-bg.webp"
               alt=""
-              width={1600}
-              height={900}
+              sizes="100vw"
               loading="lazy"
-              decoding="async"
               className="absolute inset-0 h-full w-full object-cover opacity-35"
             />
             <div className="relative flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
@@ -74,7 +73,7 @@ export function Pricing() {
                 )}
               >
                 <div className="relative h-52">
-                  <img src={card.photo} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                  <Photo src={card.photo} alt="" sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw" loading="lazy" className="h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-panel to-transparent" />
                   {text.ribbon ? (
                     <span

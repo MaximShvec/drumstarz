@@ -1,7 +1,6 @@
 import { YoutubePlayer } from "../../components/media/YoutubePlayer";
 import { useTrainersCopy } from "../../content/useCopy";
 import { useLocale } from "../../i18n/LocaleContext";
-import { youtubePoster } from "../../lib/youtube";
 import { cn } from "../../lib/cn";
 import type { TRAINERS } from "../../data/trainers";
 
@@ -55,7 +54,7 @@ export function TrainerCard({ trainer, index }: { trainer: Trainer; index: numbe
               <YoutubePlayer
                 id={trainer.youtubeId}
                 title={`${t.common.watchTrainer} ${trainer.name}`}
-                poster={youtubePoster(trainer.youtubeId, "maxres")}
+                sizes="(min-width: 1024px) 22rem, calc(100vw - 2rem)"
                 className="aspect-video w-full"
               />
             </div>

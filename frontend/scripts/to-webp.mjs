@@ -1,4 +1,5 @@
 // Convert JPEG/PNG in public/ to WebP. Skips og.jpg and the WhatsApp icon.
+// Then run: node scripts/gen-srcset.mjs
 // Usage from frontend/: npm install --no-save sharp && node scripts/to-webp.mjs
 import { readdir, unlink, stat } from "node:fs/promises";
 import { join } from "node:path";

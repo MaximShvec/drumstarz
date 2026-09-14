@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useBooking } from "../../context/BookingContext";
 import { useHome } from "../../content/useCopy";
+import { Photo } from "../../components/media/Photo";
 import { Button } from "../../components/ui/Button";
 
 const HERO_VIDEO = "/assets/video/hero-drums-bw.mp4";
@@ -30,13 +31,11 @@ export function Hero() {
   return (
     <section id="top" className="relative isolate min-h-svh overflow-hidden">
       <div className="absolute inset-0" aria-hidden="true">
-        <img
+        <Photo
           src={HERO_POSTER}
           alt=""
-          width={1920}
-          height={1080}
+          sizes="100vw"
           fetchPriority="high"
-          decoding="async"
           className="h-full w-full object-cover"
         />
         {videoSrc ? (

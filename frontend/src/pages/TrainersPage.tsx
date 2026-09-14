@@ -3,6 +3,7 @@ import { useTrainersCopy } from "../content/useCopy";
 import { useBooking } from "../context/BookingContext";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { Reveal } from "../components/Reveal";
+import { Photo } from "../components/media/Photo";
 import { Button } from "../components/ui/Button";
 import { TrainerCard } from "../sections/trainers/TrainerCard";
 
@@ -16,13 +17,11 @@ export function TrainersPage() {
     <>
       <section className="relative isolate min-h-[78svh] overflow-hidden" aria-labelledby="trainers-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img
+          <Photo
             src="/assets/images/contacts-hero-drums-backdrop.webp"
             alt=""
-            width={1920}
-            height={1080}
+            sizes="100vw"
             fetchPriority="high"
-            decoding="async"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.4)_0%,rgba(7,10,8,0.25)_40%,rgba(7,10,8,0.92)_100%)]" />
@@ -57,9 +56,11 @@ export function TrainersPage() {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">{copy.introBody}</p>
           </Reveal>
           <Reveal delay={80}>
-            <img
+            <Photo
               src="/assets/img/section3/why-drumstarz-bg.webp"
               alt={copy.introAlt}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              loading="lazy"
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
           </Reveal>

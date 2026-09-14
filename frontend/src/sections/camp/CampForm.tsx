@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Reveal } from "../../components/Reveal";
+import { Photo } from "../../components/media/Photo";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
 import { useCamp } from "../../content/useCopy";
@@ -68,7 +69,7 @@ export function CampForm() {
       aria-labelledby="camp-form-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        <img src="/assets/img/camp/gallery-lake-pier.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+        <Photo src="/assets/img/camp/gallery-lake-pier.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-void/80" />
       </div>
 

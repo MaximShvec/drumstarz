@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { youtubeEmbed, youtubePoster } from "../../lib/youtube";
+import { youtubeEmbed, youtubePoster, youtubePosterSrcSet } from "../../lib/youtube";
 import { cn } from "../../lib/cn";
+import { imageSrcSet } from "./Photo";
 
 export function YoutubePlayer({
   id,
@@ -8,15 +9,18 @@ export function YoutubePlayer({
   className,
   poster,
   autoPlay = false,
+  sizes = "(min-width: 1024px) 40rem, 92vw",
 }: {
   id: string;
   title: string;
   className?: string;
   poster?: string;
   autoPlay?: boolean;
+  sizes?: string;
 }) {
   const [playing, setPlaying] = useState(autoPlay);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const localSrcSet = poster?.startsWith("/") ? imageSrcSet(poster) : undefined;
 
   useEffect(() => {
     if (!playing) return;
@@ -48,6 +52,8 @@ export function YoutubePlayer({
         <>
           <img
             src={poster ?? youtubePoster(id)}
+            srcSet={localSrcSet ?? (poster ? undefined : youtubePosterSrcSet(id))}
+            sizes={sizes}
             alt=""
             width={1280}
             height={720}

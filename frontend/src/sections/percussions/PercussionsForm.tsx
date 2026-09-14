@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Reveal } from "../../components/Reveal";
+import { Photo } from "../../components/media/Photo";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineSelect, LineTextarea } from "../../components/ui/Field";
 import { usePercussions } from "../../content/useCopy";
@@ -68,9 +69,11 @@ export function PercussionsForm() {
       aria-labelledby="percussions-form-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        <img
+        <Photo
           src="/assets/img/percussions/forest-form-bg.webp"
           alt=""
+          sizes="100vw"
+          loading="lazy"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-void/78" />

@@ -1,6 +1,10 @@
-export function youtubePoster(id: string, quality: "hq" | "maxres" = "hq") {
-  const file = quality === "maxres" ? "maxresdefault.jpg" : "hqdefault.jpg";
+export function youtubePoster(id: string, quality: "hq" | "sd" | "maxres" = "hq") {
+  const file = quality === "maxres" ? "maxresdefault.jpg" : quality === "sd" ? "sddefault.jpg" : "hqdefault.jpg";
   return `https://i.ytimg.com/vi/${encodeURIComponent(id)}/${file}`;
+}
+
+export function youtubePosterSrcSet(id: string) {
+  return `${youtubePoster(id, "hq")} 480w, ${youtubePoster(id, "sd")} 640w, ${youtubePoster(id, "maxres")} 1280w`;
 }
 
 export function youtubeEmbed(id: string) {

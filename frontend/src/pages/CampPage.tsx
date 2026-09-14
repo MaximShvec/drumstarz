@@ -5,6 +5,7 @@ import { useLocale } from "../i18n/LocaleContext";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { scrollToId } from "../hooks/useLenis";
 import { Reveal } from "../components/Reveal";
+import { Photo } from "../components/media/Photo";
 import { YoutubePlayer } from "../components/media/YoutubePlayer";
 import { Button, ButtonAnchor } from "../components/ui/Button";
 import { Lightbox } from "../components/ui/Lightbox";
@@ -29,13 +30,11 @@ export function CampPage() {
     <>
       <section className="relative isolate min-h-[92svh]" aria-labelledby="camp-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img
+          <Photo
             src="/assets/img/camp/hero-outdoor-stage.webp"
             alt=""
-            width={1600}
-            height={900}
+            sizes="100vw"
             fetchPriority="high"
-            decoding="async"
             className="h-full w-full object-cover object-[center_30%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.45)_0%,rgba(7,10,8,0.18)_40%,rgba(7,10,8,0.92)_100%)]" />
@@ -106,9 +105,11 @@ export function CampPage() {
               <p className="mt-4 max-w-xl text-ink-soft">{copy.introP2}</p>
             </Reveal>
             <Reveal delay={80}>
-              <img
+              <Photo
                 src="/assets/img/camp/concept-girl-drummer.webp"
                 alt={copy.introAlt}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                loading="lazy"
                 className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
               />
             </Reveal>
@@ -239,11 +240,11 @@ export function CampPage() {
                   onClick={() => setGalleryIndex(i)}
                   aria-label={`${t.common.openPhoto}: ${item.alt}`}
                 >
-                  <img
+                  <Photo
                     src={item.src}
                     alt=""
+                    sizes="(min-width: 768px) 50vw, 100vw"
                     loading="lazy"
-                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </button>

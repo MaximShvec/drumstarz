@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { STUDENT_PHOTOS } from "../../data/home";
 import { useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
+import { Photo } from "../../components/media/Photo";
 
 export function Students() {
   const copy = useHome();
@@ -44,13 +45,12 @@ export function Students() {
           className="no-scrollbar mt-10 flex snap-x gap-3 overflow-x-auto md:hidden"
         >
           {STUDENT_PHOTOS.map((src) => (
-            <img
+            <Photo
               key={src}
               data-student-tile
               src={src}
               alt=""
-              width={1600}
-              height={1068}
+              sizes="78vw"
               loading="lazy"
               className="h-72 w-[78%] shrink-0 snap-center rounded-[1.2rem] object-cover"
             />
@@ -62,12 +62,11 @@ export function Students() {
 
         <div className="mt-12 hidden grid-cols-4 gap-3 md:grid">
           {STUDENT_PHOTOS.map((src, i) => (
-            <img
+            <Photo
               key={src}
               src={src}
               alt=""
-              width={1600}
-              height={1068}
+              sizes="(min-width: 768px) 25vw, 100vw"
               loading="lazy"
               className={`h-full min-h-44 w-full rounded-[1.1rem] object-cover ${i === 0 ? "col-span-2 row-span-2 min-h-[22rem]" : ""}`}
             />

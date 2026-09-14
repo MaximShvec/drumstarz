@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { GIFTCARD_PLANS, type GiftcardPlanId } from "../../data/giftcard";
 import { useGiftcard } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
+import { Photo } from "../../components/media/Photo";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
 import { useLocale } from "../../i18n/LocaleContext";
@@ -75,7 +76,7 @@ export function GiftcardForm({
       aria-labelledby="giftcard-form-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        <img src="/assets/img/giftcard/purchase-bg.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+        <Photo src="/assets/img/giftcard/purchase-bg.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-void/80" />
       </div>
 

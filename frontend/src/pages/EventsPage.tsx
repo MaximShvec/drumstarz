@@ -5,6 +5,7 @@ import { useLocale } from "../i18n/LocaleContext";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { scrollToId } from "../hooks/useLenis";
 import { Reveal } from "../components/Reveal";
+import { Photo } from "../components/media/Photo";
 import { YoutubePlayer } from "../components/media/YoutubePlayer";
 import { Button } from "../components/ui/Button";
 import { Lightbox } from "../components/ui/Lightbox";
@@ -30,13 +31,11 @@ export function EventsPage() {
     <>
       <section className="relative isolate min-h-[88svh] overflow-hidden" aria-labelledby="events-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img
+          <Photo
             src="/assets/img/events/hero-drummer.webp"
             alt=""
-            width={1600}
-            height={900}
+            sizes="100vw"
             fetchPriority="high"
-            decoding="async"
             className="h-full w-full object-cover object-[center_20%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.4)_0%,rgba(7,10,8,0.18)_35%,rgba(7,10,8,0.92)_100%)]" />
@@ -99,7 +98,7 @@ export function EventsPage() {
 
       <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="timeline-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img src="/assets/img/events/why-bg.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+          <Photo src="/assets/img/events/why-bg.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-void/82" />
         </div>
         <div className="container-site relative z-10">
@@ -182,7 +181,7 @@ export function EventsPage() {
 
       <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="why-drums-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <img src="/assets/img/events/why-bg.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+          <Photo src="/assets/img/events/why-bg.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-void/84" />
         </div>
         <div className="container-site relative z-10">
@@ -242,11 +241,11 @@ export function EventsPage() {
                   onClick={() => setGalleryIndex(i)}
                   aria-label={`${t.common.openPhoto}: ${item.alt}`}
                 >
-                  <img
+                  <Photo
                     src={item.src}
                     alt=""
+                    sizes="(min-width: 768px) 50vw, 100vw"
                     loading="lazy"
-                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </button>
