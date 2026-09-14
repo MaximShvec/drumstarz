@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "../../components/Reveal";
+import { useContactsCopy } from "../../content/useCopy";
 import { BRANCH_LIST, type BranchSlug } from "../../data/branches";
+import { useLocale } from "../../i18n/LocaleContext";
 import { mapsEmbed } from "../../lib/youtube";
 import { cn } from "../../lib/cn";
 
@@ -14,6 +16,8 @@ export function ContactsMap({
   const [mapReady, setMapReady] = useState(false);
   const mapGen = useRef(0);
   const onMapLoad = useRef<() => void>(() => undefined);
+  const copy = useContactsCopy();
+  const { t } = useLocale();
   const branch = BRANCH_LIST.find((item) => item.slug === slug) ?? BRANCH_LIST[0];
 
   useEffect(() => {
@@ -49,9 +53,9 @@ export function ContactsMap({
     <section id="map" className="scroll-mt-28 bg-void pb-24 lg:pb-32" aria-labelledby="contacts-map-title">
       <div className="container-site">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Как добраться</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.mapKicker}</p>
           <h2 id="contacts-map-title" className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-            Филиалы на карте
+            {copy.mapTitle}
           </h2>
         </Reveal>
 
@@ -79,7 +83,7 @@ export function ContactsMap({
                   <span className="block font-display text-2xl font-semibold">{item.title}</span>
                   <span className="mt-1 block text-sm text-cream/55">{item.mapAddress}</span>
                   <span className={cn("mt-3 block text-xs uppercase tracking-[0.16em]", active ? "text-mint" : "text-cream/35")}>
-                    Показать на карте
+                    {copy.showOnMap}
                   </span>
                 </span>
                 <span
@@ -106,7 +110,7 @@ export function ContactsMap({
           >
             <div className="flex flex-col items-center gap-3">
               <span className="map-loader size-12 rounded-full border-[3px] border-mint/20 border-t-mint" />
-              <span className="text-xs uppercase tracking-[0.2em] text-cream/40">Загружаем карту</span>
+              <span className="text-xs uppercase tracking-[0.2em] text-cream/40">{t.common.mapLoading}</span>
             </div>
           </div>
           <iframe
@@ -116,7 +120,7 @@ export function ContactsMap({
               mapReady ? "opacity-100" : "opacity-0",
             )}
             src={mapsEmbed(branch.mapAddress)}
-            title={`Карта: филиал DRUMSTARZ на ${branch.mapAddress}`}
+            title={`${t.common.mapBranch} ${branch.mapAddress}`}
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"

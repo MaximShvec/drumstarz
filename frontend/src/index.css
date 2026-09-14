@@ -301,6 +301,11 @@ textarea:focus-visible {
   }
 }
 
+.bg-paper :where([data-variant="outline"], [data-variant="ghost"]),
+.bg-mist :where([data-variant="outline"], [data-variant="ghost"]) {
+  color: var(--color-ink);
+}
+
 .drum-lightbox {
   --yarl__color_backdrop: rgba(7, 10, 8, 0.92);
   --yarl__color_button: rgba(243, 241, 234, 0.82);

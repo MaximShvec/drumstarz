@@ -1,11 +1,15 @@
 import { useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { TRAINERS } from "../../data/trainers";
+import { useHome } from "../../content/useCopy";
+import { useLocale } from "../../i18n/LocaleContext";
 import { Reveal } from "../../components/Reveal";
 import { YoutubePlayer } from "../../components/media/YoutubePlayer";
 import { ButtonLink } from "../../components/ui/Button";
 
 export function Teachers() {
+  const copy = useHome();
+  const { t: ui, href } = useLocale();
   const scroller = useRef<HTMLUListElement>(null);
   const [active, setActive] = useState<string | null>(null);
 
@@ -21,16 +25,14 @@ export function Teachers() {
         <Reveal>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Наши преподаватели</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.teachers.kicker}</p>
               <h2 id="teachers-title" className="mt-3 font-display text-4xl font-extrabold leading-[0.95] sm:text-5xl">
-                Лучшие
+                {copy.teachers.title}
                 <br />
-                барабанщики Латвии
+                {copy.teachers.titleLine2}
               </h2>
             </div>
-            <p className="max-w-sm text-cream/60">
-              Не просто преподаватели — действующие музыканты, которые каждый день выходят на сцену.
-            </p>
+            <p className="max-w-sm text-cream/60">{copy.teachers.lead}</p>
           </div>
         </Reveal>
       </div>
@@ -47,7 +49,7 @@ export function Teachers() {
                 {active === t.id ? (
                   <YoutubePlayer
                     id={t.youtubeId}
-                    title={`Видео преподавателя ${t.name}`}
+                    title={`${ui.common.trainerVideo} ${t.name}`}
                     poster={t.photo}
                     autoPlay
                     className="absolute inset-0 h-full w-full"
@@ -56,14 +58,14 @@ export function Teachers() {
                   <>
                     <img
                       src={t.photo}
-                      alt={`${t.name} — преподаватель DRUMSTARZ`}
+                      alt={`${t.name} — ${ui.common.trainerPhoto}`}
                       className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />
                     <button
                       type="button"
                       className="absolute inset-0 cursor-pointer"
-                      aria-label={`Смотреть видео с ${t.name}`}
+                      aria-label={`${ui.common.watchTrainer} ${t.name}`}
                       onClick={(e) => {
                         e.stopPropagation();
                         setActive(t.id);
@@ -83,10 +85,10 @@ export function Teachers() {
               </div>
               <div className="flex justify-end p-4">
                 <Link
-                  to={`/trainers#trainer-${t.id}`}
+                  to={href(`/trainers#trainer-${t.id}`)}
                   className="group/more inline-flex items-center gap-1 text-sm text-mint"
                 >
-                  Подробнее
+                  {ui.common.more}
                   <svg
                     viewBox="0 0 24 24"
                     className="h-4 w-4 transition-transform duration-300 group-hover/more:translate-x-0.5"
@@ -104,15 +106,15 @@ export function Teachers() {
       </ul>
 
       <div className="container-site mt-8 flex flex-wrap items-center justify-between gap-4">
-        <div className="flex gap-2" role="group" aria-label="Пролистать преподавателей">
-          <Arrow label="Предыдущие преподаватели" onClick={() => scrollByDir(-1)}>
+        <div className="flex gap-2" role="group" aria-label={ui.common.trainersScroll}>
+          <Arrow label={ui.common.trainersPrev} onClick={() => scrollByDir(-1)}>
             <path d="M15 6l-6 6 6 6" />
           </Arrow>
-          <Arrow label="Следующие преподаватели" onClick={() => scrollByDir(1)}>
+          <Arrow label={ui.common.trainersNext} onClick={() => scrollByDir(1)}>
             <path d="M9 6l6 6-6 6" />
           </Arrow>
         </div>
-        <ButtonLink to="/trainers">Все преподаватели</ButtonLink>
+        <ButtonLink to="/trainers">{ui.common.allTrainers}</ButtonLink>
       </div>
     </section>
   );

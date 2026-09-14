@@ -1,11 +1,6 @@
 import { useState } from "react";
-import {
-  GIFTCARD_EXPERIENCE,
-  GIFTCARD_FAQ,
-  GIFTCARD_PLANS,
-  GIFTCARD_STEPS,
-  type GiftcardPlanId,
-} from "../data/giftcard";
+import { GIFTCARD_EXPERIENCE, GIFTCARD_PLANS, GIFTCARD_STEPS, type GiftcardPlanId } from "../data/giftcard";
+import { useGiftcard } from "../content/useCopy";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { scrollToId } from "../hooks/useLenis";
 import { Reveal } from "../components/Reveal";
@@ -18,13 +13,15 @@ function scrollToForm() {
 }
 
 export function GiftcardPage() {
+  const copy = useGiftcard();
   const [openFaq, setOpenFaq] = useState(0);
   const [plan, setPlan] = useState<GiftcardPlanId>("4-lessons");
 
-  useDocumentMeta(
-    "Подарочная карта DRUMSTARZ — уроки игры на барабанах в подарок",
-    "Подарочная карта DRUMSTARZ: индивидуальные уроки игры на барабанах в подарок. 1 урок — 35 €, 4 урока — 115 €. Опыт и своя установка не нужны.",
-  );
+  useDocumentMeta(copy.metaTitle, copy.metaDescription);
+
+  const plans = GIFTCARD_PLANS.map((item) => ({ ...item, ...copy.plans[item.id] }));
+  const experience = GIFTCARD_EXPERIENCE.map((step, i) => ({ num: step.num, ...copy.experience[i] }));
+  const steps = GIFTCARD_STEPS.map((step, i) => ({ num: step.num, ...copy.steps[i] }));
 
   return (
     <>
@@ -41,30 +38,26 @@ export function GiftcardPage() {
         <div className="container-site relative z-10 grid min-h-[88svh] items-end gap-10 pb-16 pt-32 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,22rem)] xl:pb-20">
           <div className="min-w-0">
             <p className="inline-flex rounded-full border border-mint/45 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-mint">
-              Подарочная карта · Drumstarz
+              {copy.heroKicker}
             </p>
             <h1
               id="giftcard-hero-title"
               className="mt-5 max-w-[11ch] break-words font-display text-[2.65rem] font-extrabold leading-[0.92] tracking-[-0.03em] sm:text-7xl"
             >
-              Дари не вещь. Дари ритм.
+              {copy.heroTitle}
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-cream/70">
-              Необычный подарок для друга, родственника или коллеги — индивидуальные уроки игры на барабанах.
-            </p>
+            <p className="mt-6 max-w-xl text-lg text-cream/70">{copy.heroLead}</p>
             <Button className="mt-8 px-8 py-4" onClick={scrollToForm}>
-              Выбрать карту
+              {copy.choose}
             </Button>
-            <p className="mt-6 text-sm uppercase tracking-[0.16em] text-cream/40">
-              1 урок · 35 € / 4 урока · 115 €
-            </p>
-            <p className="mt-2 text-sm text-cream/50">Опыт и своя установка не нужны</p>
+            <p className="mt-6 text-sm uppercase tracking-[0.16em] text-cream/40">{copy.pricesLine}</p>
+            <p className="mt-2 text-sm text-cream/50">{copy.noExperience}</p>
           </div>
 
           <Reveal delay={80}>
             <img
               src="/assets/img/giftcard/real-cert.jpg"
-              alt="Настоящая подарочная карта DRUMSTARZ на одно занятие"
+              alt={copy.certAlt}
               className="w-full max-w-sm rounded-[1.4rem] object-cover shadow-[0_24px_60px_-20px_rgba(0,0,0,0.65)] xl:max-w-none"
             />
           </Reveal>
@@ -74,30 +67,25 @@ export function GiftcardPage() {
       <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="giftcard-emotion-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">Не просто сертификат</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.emotionKicker}</p>
             <h2
               id="giftcard-emotion-title"
               className="mt-4 max-w-[12ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
             >
-              Подарок, который звучит
+              {copy.emotionTitle}
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-              Получатель садится за настоящую барабанную установку, знакомится с основами и уже на первом занятии
-              собирает свой первый ритм.
-            </p>
-            <p className="mt-8 font-display text-2xl font-semibold leading-snug sm:text-3xl">
-              Эмоции + новый навык вместо ещё одной вещи
-            </p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">{copy.emotionLead}</p>
+            <p className="mt-8 font-display text-2xl font-semibold leading-snug sm:text-3xl">{copy.emotionPunch}</p>
           </Reveal>
           <Reveal delay={80} className="relative">
             <img
               src="/assets/img/giftcard/emotion-studio.jpg"
-              alt="Барабанщик DRUMSTARZ во время живого выступления"
+              alt={copy.emotionAlt}
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
             <p className="absolute bottom-5 left-5 rounded-full bg-void/80 px-4 py-2 text-sm text-cream backdrop-blur-sm">
-              <span className="font-display font-semibold">50 мин</span>
-              <span className="ml-2 text-cream/55">Индивидуальный урок</span>
+              <span className="font-display font-semibold">{copy.lessonBadge}</span>
+              <span className="ml-2 text-cream/55">{copy.lessonNote}</span>
             </p>
           </Reveal>
         </div>
@@ -106,20 +94,18 @@ export function GiftcardPage() {
       <section className="bg-void py-24 lg:py-32" aria-labelledby="giftcard-pricing-title">
         <div className="container-site">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Цены на подарочную карту</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.pricingKicker}</p>
             <h2
               id="giftcard-pricing-title"
               className="mt-4 max-w-[14ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
             >
-              Выберите ритм подарка
+              {copy.pricingTitle}
             </h2>
-            <p className="mt-4 max-w-xl text-cream/60">
-              Один яркий опыт или четыре занятия, чтобы войти в ритм увереннее.
-            </p>
+            <p className="mt-4 max-w-xl text-cream/60">{copy.pricingLead}</p>
           </Reveal>
 
           <ul className="mt-14 divide-y divide-white/8 border-y border-white/8">
-            {GIFTCARD_PLANS.map((item, i) => (
+            {plans.map((item, i) => (
               <Reveal key={item.id} as="li" delay={i * 60}>
                 <button
                   type="button"
@@ -157,7 +143,7 @@ export function GiftcardPage() {
           </ul>
 
           <Button className="mt-10 px-8 py-4" onClick={scrollToForm}>
-            Заказать карту
+            {copy.order}
           </Button>
         </div>
       </section>
@@ -165,20 +151,16 @@ export function GiftcardPage() {
       <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="giftcard-experience-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">
-              Что получатель увидит и почувствует
-            </p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.expKicker}</p>
             <h2
               id="giftcard-experience-title"
               className="mt-4 max-w-[12ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
             >
-              Первый урок — уже музыка
+              {copy.expTitle}
             </h2>
-            <p className="mt-4 max-w-xl text-ink-soft">
-              Профессиональный преподаватель помогает почувствовать ритм и уверенность с первого удара.
-            </p>
+            <p className="mt-4 max-w-xl text-ink-soft">{copy.expLead}</p>
             <ol className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
-              {GIFTCARD_EXPERIENCE.map((step) => (
+              {experience.map((step) => (
                 <li key={step.num} className="flex gap-5 py-5">
                   <span className="font-display text-sm tracking-[0.22em] text-mint-dim">{step.num}</span>
                   <div>
@@ -188,14 +170,12 @@ export function GiftcardPage() {
                 </li>
               ))}
             </ol>
-            <p className="mt-8 font-display text-2xl font-semibold leading-snug">
-              Уже на первом занятии — базовый ритм и живая эмоция
-            </p>
+            <p className="mt-8 font-display text-2xl font-semibold leading-snug">{copy.expPunch}</p>
           </Reveal>
           <Reveal delay={80}>
             <img
               src="/assets/img/giftcard/experience-main.jpg"
-              alt="Барабанщик DRUMSTARZ на настоящей сцене"
+              alt={copy.expAlt}
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
           </Reveal>
@@ -205,19 +185,17 @@ export function GiftcardPage() {
       <section className="bg-void py-24 lg:py-32" aria-labelledby="giftcard-steps-title">
         <div className="container-site">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Как купить подарочную карту</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.stepsKicker}</p>
             <h2
               id="giftcard-steps-title"
               className="mt-4 max-w-[14ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
             >
-              Три шага — и подарок готов
+              {copy.stepsTitle}
             </h2>
-            <p className="mt-4 max-w-xl text-cream/55">
-              Без сложного выбора: определитесь с количеством уроков, остальное уточним вместе.
-            </p>
+            <p className="mt-4 max-w-xl text-cream/55">{copy.stepsLead}</p>
           </Reveal>
           <ol className="mt-14 divide-y divide-white/8 border-y border-white/8">
-            {GIFTCARD_STEPS.map((step, i) => (
+            {steps.map((step, i) => (
               <Reveal key={step.num} as="li" delay={i * 50} className="grid gap-4 py-8 sm:grid-cols-[7rem_1fr]">
                 <span className="font-display text-sm tracking-[0.22em] text-mint">{step.num}</span>
                 <div>
@@ -227,28 +205,26 @@ export function GiftcardPage() {
               </Reveal>
             ))}
           </ol>
-          <p className="mt-10 text-sm uppercase tracking-[0.16em] text-cream/40">
-            Другу · Родственнику · Коллеге · Тому, у кого уже всё есть
-          </p>
+          <p className="mt-10 text-sm uppercase tracking-[0.16em] text-cream/40">{copy.stepsFor}</p>
         </div>
       </section>
 
       <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="giftcard-faq-title">
         <div className="container-site">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">Чаво</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.faqKicker}</p>
             <h2
               id="giftcard-faq-title"
               className="mt-4 max-w-[14ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-5xl"
             >
-              Перед тем, как подарить
+              {copy.faqTitle}
             </h2>
-            <p className="mt-4 max-w-xl text-ink-soft">Коротко отвечаем на то, что обычно важно перед покупкой.</p>
+            <p className="mt-4 max-w-xl text-ink-soft">{copy.faqLead}</p>
           </Reveal>
 
           <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
             <ul className="divide-y divide-ink/10 border-y border-ink/10">
-              {GIFTCARD_FAQ.map((item, i) => {
+              {copy.faq.map((item, i) => {
                 const expanded = openFaq === i;
                 return (
                   <li key={item.q}>
@@ -280,24 +256,22 @@ export function GiftcardPage() {
 
             <Reveal>
               <div className="rounded-[1.6rem] bg-void p-8 text-cream lg:sticky lg:top-28">
-                <p className="text-xs uppercase tracking-[0.18em] text-mint">Подарочная карта</p>
-                <h3 className="mt-3 font-display text-2xl font-semibold leading-tight">Ритм, который остаётся</h3>
-                <p className="mt-3 text-sm text-cream/65">
-                  Индивидуальные занятия в DRUMSTARZ RIGA. Подходит новичкам — всё необходимое есть в студии.
-                </p>
+                <p className="text-xs uppercase tracking-[0.18em] text-mint">{copy.cardKicker}</p>
+                <h3 className="mt-3 font-display text-2xl font-semibold leading-tight">{copy.cardTitle}</h3>
+                <p className="mt-3 text-sm text-cream/65">{copy.cardLead}</p>
                 <dl className="mt-6 divide-y divide-white/8 border-y border-white/8">
                   <div className="flex items-baseline justify-between py-3">
-                    <dt className="text-sm text-cream/45">1 урок</dt>
+                    <dt className="text-sm text-cream/45">{copy.lesson1}</dt>
                     <dd className="font-display text-2xl font-semibold">35 €</dd>
                   </div>
                   <div className="flex items-baseline justify-between py-3">
-                    <dt className="text-sm text-cream/45">4 урока</dt>
+                    <dt className="text-sm text-cream/45">{copy.lesson4}</dt>
                     <dd className="font-display text-2xl font-semibold">115 €</dd>
                   </div>
                 </dl>
-                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-cream/40">Без опыта</p>
+                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-cream/40">{copy.noExpChip}</p>
                 <Button className="mt-8 w-full py-4" onClick={scrollToForm}>
-                  Заказать карту
+                  {copy.order}
                 </Button>
               </div>
             </Reveal>

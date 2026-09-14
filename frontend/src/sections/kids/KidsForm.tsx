@@ -2,7 +2,9 @@ import { useState, type FormEvent } from "react";
 import { Reveal } from "../../components/Reveal";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
+import { useKids } from "../../content/useCopy";
 import { KIDS_BOOKING_STEPS } from "../../data/kids";
+import { useLocale } from "../../i18n/LocaleContext";
 import { submitApplicationForm } from "../../lib/submit";
 
 function isEmail(value: string) {
@@ -10,6 +12,9 @@ function isEmail(value: string) {
 }
 
 export function KidsForm() {
+  const copy = useKids();
+  const { t } = useLocale();
+  const f = t.form;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -25,14 +30,16 @@ export function KidsForm() {
   const [status, setStatus] = useState("");
   const [pending, setPending] = useState(false);
 
+  const steps = KIDS_BOOKING_STEPS.map((step, i) => ({ num: step.num, ...copy.form.steps[i] }));
+
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const next: typeof errors = {};
-    if (!name.trim()) next.name = "Пожалуйста, укажите имя";
-    if (!phone.trim()) next.phone = "Пожалуйста, укажите номер телефона";
-    if (!email.trim()) next.email = "Пожалуйста, укажите электронную почту";
-    else if (!isEmail(email.trim())) next.email = "Проверьте адрес электронной почты";
-    if (!consent) next.consent = "Нужно подтвердить согласие";
+    if (!name.trim()) next.name = f.errName;
+    if (!phone.trim()) next.phone = f.errPhone;
+    if (!email.trim()) next.email = f.errEmail;
+    else if (!isEmail(email.trim())) next.email = f.errEmailInvalid;
+    if (!consent) next.consent = f.errConsent;
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -49,7 +56,7 @@ export function KidsForm() {
     });
     setPending(false);
     if (result.status === "not_configured") {
-      setStatus("Отправка заявок будет подключена на следующем этапе");
+      setStatus(f.notConfigured);
       return;
     }
     if (result.status === "error") {
@@ -70,19 +77,17 @@ export function KidsForm() {
 
       <div className="container-site relative z-10 grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Остался один шаг</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.form.kicker}</p>
           <h2
             id="kids-booking-title"
             className="mt-4 max-w-[14ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-5xl"
           >
-            Вы выбираете дату — мы собираем праздник
+            {copy.form.title}
           </h2>
-          <p className="mt-6 max-w-lg text-lg text-cream/65">
-            Оставьте контакты — мы проверим свободное время, уточним детали и поможем подготовиться без лишней суеты.
-          </p>
-          <p className="mt-3 text-sm text-cream/45">Обычно отвечаем и подтверждаем детали лично.</p>
+          <p className="mt-6 max-w-lg text-lg text-cream/65">{copy.form.lead}</p>
+          <p className="mt-3 text-sm text-cream/45">{copy.form.reply}</p>
           <ol className="mt-10 divide-y divide-white/8">
-            {KIDS_BOOKING_STEPS.map((step) => (
+            {steps.map((step) => (
               <li key={step.num} className="flex gap-5 py-4">
                 <span className="font-display text-sm tracking-[0.22em] text-mint">{step.num}</span>
                 <div>
@@ -92,9 +97,7 @@ export function KidsForm() {
               </li>
             ))}
           </ol>
-          <p className="mt-8 text-sm uppercase tracking-[0.16em] text-cream/40">
-            30 € / гость · До 20 гостей · 2,5 часа
-          </p>
+          <p className="mt-8 text-sm uppercase tracking-[0.16em] text-cream/40">{copy.form.meta}</p>
         </Reveal>
 
         <Reveal delay={80}>
@@ -103,12 +106,12 @@ export function KidsForm() {
             onSubmit={onSubmit}
             noValidate
           >
-            <h3 className="font-display text-2xl font-semibold">Заявка на праздник</h3>
-            <p className="mt-2 text-sm text-cream/55">Выберите дату — остальные детали мы уточним вместе.</p>
+            <h3 className="font-display text-2xl font-semibold">{copy.form.formTitle}</h3>
+            <p className="mt-2 text-sm text-cream/55">{copy.form.formLead}</p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               <LineField
                 id="kids-booking-name"
-                label="Ваше имя"
+                label={f.yourName}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 error={errors.name}
@@ -116,7 +119,7 @@ export function KidsForm() {
               />
               <LineField
                 id="kids-booking-phone"
-                label="Номер телефона"
+                label={f.phone}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 error={errors.phone}
@@ -125,7 +128,7 @@ export function KidsForm() {
               />
               <LineField
                 id="kids-booking-email"
-                label="Электронная почта"
+                label={f.email}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 error={errors.email}
@@ -134,7 +137,7 @@ export function KidsForm() {
               />
               <LineField
                 id="kids-booking-date"
-                label="Желаемая дата"
+                label={f.date}
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 type="date"
@@ -143,7 +146,7 @@ export function KidsForm() {
             <div className="mt-5">
               <LineTextarea
                 id="kids-booking-message"
-                label="Количество гостей и пожелания"
+                label={f.guests}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={4}
@@ -158,7 +161,7 @@ export function KidsForm() {
                 onChange={(e) => setConsent(e.target.checked)}
                 aria-invalid={errors.consent ? true : undefined}
               />
-              <span>Согласен на обработку данных и условия сервиса.</span>
+              <span>{f.consentTerms}</span>
             </label>
             {errors.consent ? (
               <p className="mt-1.5 text-sm text-red-400" role="alert">
@@ -166,16 +169,14 @@ export function KidsForm() {
               </p>
             ) : null}
             <Button type="submit" className="mt-8 w-full py-4" disabled={pending}>
-              {pending ? "Отправка…" : "Отправить заявку"}
+              {pending ? f.sending : f.submit}
             </Button>
             {status ? (
               <p className="mt-4 text-sm text-mint" role="status">
                 {status}
               </p>
             ) : (
-              <p className="mt-4 text-center text-xs uppercase tracking-[0.16em] text-cream/35">
-                Мы свяжемся, проверим дату и подтвердим бронирование.
-              </p>
+              <p className="mt-4 text-center text-xs uppercase tracking-[0.16em] text-cream/35">{copy.form.hint}</p>
             )}
           </form>
         </Reveal>

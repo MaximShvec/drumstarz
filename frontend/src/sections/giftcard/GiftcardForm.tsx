@@ -1,8 +1,10 @@
 import { useState, type FormEvent } from "react";
 import { GIFTCARD_PLANS, type GiftcardPlanId } from "../../data/giftcard";
+import { useGiftcard } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
+import { useLocale } from "../../i18n/LocaleContext";
 import { submitApplicationForm } from "../../lib/submit";
 import { cn } from "../../lib/cn";
 
@@ -17,6 +19,9 @@ export function GiftcardForm({
   plan: GiftcardPlanId;
   onPlan: (id: GiftcardPlanId) => void;
 }) {
+  const copy = useGiftcard();
+  const { t } = useLocale();
+  const f = t.form;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -34,11 +39,11 @@ export function GiftcardForm({
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const next: typeof errors = {};
-    if (!name.trim()) next.name = "Пожалуйста, укажите имя";
-    if (!phone.trim()) next.phone = "Пожалуйста, укажите номер телефона";
-    if (!email.trim()) next.email = "Пожалуйста, укажите электронную почту";
-    else if (!isEmail(email.trim())) next.email = "Проверьте адрес электронной почты";
-    if (!consent) next.consent = "Нужно подтвердить согласие";
+    if (!name.trim()) next.name = f.errName;
+    if (!phone.trim()) next.phone = f.errPhone;
+    if (!email.trim()) next.email = f.errEmail;
+    else if (!isEmail(email.trim())) next.email = f.errEmailInvalid;
+    if (!consent) next.consent = f.errConsent;
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -55,7 +60,7 @@ export function GiftcardForm({
     });
     setPending(false);
     if (result.status === "not_configured") {
-      setStatus("Отправка заявок будет подключена на следующем этапе");
+      setStatus(f.notConfigured);
       return;
     }
     if (result.status === "error") {
@@ -76,20 +81,20 @@ export function GiftcardForm({
 
       <div className="container-site relative z-10 grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Подарок уже почти готов</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.form.kicker}</p>
           <h2
             id="giftcard-form-title"
             className="mt-4 max-w-[14ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-5xl"
           >
-            Выберите карту — мы свяжемся
+            {copy.form.title}
           </h2>
-          <p className="mt-6 max-w-lg text-lg text-cream/65">
-            Оставьте контакты. Уточним детали и поможем оформить подарок без лишних шагов.
-          </p>
+          <p className="mt-6 max-w-lg text-lg text-cream/65">{copy.form.lead}</p>
           <ul className="mt-10 divide-y divide-white/8 border-y border-white/8 text-cream/70">
-            <li className="py-3">Индивидуальный формат</li>
-            <li className="py-3">50 минут каждый урок</li>
-            <li className="py-3">Можно без опыта</li>
+            {copy.form.bullets.map((line) => (
+              <li key={line} className="py-3">
+                {line}
+              </li>
+            ))}
           </ul>
         </Reveal>
 
@@ -100,13 +105,14 @@ export function GiftcardForm({
             onSubmit={onSubmit}
             noValidate
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-mint">Заявка на покупку</p>
-            <h3 className="mt-3 font-display text-2xl font-semibold">Какую карту дарим?</h3>
-            <p className="mt-2 text-sm text-cream/55">Выберите вариант и оставьте контакты.</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-mint">{copy.form.formKicker}</p>
+            <h3 className="mt-3 font-display text-2xl font-semibold">{copy.form.formTitle}</h3>
+            <p className="mt-2 text-sm text-cream/55">{copy.form.formLead}</p>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Вариант подарочной карты">
+            <div className="mt-6 grid gap-3 sm:grid-cols-2" role="radiogroup" aria-label={copy.form.planAria}>
               {GIFTCARD_PLANS.map((item) => {
                 const selected = plan === item.id;
+                const planCopy = copy.plans[item.id];
                 return (
                   <button
                     key={item.id}
@@ -120,8 +126,8 @@ export function GiftcardForm({
                     )}
                   >
                     <span>
-                      <span className="block text-xs uppercase tracking-[0.16em] text-cream/45">{item.meta}</span>
-                      <span className="mt-1 block font-display text-lg font-semibold">{item.title}</span>
+                      <span className="block text-xs uppercase tracking-[0.16em] text-cream/45">{planCopy.meta}</span>
+                      <span className="mt-1 block font-display text-lg font-semibold">{planCopy.title}</span>
                     </span>
                     <span className="font-display text-2xl font-semibold">{item.price} €</span>
                   </button>
@@ -132,7 +138,7 @@ export function GiftcardForm({
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               <LineField
                 id="gift-name"
-                label="Ваше имя"
+                label={f.yourName}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 error={errors.name}
@@ -140,7 +146,7 @@ export function GiftcardForm({
               />
               <LineField
                 id="gift-phone"
-                label="Номер телефона"
+                label={f.phone}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 error={errors.phone}
@@ -151,7 +157,7 @@ export function GiftcardForm({
             <div className="mt-5">
               <LineField
                 id="gift-email"
-                label="Электронная почта"
+                label={f.email}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 error={errors.email}
@@ -162,7 +168,7 @@ export function GiftcardForm({
             <div className="mt-5">
               <LineTextarea
                 id="gift-comment"
-                label="Комментарий"
+                label={f.comment}
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 rows={3}
@@ -177,7 +183,7 @@ export function GiftcardForm({
                 onChange={(e) => setConsent(e.target.checked)}
                 aria-invalid={errors.consent ? true : undefined}
               />
-              <span>Согласен на обработку персональных данных</span>
+              <span>{f.consentData}</span>
             </label>
             {errors.consent ? (
               <p className="mt-1.5 text-sm text-red-400" role="alert">
@@ -185,16 +191,14 @@ export function GiftcardForm({
               </p>
             ) : null}
             <Button type="submit" className="mt-8 w-full py-4" disabled={pending}>
-              {pending ? "Отправка…" : "Купить подарочную карту"}
+              {pending ? f.sending : copy.form.submit}
             </Button>
             {status ? (
               <p className="mt-4 text-sm text-mint" role="status">
                 {status}
               </p>
             ) : (
-              <p className="mt-4 text-center text-xs uppercase tracking-[0.16em] text-cream/35">
-                Мы свяжемся, чтобы подтвердить вариант и уточнить детали оформления.
-              </p>
+              <p className="mt-4 text-center text-xs uppercase tracking-[0.16em] text-cream/35">{copy.form.hint}</p>
             )}
           </form>
         </Reveal>

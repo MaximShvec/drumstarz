@@ -2,10 +2,15 @@ import { useState, type FormEvent, type ReactNode } from "react";
 import { Reveal } from "../../components/Reveal";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
+import { useContactsCopy } from "../../content/useCopy";
 import { SITE } from "../../data/site";
+import { useLocale } from "../../i18n/LocaleContext";
 import { submitApplicationForm } from "../../lib/submit";
 
 export function ContactsLead() {
+  const copy = useContactsCopy();
+  const { t } = useLocale();
+  const f = t.form;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -17,9 +22,9 @@ export function ContactsLead() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const next: typeof errors = {};
-    if (!name.trim()) next.name = "Укажите имя";
-    if (!phone.trim()) next.phone = "Укажите телефон";
-    if (!message.trim()) next.message = "Напишите сообщение";
+    if (!name.trim()) next.name = f.errName;
+    if (!phone.trim()) next.phone = f.errPhone;
+    if (!message.trim()) next.message = f.errMessage;
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -28,7 +33,7 @@ export function ContactsLead() {
     const result = await submitApplicationForm({ name, phone, email, message, source: "contacts-lead" });
     setPending(false);
     if (result.status === "not_configured") {
-      setStatus("Отправка заявок будет подключена на следующем этапе");
+      setStatus(f.notConfigured);
       return;
     }
     if (result.status === "error") {
@@ -46,15 +51,15 @@ export function ContactsLead() {
             noValidate
             aria-labelledby="contacts-lead-title"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Напишите нам</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.leadKicker}</p>
             <h2 id="contacts-lead-title" className="mt-3 font-display text-3xl font-semibold leading-tight sm:text-4xl">
-              Записаться, спросить или приобрести подарочную карту
+              {copy.leadTitle}
             </h2>
 
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               <LineField
                 id="contacts-lead-name"
-                label="Имя"
+                label={f.name}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 error={errors.name}
@@ -62,7 +67,7 @@ export function ContactsLead() {
               />
               <LineField
                 id="contacts-lead-phone"
-                label="Номер телефона"
+                label={f.phone}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 error={errors.phone}
@@ -73,7 +78,7 @@ export function ContactsLead() {
             <div className="mt-5">
               <LineField
                 id="contacts-lead-email"
-                label="Электронный адрес (необязательно)"
+                label={f.emailOptional}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
@@ -83,7 +88,7 @@ export function ContactsLead() {
             <div className="mt-5">
               <LineTextarea
                 id="contacts-lead-message"
-                label="Сообщение или комментарий"
+                label={f.message}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 error={errors.message}
@@ -92,7 +97,7 @@ export function ContactsLead() {
             </div>
 
             <Button type="submit" className="mt-8 w-full py-4 sm:w-auto sm:px-10" disabled={pending}>
-              {pending ? "Отправка…" : "Отправить"}
+              {pending ? f.sending : f.send}
             </Button>
             {status ? (
               <p className="mt-4 text-sm text-mint" role="status">
@@ -105,16 +110,16 @@ export function ContactsLead() {
         <Reveal delay={80}>
           <div className="flex h-full flex-col justify-between rounded-[1.8rem] border border-mint/25 bg-panel p-8 md:p-10">
             <div>
-              <h2 className="font-display text-3xl font-semibold">Контакты</h2>
+              <h2 className="font-display text-3xl font-semibold">{copy.sideTitle}</h2>
               <ul className="mt-8 space-y-6">
                 <li>
-                  <p className="text-xs uppercase tracking-[0.16em] text-cream/40">Позвоните нам</p>
+                  <p className="text-xs uppercase tracking-[0.16em] text-cream/40">{copy.callUs}</p>
                   <a href={SITE.phoneHref} className="link-draw mt-1 inline-block text-lg">
                     {SITE.phone}
                   </a>
                 </li>
                 <li>
-                  <p className="text-xs uppercase tracking-[0.16em] text-cream/40">Напишите в WhatsApp</p>
+                  <p className="text-xs uppercase tracking-[0.16em] text-cream/40">{copy.writeWa}</p>
                   <a
                     href={SITE.whatsapp}
                     target="_blank"
@@ -125,7 +130,7 @@ export function ContactsLead() {
                   </a>
                 </li>
                 <li>
-                  <p className="text-xs uppercase tracking-[0.16em] text-cream/40">Пишите письма</p>
+                  <p className="text-xs uppercase tracking-[0.16em] text-cream/40">{copy.writeMail}</p>
                   <a href={SITE.emailHref} className="link-draw mt-1 inline-block break-all text-lg">
                     {SITE.email}
                   </a>
@@ -134,7 +139,7 @@ export function ContactsLead() {
             </div>
 
             <div className="mt-10">
-              <p className="text-xs uppercase tracking-[0.16em] text-cream/40">Подписывайтесь на нас</p>
+              <p className="text-xs uppercase tracking-[0.16em] text-cream/40">{copy.follow}</p>
               <div className="mt-4 flex gap-3">
                 <Social href={SITE.instagram} label="Instagram DRUMSTARZ">
                   <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />

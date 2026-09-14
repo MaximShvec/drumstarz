@@ -4,6 +4,7 @@ import Counter from "yet-another-react-lightbox/plugins/counter";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/counter.css";
+import { useLocale } from "../../i18n/LocaleContext";
 import { lockBodyScroll } from "../../lib/scrollLock";
 
 export type LightboxItem = {
@@ -24,6 +25,7 @@ export function Lightbox({
   onClose: () => void;
   onIndex: (index: number) => void;
 }) {
+  const { t } = useLocale();
   const slides = useMemo(
     () => items.map((item) => ({ src: item.src, alt: item.alt })),
     [items],
@@ -59,11 +61,11 @@ export function Lightbox({
       counter={{ separator: " / " }}
       zoom={{ pinchZoomV4: true, scrollToZoom: true, maxZoomPixelRatio: 2.5 }}
       labels={{
-        Next: "Следующее фото",
-        Previous: "Предыдущее фото",
-        Close: "Закрыть",
-        "Zoom in": "Приблизить",
-        "Zoom out": "Отдалить",
+        Next: t.lightbox.next,
+        Previous: t.lightbox.previous,
+        Close: t.lightbox.close,
+        "Zoom in": t.lightbox.zoomIn,
+        "Zoom out": t.lightbox.zoomOut,
       }}
       on={{
         entering: () => {

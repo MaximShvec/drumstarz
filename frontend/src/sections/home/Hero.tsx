@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 import { useBooking } from "../../context/BookingContext";
+import { useHome } from "../../content/useCopy";
 import { Button } from "../../components/ui/Button";
 
 export function Hero() {
   const { openBooking } = useBooking();
+  const copy = useHome();
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -43,25 +45,23 @@ export function Hero() {
           DRUMSTARZ
           <span className="block text-mint">RIGA</span>
         </h1>
-        <p className="mt-4 font-display text-xl text-cream/80 sm:text-3xl">{/* keep original claim */}
-          Школа барабанов №1 в Риге!
-        </p>
+        <p className="mt-4 font-display text-xl text-cream/80 sm:text-3xl">{copy.tagline}</p>
 
         <div className="mt-10 grid max-w-3xl gap-6 text-sm text-cream/70 sm:grid-cols-2 sm:text-base">
           <p>
-            Научись играть любимый трек{" "}
-            <strong className="font-semibold text-cream">на барабанах с нуля за три месяца</strong>
+            {copy.hero.leadBefore}
+            <strong className="font-semibold text-cream">{copy.hero.leadStrong}</strong>
           </p>
-          <p>Есть желание — выступи на нашем концерте.</p>
+          <p>{copy.hero.concert}</p>
         </div>
 
-        <p className="mt-8 text-cream/55">Всегда хотел играть на барабанах? Начни сегодня</p>
+        <p className="mt-8 text-cream/55">{copy.hero.start}</p>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <Button variant="outline" className="px-8 py-4 text-base" onClick={openBooking}>
-            Записаться на <strong className="ml-1">бесплатный урок</strong>
+            {copy.hero.ctaBefore} <strong className="ml-1">{copy.hero.ctaStrong}</strong>
           </Button>
-          <span className="text-xs uppercase tracking-[0.2em] text-cream/35">Листай ↓</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-cream/35">{copy.hero.scroll}</span>
         </div>
       </div>
     </section>

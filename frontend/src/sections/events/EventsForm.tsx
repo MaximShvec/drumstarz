@@ -2,6 +2,8 @@ import { useState, type FormEvent } from "react";
 import { Reveal } from "../../components/Reveal";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
+import { useEvents } from "../../content/useCopy";
+import { useLocale } from "../../i18n/LocaleContext";
 import { submitApplicationForm } from "../../lib/submit";
 
 function isEmail(value: string) {
@@ -9,6 +11,9 @@ function isEmail(value: string) {
 }
 
 export function EventsForm() {
+  const copy = useEvents();
+  const { t } = useLocale();
+  const f = t.form;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -27,11 +32,11 @@ export function EventsForm() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const next: typeof errors = {};
-    if (!name.trim()) next.name = "Пожалуйста, укажите имя";
-    if (!phone.trim()) next.phone = "Пожалуйста, укажите номер телефона";
-    if (!email.trim()) next.email = "Пожалуйста, укажите электронную почту";
-    else if (!isEmail(email.trim())) next.email = "Проверьте адрес электронной почты";
-    if (!consent) next.consent = "Нужно подтвердить согласие";
+    if (!name.trim()) next.name = f.errName;
+    if (!phone.trim()) next.phone = f.errPhone;
+    if (!email.trim()) next.email = f.errEmail;
+    else if (!isEmail(email.trim())) next.email = f.errEmailInvalid;
+    if (!consent) next.consent = f.errConsent;
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -48,7 +53,7 @@ export function EventsForm() {
     });
     setPending(false);
     if (result.status === "not_configured") {
-      setStatus("Отправка заявок будет подключена на следующем этапе");
+      setStatus(f.notConfigured);
       return;
     }
     if (result.status === "error") {
@@ -71,13 +76,13 @@ export function EventsForm() {
               id="booking-events-title"
               className="font-display text-3xl font-extrabold leading-tight tracking-[-0.03em] sm:text-5xl"
             >
-              Забронировать дату
+              {copy.formTitle}
             </h2>
 
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               <LineField
                 id="events-name"
-                label="Ваше имя"
+                label={f.yourName}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 error={errors.name}
@@ -85,7 +90,7 @@ export function EventsForm() {
               />
               <LineField
                 id="events-phone"
-                label="Номер телефона"
+                label={f.phone}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 error={errors.phone}
@@ -94,7 +99,7 @@ export function EventsForm() {
               />
               <LineField
                 id="events-email"
-                label="Электронная почта"
+                label={f.email}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 error={errors.email}
@@ -103,7 +108,7 @@ export function EventsForm() {
               />
               <LineField
                 id="events-date"
-                label="Желаемая дата"
+                label={f.date}
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 type="date"
@@ -112,7 +117,7 @@ export function EventsForm() {
             <div className="mt-5">
               <LineTextarea
                 id="events-message"
-                label="Количество гостей и пожелания"
+                label={f.guests}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={4}
@@ -127,7 +132,7 @@ export function EventsForm() {
                 onChange={(e) => setConsent(e.target.checked)}
                 aria-invalid={errors.consent ? true : undefined}
               />
-              <span>Я ознакомился с пользовательским соглашением</span>
+              <span>{f.consent}</span>
             </label>
             {errors.consent ? (
               <p className="mt-1.5 text-sm text-red-400" role="alert">
@@ -135,7 +140,7 @@ export function EventsForm() {
               </p>
             ) : null}
             <Button type="submit" className="mt-8 w-full py-4 sm:w-auto sm:px-10" disabled={pending}>
-              {pending ? "Отправка…" : "Отправить заявку"}
+              {pending ? f.sending : f.submit}
             </Button>
             {status ? (
               <p className="mt-4 text-sm text-mint" role="status">

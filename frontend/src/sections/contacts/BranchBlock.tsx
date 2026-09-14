@@ -4,8 +4,10 @@ import { Reveal } from "../../components/Reveal";
 import { Button } from "../../components/ui/Button";
 import { Segmented } from "../../components/ui/Segmented";
 import { useBooking } from "../../context/BookingContext";
+import { useContactsCopy } from "../../content/useCopy";
 import { BRANCHES, type BranchSlug, type RouteKind } from "../../data/branches";
 import { SITE } from "../../data/site";
+import { useLocale } from "../../i18n/LocaleContext";
 import { cn } from "../../lib/cn";
 
 type Props = {
@@ -17,7 +19,11 @@ type Props = {
 
 export function BranchBlock({ slug, initialFloor, initialRoute, onShowMap }: Props) {
   const { openBooking } = useBooking();
+  const copy = useContactsCopy();
+  const { t } = useLocale();
   const branch = BRANCHES[slug];
+  const name = slug === "first" ? copy.firstName : copy.secondName;
+  const address = slug === "first" ? copy.firstAddress : copy.secondAddress;
   const flipped = slug === "second";
 
   const [floorKey, setFloorKey] = useState(() => {
@@ -31,12 +37,15 @@ export function BranchBlock({ slug, initialFloor, initialRoute, onShowMap }: Pro
       const floor = branch.floors.find((f) => f.key === floorKey) ?? branch.floors[0];
       return {
         id: floor.videos[route].id,
-        title: `${floor.videos[route].tab} — ${branch.title}, ${floor.label}`,
+        title: `${route === "walking" ? t.common.walking : t.common.driving} — ${branch.title}, ${floor.key === "4" ? copy.floor4 : copy.floor35}`,
       };
     }
     const item = branch.routes.find((r) => r.key === route) ?? branch.routes[0];
-    return { id: item.id, title: `${item.tab} — ${branch.title}` };
-  }, [branch, floorKey, route]);
+    return {
+      id: item.id,
+      title: `${item.key === "walking" ? copy.fromMatisa : copy.fromArtilerijas} — ${branch.title}`,
+    };
+  }, [branch, copy, floorKey, route, t.common.driving, t.common.walking]);
 
   return (
     <article id={`branch-${slug}`} className="relative scroll-mt-28 py-10 lg:py-16">
@@ -47,11 +56,11 @@ export function BranchBlock({ slug, initialFloor, initialRoute, onShowMap }: Pro
             flipped ? "lg:order-2 lg:pl-6" : "lg:order-1",
           )}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{branch.name}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{name}</p>
           <h3 className="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl lg:text-6xl">
             {branch.title}
           </h3>
-          <p className="mt-4 text-lg text-cream/70">{branch.displayAddress}</p>
+          <p className="mt-4 text-lg text-cream/70">{address}</p>
 
           <ul className="mt-6 space-y-2 text-cream/80">
             <li>
@@ -68,10 +77,10 @@ export function BranchBlock({ slug, initialFloor, initialRoute, onShowMap }: Pro
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button className="px-6 py-3" onClick={() => onShowMap(slug)}>
-              Проложить маршрут
+              {copy.route}
             </Button>
             <Button variant="outline" className="px-6 py-3" onClick={openBooking}>
-              Записаться на занятие
+              {copy.bookLesson}
             </Button>
           </div>
 
@@ -95,7 +104,7 @@ export function BranchBlock({ slug, initialFloor, initialRoute, onShowMap }: Pro
               <YoutubePlayer
                 key={activeVideo.id}
                 id={activeVideo.id}
-                title={`Смотреть маршрут: ${activeVideo.title}`}
+                title={`${copy.watchRoute}: ${activeVideo.title}`}
                 className="aspect-video w-full"
               />
             </div>
@@ -104,29 +113,35 @@ export function BranchBlock({ slug, initialFloor, initialRoute, onShowMap }: Pro
                 <>
                   <Segmented
                     tone="mint"
-                    aria-label={`Этаж филиала ${branch.title}`}
+                    aria-label={`${copy.floorAria} ${branch.title}`}
                     value={floorKey}
                     onChange={setFloorKey}
-                    options={branch.floors.map((floor) => ({ value: floor.key, label: floor.label }))}
+                    options={branch.floors.map((floor) => ({
+                      value: floor.key,
+                      label: floor.key === "4" ? copy.floor4 : copy.floor35,
+                    }))}
                   />
                   <Segmented
                     tone="mint"
-                    aria-label={`Маршрут до ${branch.title}`}
+                    aria-label={`${copy.routeAria} ${branch.title}`}
                     value={route}
                     onChange={setRoute}
                     options={[
-                      { value: "walking", label: "Пешком" },
-                      { value: "driving", label: "На машине" },
+                      { value: "walking", label: t.common.walking },
+                      { value: "driving", label: t.common.driving },
                     ]}
                   />
                 </>
               ) : (
                 <Segmented
                   tone="mint"
-                  aria-label={`Маршрут до ${branch.title}`}
+                  aria-label={`${copy.routeAria} ${branch.title}`}
                   value={route}
                   onChange={setRoute}
-                  options={branch.routes.map((item) => ({ value: item.key, label: item.tab }))}
+                  options={branch.routes.map((item) => ({
+                    value: item.key,
+                    label: item.key === "walking" ? copy.fromMatisa : copy.fromArtilerijas,
+                  }))}
                 />
               )}
             </div>

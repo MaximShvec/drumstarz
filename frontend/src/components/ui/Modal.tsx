@@ -1,4 +1,5 @@
 import { useEffect, useId, useState, type ReactNode } from "react";
+import { useLocale } from "../../i18n/LocaleContext";
 import { cn } from "../../lib/cn";
 import { lockBodyScroll } from "../../lib/scrollLock";
 
@@ -17,6 +18,7 @@ export function Modal({
   children: ReactNode;
   className?: string;
 }) {
+  const { t } = useLocale();
   const fallbackTitleId = useId();
   const [present, setPresent] = useState(open);
   const [entered, setEntered] = useState(false);
@@ -75,7 +77,7 @@ export function Modal({
           "absolute inset-0 cursor-pointer bg-void/75 backdrop-blur-sm transition-opacity duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
           entered ? "opacity-100" : "opacity-0",
         )}
-        aria-label="Закрыть"
+        aria-label={t.lightbox.close}
         onClick={onClose}
       />
       <div

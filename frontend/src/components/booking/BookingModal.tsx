@@ -1,5 +1,6 @@
 import { useId, useState, type FormEvent } from "react";
 import { useBooking } from "../../context/BookingContext";
+import { useLocale } from "../../i18n/LocaleContext";
 import { submitApplicationForm } from "../../lib/submit";
 import { Button } from "../ui/Button";
 import { LineField } from "../ui/Field";
@@ -7,6 +8,8 @@ import { Modal } from "../ui/Modal";
 
 export function BookingModal() {
   const { isOpen, closeBooking } = useBooking();
+  const { t } = useLocale();
+  const b = t.booking;
   const titleId = useId();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -18,9 +21,9 @@ export function BookingModal() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const next: typeof errors = {};
-    if (!name.trim()) next.name = "Укажите имя";
-    if (!phone.trim()) next.phone = "Укажите телефон";
-    if (!consent) next.consent = "Нужно согласие";
+    if (!name.trim()) next.name = b.errName;
+    if (!phone.trim()) next.phone = b.errPhone;
+    if (!consent) next.consent = b.errConsent;
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -29,7 +32,7 @@ export function BookingModal() {
     const result = await submitApplicationForm({ name, phone, consent });
     setPending(false);
     if (result.status === "not_configured") {
-      setStatus("Отправка заявок будет подключена на следующем этапе");
+      setStatus(b.notConfigured);
       return;
     }
     if (result.status === "error") {
@@ -43,23 +46,25 @@ export function BookingModal() {
         type="button"
         onClick={closeBooking}
         className="absolute right-5 top-5 cursor-pointer text-cream/60 hover:text-cream"
-        aria-label="Закрыть форму"
+        aria-label={b.close}
       >
         <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M6 6l12 12M18 6L6 18" />
         </svg>
       </button>
 
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-mint">Пробный урок</p>
+      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-mint">{b.kicker}</p>
       <h2 id={titleId} className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-cream sm:text-4xl">
-        Записаться на <span className="text-mint">бесплатный</span> урок
+        {b.titleBefore}
+        <span className="text-mint">{b.titleAccent}</span>
+        {b.titleAfter}
       </h2>
-      <p className="mt-3 text-cream/65">Оставьте заявку — и мы поможем вам сделать первый шаг в мир музыки!</p>
+      <p className="mt-3 text-cream/65">{b.lead}</p>
 
       <form className="mt-8 space-y-5" onSubmit={onSubmit} noValidate>
         <LineField
           id="booking-name"
-          label="Имя"
+          label={b.name}
           value={name}
           onChange={(e) => setName(e.target.value)}
           error={errors.name}
@@ -67,7 +72,7 @@ export function BookingModal() {
         />
         <LineField
           id="booking-phone"
-          label="Номер телефона"
+          label={b.phone}
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           error={errors.phone}
@@ -81,12 +86,12 @@ export function BookingModal() {
             checked={consent}
             onChange={(e) => setConsent(e.target.checked)}
           />
-          <span>Я ознакомился с пользовательским соглашением</span>
+          <span>{b.consent}</span>
         </label>
         {errors.consent ? <p className="text-sm text-red-400">{errors.consent}</p> : null}
 
         <Button type="submit" variant="primary" className="w-full py-4" disabled={pending}>
-          {pending ? "Отправка…" : "Отправить заявку"}
+          {pending ? b.sending : b.submit}
         </Button>
         {status ? (
           <p className="text-center text-sm text-mint" role="status">
@@ -94,9 +99,7 @@ export function BookingModal() {
           </p>
         ) : null}
       </form>
-      <p className="mt-5 text-center text-xs uppercase tracking-[0.18em] text-cream/40">
-        Ответим в течение часа
-      </p>
+      <p className="mt-5 text-center text-xs uppercase tracking-[0.18em] text-cream/40">{b.reply}</p>
     </Modal>
   );
 }

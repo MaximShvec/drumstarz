@@ -1,11 +1,7 @@
 import { useState } from "react";
-import {
-  EVENTS_GALLERY,
-  EVENTS_INCLUDED,
-  EVENTS_TIMELINE,
-  EVENTS_WHY,
-  EVENTS_YOUTUBE_ID,
-} from "../data/events";
+import { EVENTS_GALLERY, EVENTS_TIMELINE, EVENTS_WHY, EVENTS_YOUTUBE_ID } from "../data/events";
+import { useEvents } from "../content/useCopy";
+import { useLocale } from "../i18n/LocaleContext";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { scrollToId } from "../hooks/useLenis";
 import { Reveal } from "../components/Reveal";
@@ -20,12 +16,15 @@ function scrollToForm() {
 }
 
 export function EventsPage() {
+  const copy = useEvents();
+  const { t } = useLocale();
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
 
-  useDocumentMeta(
-    "Барабанные мероприятия — DRUMSTARZ школа барабанов в Риге",
-    "Тусовка или корпоратив за барабанной установкой в Риге — драйвовое событие с DRUMSTARZ. Гости играют на настоящих барабанах вместе с профессиональными музыкантами. Программа, стоимость и запись на дату.",
-  );
+  useDocumentMeta(copy.metaTitle, copy.metaDescription);
+
+  const timeline = EVENTS_TIMELINE.map((step, i) => ({ ...step, ...copy.timeline[i] }));
+  const why = EVENTS_WHY.map((item, i) => ({ num: item.num, ...copy.why[i] }));
+  const gallery = EVENTS_GALLERY.map((item, i) => ({ src: item.src, alt: copy.alts[i] ?? item.alt }));
 
   return (
     <>
@@ -42,20 +41,17 @@ export function EventsPage() {
         <div className="container-site relative z-10 flex min-h-[88svh] items-end pb-16 pt-32 lg:pb-20">
           <div className="max-w-3xl">
             <p className="inline-flex rounded-full border border-mint/45 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-mint">
-              Драйв · Стиль · Музыка
+              {copy.heroKicker}
             </p>
             <h1
               id="events-hero-title"
               className="mt-5 max-w-[14ch] break-words font-display text-[2.65rem] font-extrabold leading-[0.92] tracking-[-0.03em] sm:text-7xl"
             >
-              Тусовка или корпоратив за барабанной установкой
+              {copy.heroTitle}
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-cream/70">
-              Супердрайвовое событие нового формата в Риге! Станьте рок-звездами на один вечер. Гости лично садятся за
-              настоящие барабаны, играют мощные ритмы и выступают на сцене вместе с профессиональными музыкантами.
-            </p>
+            <p className="mt-6 max-w-xl text-lg text-cream/70">{copy.heroLead}</p>
             <Button className="mt-8 px-8 py-4" onClick={scrollToForm}>
-              Записаться на событие
+              {copy.cta}
             </Button>
           </div>
         </div>
@@ -68,19 +64,14 @@ export function EventsPage() {
               id="showcase-title"
               className="max-w-[11ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
             >
-              Каждый сыграет свой первый рок-хит
+              {copy.showcaseTitle}
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-              Забудьте про скучные застолья. Наша команда доставит и настроит профессиональные барабанные установки
-              прямо на площадке. Под руководством опытного драйв-барабанщика ваши гости и друзья освоят базовые ритмы с
-              нуля, почувствуют мощь и энергию и сыграют полноценный сет для зала. Уровень подготовки значения не имеет
-              — получается абсолютно у всех!
-            </p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">{copy.showcaseLead}</p>
           </Reveal>
           <Reveal delay={80}>
             <YoutubePlayer
               id={EVENTS_YOUTUBE_ID}
-              title="Смотреть видео барабанного мероприятия"
+              title={copy.videoTitle}
               className="aspect-video w-full rounded-[1.6rem]"
               poster="/assets/img/events/showcase-crowd.jpg"
             />
@@ -91,13 +82,11 @@ export function EventsPage() {
           <Reveal>
             <div className="flex flex-col gap-6 rounded-[1.8rem] bg-void p-8 text-cream md:flex-row md:items-center md:justify-between md:p-10">
               <div>
-                <p className="font-display text-3xl font-semibold leading-tight sm:text-4xl">Рок-хит за 2.5 часа</p>
-                <p className="mt-3 max-w-xl text-sm text-cream/60">
-                  Гости играют, выступают и уезжают с энергией — без скучных формальностей и без обязательств.
-                </p>
+                <p className="font-display text-3xl font-semibold leading-tight sm:text-4xl">{copy.bandTitle}</p>
+                <p className="mt-3 max-w-xl text-sm text-cream/60">{copy.bandLead}</p>
               </div>
               <Button className="px-8 py-4" onClick={scrollToForm}>
-                Забронировать дату
+                {copy.book}
               </Button>
             </div>
           </Reveal>
@@ -111,17 +100,17 @@ export function EventsPage() {
         </div>
         <div className="container-site relative z-10">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">2.5 часа</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.timelineKicker}</p>
             <h2
               id="timeline-title"
               className="mt-4 font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-6xl"
             >
-              План мероприятия
+              {copy.timelineTitle}
             </h2>
           </Reveal>
           <ol className="mt-14 divide-y divide-white/8 border-y border-white/8">
-            {EVENTS_TIMELINE.map((step, i) => (
-              <Reveal key={step.title} as="li" delay={i * 50} className="grid gap-4 py-8 sm:grid-cols-[7rem_1fr]">
+            {timeline.map((step, i) => (
+              <Reveal key={step.mins} as="li" delay={i * 50} className="grid gap-4 py-8 sm:grid-cols-[7rem_1fr]">
                 <span className="font-display text-sm tracking-[0.22em] text-mint">{step.time}</span>
                 <div>
                   <h3 className="font-display text-2xl font-semibold sm:text-3xl">{step.title}</h3>
@@ -131,7 +120,7 @@ export function EventsPage() {
             ))}
           </ol>
           <p className="mt-10 max-w-2xl font-display text-2xl font-semibold leading-snug text-cream/90 sm:text-3xl">
-            У нас есть удобная кухня и комната с большим столом для фуршета ваших гостей!
+            {copy.timelineClose}
           </p>
         </div>
       </section>
@@ -143,38 +132,35 @@ export function EventsPage() {
               id="pricing-events-title"
               className="max-w-[10ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
             >
-              Стоимость мероприятия
+              {copy.priceTitle}
             </h2>
-            <p className="mt-6 text-xs uppercase tracking-[0.18em] text-ink/40">Стоимость участия</p>
+            <p className="mt-6 text-xs uppercase tracking-[0.18em] text-ink/40">{copy.priceLabel}</p>
             <p className="mt-3 font-display text-6xl font-extrabold leading-none tracking-[-0.04em] sm:text-7xl">
               30
               <span className="ml-1 text-3xl">€</span>
-              <span className="ml-2 align-middle text-lg font-medium tracking-[0.08em] text-ink/45">/ за чел</span>
+              <span className="ml-2 align-middle text-lg font-medium tracking-[0.08em] text-ink/45">{copy.perPerson}</span>
             </p>
-            <p className="mt-6 max-w-md text-ink-soft">
-              Минимальная стоимость мероприятия — 300 €. Студия и программа рассчитаны на комфортное размещение до 20
-              гостей одновременно.
-            </p>
+            <p className="mt-6 max-w-md text-ink-soft">{copy.priceLead}</p>
             <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-ink/10 pt-8">
               <div>
-                <dt className="text-xs uppercase tracking-[0.16em] text-ink/40">Минимум</dt>
+                <dt className="text-xs uppercase tracking-[0.16em] text-ink/40">{copy.min}</dt>
                 <dd className="mt-2 font-display text-2xl font-semibold">300 €</dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-[0.16em] text-ink/40">Гости</dt>
-                <dd className="mt-2 font-display text-2xl font-semibold">до 20</dd>
+                <dt className="text-xs uppercase tracking-[0.16em] text-ink/40">{copy.guests}</dt>
+                <dd className="mt-2 font-display text-2xl font-semibold">{copy.guestsValue}</dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-[0.16em] text-ink/40">Длительность</dt>
-                <dd className="mt-2 font-display text-2xl font-semibold">2.5 ч</dd>
+                <dt className="text-xs uppercase tracking-[0.16em] text-ink/40">{copy.duration}</dt>
+                <dd className="mt-2 font-display text-2xl font-semibold">{copy.durationValue}</dd>
               </div>
             </dl>
           </Reveal>
 
           <Reveal delay={80}>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">Что входит в стоимость</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.includedKicker}</p>
             <ul className="mt-6 divide-y divide-ink/10 border-y border-ink/10">
-              {EVENTS_INCLUDED.map((item, i) => (
+              {copy.included.map((item, i) => (
                 <li key={item} className="flex items-start gap-5 py-5">
                   <span className="font-display text-sm tracking-[0.22em] text-mint-dim">
                     {String(i + 1).padStart(2, "0")}
@@ -184,7 +170,7 @@ export function EventsPage() {
               ))}
             </ul>
             <Button className="mt-8 px-8 py-4" onClick={scrollToForm}>
-              Забронировать дату
+              {copy.book}
             </Button>
           </Reveal>
         </div>
@@ -201,11 +187,11 @@ export function EventsPage() {
               id="why-drums-title"
               className="max-w-[12ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
             >
-              Почему именно барабаны
+              {copy.whyTitle}
             </h2>
           </Reveal>
           <ul className="mt-16 grid gap-x-12 gap-y-2 md:grid-cols-2">
-            {EVENTS_WHY.map((item, i) => (
+            {why.map((item, i) => (
               <Reveal
                 key={item.num}
                 as="li"
@@ -230,11 +216,11 @@ export function EventsPage() {
         <div className="container-site">
           <Reveal>
             <h2 id="gallery-title" className="font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">
-              Атмосфера наших событий
+              {copy.galleryTitle}
             </h2>
           </Reveal>
           <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-12 md:gap-4">
-            {EVENTS_GALLERY.map((item, i) => (
+            {gallery.map((item, i) => (
               <li
                 key={item.src}
                 className={cn(
@@ -250,7 +236,7 @@ export function EventsPage() {
                   type="button"
                   className="relative block h-full w-full cursor-pointer"
                   onClick={() => setGalleryIndex(i)}
-                  aria-label={`Открыть фото: ${item.alt}`}
+                  aria-label={`${t.common.openPhoto}: ${item.alt}`}
                 >
                   <img
                     src={item.src}
@@ -266,7 +252,7 @@ export function EventsPage() {
 
       <EventsForm />
       <Lightbox
-        items={EVENTS_GALLERY}
+        items={gallery}
         index={galleryIndex}
         onClose={() => setGalleryIndex(null)}
         onIndex={setGalleryIndex}

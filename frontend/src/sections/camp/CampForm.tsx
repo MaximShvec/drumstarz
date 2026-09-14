@@ -2,6 +2,8 @@ import { useState, type FormEvent } from "react";
 import { Reveal } from "../../components/Reveal";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
+import { useCamp } from "../../content/useCopy";
+import { useLocale } from "../../i18n/LocaleContext";
 import { submitApplicationForm } from "../../lib/submit";
 
 function isEmail(value: string) {
@@ -9,6 +11,9 @@ function isEmail(value: string) {
 }
 
 export function CampForm() {
+  const copy = useCamp();
+  const { t } = useLocale();
+  const f = t.form;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -27,11 +32,11 @@ export function CampForm() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const next: typeof errors = {};
-    if (!name.trim()) next.name = "Пожалуйста, укажите имя";
-    if (!phone.trim()) next.phone = "Пожалуйста, укажите номер телефона";
-    if (!email.trim()) next.email = "Пожалуйста, укажите электронную почту";
-    else if (!isEmail(email.trim())) next.email = "Проверьте адрес электронной почты";
-    if (!consent) next.consent = "Нужно подтвердить согласие";
+    if (!name.trim()) next.name = f.errName;
+    if (!phone.trim()) next.phone = f.errPhone;
+    if (!email.trim()) next.email = f.errEmail;
+    else if (!isEmail(email.trim())) next.email = f.errEmailInvalid;
+    if (!consent) next.consent = f.errConsent;
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -48,7 +53,7 @@ export function CampForm() {
     });
     setPending(false);
     if (result.status === "not_configured") {
-      setStatus("Отправка заявок будет подключена на следующем этапе");
+      setStatus(f.notConfigured);
       return;
     }
     if (result.status === "error") {
@@ -69,20 +74,20 @@ export function CampForm() {
 
       <div className="container-site relative z-10 grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Осталось уточнить детали</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.form.kicker}</p>
           <h2
             id="camp-form-title"
             className="mt-4 max-w-[12ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-5xl"
           >
-            Записаться в лагерь
+            {copy.form.title}
           </h2>
-          <p className="mt-6 max-w-lg text-lg text-cream/65">
-            Оставьте заявку — мы уточним свободные места и все детали заезда.
-          </p>
+          <p className="mt-6 max-w-lg text-lg text-cream/65">{copy.form.lead}</p>
           <ul className="mt-10 divide-y divide-white/8 border-y border-white/8 text-cream/70">
-            <li className="py-3">5–10 июля 2026</li>
-            <li className="py-3">Дети 7–15 лет</li>
-            <li className="py-3">470 € за неделю · питание и трансфер включены</li>
+            {copy.form.bullets.map((line) => (
+              <li key={line} className="py-3">
+                {line}
+              </li>
+            ))}
           </ul>
         </Reveal>
 
@@ -93,14 +98,14 @@ export function CampForm() {
             onSubmit={onSubmit}
             noValidate
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-mint">Заявка в лагерь</p>
-            <h3 className="mt-3 font-display text-2xl font-semibold">Контакты родителя</h3>
-            <p className="mt-2 text-sm text-cream/55">Имя, телефон и почта — обязательны. Возраст ребёнка можно указать сразу.</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-mint">{copy.form.formKicker}</p>
+            <h3 className="mt-3 font-display text-2xl font-semibold">{copy.form.formTitle}</h3>
+            <p className="mt-2 text-sm text-cream/55">{copy.form.formLead}</p>
 
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               <LineField
                 id="camp-name"
-                label="Имя родителя"
+                label={copy.form.parentName}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 error={errors.name}
@@ -108,7 +113,7 @@ export function CampForm() {
               />
               <LineField
                 id="camp-phone"
-                label="Номер телефона"
+                label={f.phone}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 error={errors.phone}
@@ -119,7 +124,7 @@ export function CampForm() {
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
               <LineField
                 id="camp-email"
-                label="Электронная почта"
+                label={f.email}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 error={errors.email}
@@ -128,7 +133,7 @@ export function CampForm() {
               />
               <LineField
                 id="camp-age"
-                label="Возраст ребёнка"
+                label={copy.form.childAge}
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
                 inputMode="numeric"
@@ -140,7 +145,7 @@ export function CampForm() {
             <div className="mt-5">
               <LineTextarea
                 id="camp-message"
-                label="Пожелания и особенности здоровья"
+                label={copy.form.wishes}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={4}
@@ -155,7 +160,7 @@ export function CampForm() {
                 onChange={(e) => setConsent(e.target.checked)}
                 aria-invalid={errors.consent ? true : undefined}
               />
-              <span>Я ознакомился с пользовательским соглашением</span>
+              <span>{f.consent}</span>
             </label>
             {errors.consent ? (
               <p className="mt-1.5 text-sm text-red-400" role="alert">
@@ -163,7 +168,7 @@ export function CampForm() {
               </p>
             ) : null}
             <Button type="submit" className="mt-8 w-full py-4" disabled={pending}>
-              {pending ? "Отправка…" : "Отправить заявку"}
+              {pending ? f.sending : f.submit}
             </Button>
             {status ? (
               <p className="mt-4 text-sm text-mint" role="status">
@@ -171,7 +176,7 @@ export function CampForm() {
               </p>
             ) : (
               <p className="mt-4 text-center text-xs uppercase tracking-[0.16em] text-cream/35">
-                Перезвоним, чтобы подтвердить место и детали заезда.
+                {copy.form.hint}
               </p>
             )}
           </form>

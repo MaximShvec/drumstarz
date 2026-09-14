@@ -1,4 +1,6 @@
 import { YoutubePlayer } from "../../components/media/YoutubePlayer";
+import { useTrainersCopy } from "../../content/useCopy";
+import { useLocale } from "../../i18n/LocaleContext";
 import { youtubePoster } from "../../lib/youtube";
 import { cn } from "../../lib/cn";
 import type { TRAINERS } from "../../data/trainers";
@@ -6,6 +8,8 @@ import type { TRAINERS } from "../../data/trainers";
 type Trainer = (typeof TRAINERS)[number];
 
 export function TrainerCard({ trainer, index }: { trainer: Trainer; index: number }) {
+  const copy = useTrainersCopy();
+  const { t } = useLocale();
   const flipped = index % 2 === 1;
 
   return (
@@ -33,7 +37,7 @@ export function TrainerCard({ trainer, index }: { trainer: Trainer; index: numbe
             <div className="pointer-events-none absolute inset-x-6 bottom-8 h-2/3 rounded-full bg-mint/25 blur-3xl" />
             <img
               src={trainer.photo}
-              alt={`${trainer.name} — преподаватель DRUMSTARZ`}
+              alt={`${trainer.name} — ${t.common.trainerPhoto}`}
               className="relative z-10 mx-auto h-[22rem] w-full object-cover object-top transition-transform duration-700 group-hover/card:scale-[1.03] sm:h-[28rem] lg:h-[36rem]"
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-void to-transparent lg:hidden" />
@@ -48,7 +52,7 @@ export function TrainerCard({ trainer, index }: { trainer: Trainer; index: numbe
             <div className="overflow-hidden rounded-[1.25rem] border border-white/15 bg-void shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85)]">
               <YoutubePlayer
                 id={trainer.youtubeId}
-                title={`Смотреть видео с ${trainer.name}`}
+                title={`${t.common.watchTrainer} ${trainer.name}`}
                 poster={youtubePoster(trainer.youtubeId, "maxres")}
                 className="aspect-video w-full"
               />
@@ -69,12 +73,12 @@ export function TrainerCard({ trainer, index }: { trainer: Trainer; index: numbe
             )}
           >
             <p className="relative z-10 text-xs font-semibold uppercase tracking-[0.24em] text-mint">
-              {trainer.role}
+              {copy.role}
             </p>
             <h3 className="relative z-10 mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] sm:text-5xl lg:text-6xl">
               {trainer.name}
             </h3>
-            <p className="relative z-10 mt-5 max-w-md text-lg leading-relaxed text-cream/70">{trainer.bio}</p>
+            <p className="relative z-10 mt-5 max-w-md text-lg leading-relaxed text-cream/70">{copy.bios[trainer.id]}</p>
             <span
               aria-hidden="true"
               className={cn(

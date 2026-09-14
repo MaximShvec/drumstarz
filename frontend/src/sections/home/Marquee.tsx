@@ -1,7 +1,8 @@
-const ITEMS = ["Живой звук", "Настоящая сцена", "С 2013", "Рига", "Бесплатный урок", "Два филиала"];
+import { useHome } from "../../content/useCopy";
 
 export function Marquee() {
-  const line = [...ITEMS, ...ITEMS, ...ITEMS, ...ITEMS];
+  const { marquee } = useHome();
+  const line = [...marquee, ...marquee, ...marquee, ...marquee];
   return (
     <div className="overflow-hidden border-y border-white/8 bg-void py-4" aria-hidden="true">
       <div className="marquee-track gap-10 pr-10">

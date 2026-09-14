@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { STUDENT_PHOTOS } from "../../data/home";
+import { useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
 
 export function Students() {
+  const copy = useHome();
   const mobileRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(1);
 
@@ -26,17 +28,15 @@ export function Students() {
   }, []);
 
   return (
-    <section id="students" className="bg-paper py-24 text-ink lg:py-32" aria-label="Наши ученики">
+    <section id="students" className="bg-paper py-24 text-ink lg:py-32" aria-label={copy.students.aria}>
       <div className="container-site">
         <Reveal>
           <h2 className="font-display text-4xl font-extrabold leading-[0.95] sm:text-5xl">
-            Наши
+            {copy.students.title}
             <br />
-            ученики
+            {copy.students.titleLine2}
           </h2>
-          <p className="mt-4 max-w-md text-ink-soft">
-            Наши ученики — это дети и взрослые, которые однажды взяли в руки палочки и открыли для себя мир ритма.
-          </p>
+          <p className="mt-4 max-w-md text-ink-soft">{copy.students.lead}</p>
         </Reveal>
 
         <div

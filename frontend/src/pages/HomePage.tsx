@@ -1,3 +1,5 @@
+import { useHome } from "../content/useCopy";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { Concerts } from "../sections/home/Concerts";
 import { Contacts } from "../sections/home/Contacts";
 import { Faq } from "../sections/home/Faq";
@@ -11,6 +13,9 @@ import { TrialSteps } from "../sections/home/TrialSteps";
 import { Why } from "../sections/home/Why";
 
 export function HomePage() {
+  const copy = useHome();
+  useDocumentMeta(copy.metaTitle, copy.metaDescription);
+
   return (
     <>
       <Hero />

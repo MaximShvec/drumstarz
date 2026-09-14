@@ -1,7 +1,6 @@
 export const SITE = {
   name: "DRUMSTARZ",
   city: "RIGA",
-  tagline: "Школа барабанов №1 в Риге!",
   phone: "+371 26 25 31 58",
   phoneHref: "tel:+37126253158",
   whatsapp: "https://wa.me/37126253158",
@@ -14,28 +13,28 @@ export const SITE = {
 } as const;
 
 export const NAV = [
-  { label: "Цены", to: "/#prices" },
-  { label: "Преподаватели", to: "/trainers" },
-  { label: "FAQ", to: "/#faq" },
-  { label: "Контакты", to: "/contacts" },
+  { id: "prices", to: "/#prices" },
+  { id: "trainers", to: "/trainers" },
+  { id: "faq", to: "/#faq" },
+  { id: "contacts", to: "/contacts" },
 ] as const;
 
 export const EXTRAS = [
-  { label: "Перкуссии", to: "/percussions" },
-  { label: "Праздник для взрослых", to: "/events" },
-  { label: "Детский праздник", to: "/kids" },
-  { label: "Подарок", to: "/giftcard" },
+  { id: "percussions", to: "/percussions" },
+  { id: "events", to: "/events" },
+  { id: "kids", to: "/kids" },
+  { id: "giftcard", to: "/giftcard" },
 ] as const;
 
 export const FOOTER_SCHOOL = [
-  { label: "Цены и тарифы", to: "/#prices" },
-  { label: "Преподаватели школы", to: "/trainers" },
-  { label: "Частые вопросы", to: "/#faq" },
+  { id: "schoolPrices", to: "/#prices" },
+  { id: "schoolTrainers", to: "/trainers" },
+  { id: "schoolFaq", to: "/#faq" },
 ] as const;
 
 export const FOOTER_FORMATS = [
-  { label: "Перкуссия", to: "/percussions" },
-  { label: "Подарочная карта", to: "/giftcard" },
-  { label: "Мероприятия", to: "/events" },
-  { label: "Летний лагерь", to: "/camp" },
+  { id: "formatPercussion", to: "/percussions" },
+  { id: "formatGift", to: "/giftcard" },
+  { id: "formatEvents", to: "/events" },
+  { id: "formatCamp", to: "/camp" },
 ] as const;

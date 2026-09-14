@@ -1,20 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import { BRANCHES, type BranchSlug } from "../../data/branches";
 import { SITE } from "../../data/site";
+import { useContactsCopy, useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
 import { Button, ButtonAnchor, ButtonLink } from "../../components/ui/Button";
 import { Segmented } from "../../components/ui/Segmented";
 import { useBooking } from "../../context/BookingContext";
+import { useLocale } from "../../i18n/LocaleContext";
 import { mapsEmbed } from "../../lib/youtube";
 import { cn } from "../../lib/cn";
 
-const BRANCH_OPTIONS = (Object.keys(BRANCHES) as BranchSlug[]).map((key) => ({
-  value: key,
-  label: BRANCHES[key].name,
-}));
-
 export function Contacts() {
   const { openBooking } = useBooking();
+  const copy = useHome();
+  const contacts = useContactsCopy();
+  const { t } = useLocale();
+  const BRANCH_OPTIONS = (Object.keys(BRANCHES) as BranchSlug[]).map((key) => ({
+    value: key,
+    label: key === "first" ? contacts.firstName : contacts.secondName,
+  }));
+  const displayAddress = (slug: BranchSlug) =>
+    slug === "first" ? contacts.firstAddress : contacts.secondAddress;
   const [slug, setSlug] = useState<BranchSlug>("first");
   const [mapReady, setMapReady] = useState(false);
   const mapGen = useRef(0);
@@ -56,14 +62,12 @@ export function Contacts() {
         <Reveal>
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Контакты</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.contacts.kicker}</p>
               <h2 id="contacts-title" className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-                Как нас найти
+                {copy.contacts.title}
               </h2>
             </div>
-            <p className="max-w-md text-cream/60">
-              Два филиала в центре Риги. Удобно добраться и на машине, и на общественном транспорте.
-            </p>
+            <p className="max-w-md text-cream/60">{copy.contacts.lead}</p>
           </div>
         </Reveal>
 
@@ -72,7 +76,7 @@ export function Contacts() {
             <Segmented
               tabs
               tone="mint"
-              aria-label="Выбор филиала"
+              aria-label={copy.contacts.branchAria}
               value={slug}
               onChange={(next) => {
                 mapGen.current += 1;
@@ -83,28 +87,30 @@ export function Contacts() {
             />
 
             <div key={slug} className="branch-swap mt-6 rounded-[1.4rem] border border-white/8 bg-panel p-6" role="tabpanel">
-              <p className="text-xs uppercase tracking-[0.18em] text-cream/40">{branch.name}</p>
-              <p className="mt-2 font-display text-2xl">{branch.displayAddress}</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-cream/40">
+                {slug === "first" ? contacts.firstName : contacts.secondName}
+              </p>
+              <p className="mt-2 font-display text-2xl">{displayAddress(slug)}</p>
             </div>
 
-            <div className="mt-4 flex flex-wrap gap-3" role="group" aria-label="Маршрут до выбранного филиала">
+            <div className="mt-4 flex flex-wrap gap-3" role="group" aria-label={copy.contacts.routeAria}>
               <ButtonLink to={`/contacts?branch=${slug}&route=walking`} variant="outline" className="px-5 py-2.5">
-                Пешком
+                {t.common.walking}
               </ButtonLink>
               <ButtonLink to={`/contacts?branch=${slug}&route=driving`} className="px-5 py-2.5">
-                На машине
+                {t.common.driving}
               </ButtonLink>
             </div>
 
             <ul className="mt-8 space-y-4">
               <li>
-                <p className="text-xs uppercase tracking-[0.16em] text-cream/40">Телефон и Whatsapp</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-cream/40">{copy.contacts.phoneLabel}</p>
                 <a href={SITE.phoneHref} className="link-draw text-lg">
                   {SITE.phone}
                 </a>
               </li>
               <li>
-                <p className="text-xs uppercase tracking-[0.16em] text-cream/40">Email</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-cream/40">{copy.contacts.emailLabel}</p>
                 <a href={SITE.emailHref} className="link-draw text-lg">
                   {SITE.email}
                 </a>
@@ -112,7 +118,7 @@ export function Contacts() {
             </ul>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button onClick={openBooking}>Записаться на бесплатный урок</Button>
+              <Button onClick={openBooking}>{t.bookFree}</Button>
               <ButtonAnchor href={SITE.whatsapp} target="_blank" rel="noopener noreferrer">
                 <img src="/assets/icons/whatsapp.png" alt="" className="h-4 w-4" />
                 WhatsApp
@@ -132,7 +138,7 @@ export function Contacts() {
             >
               <div className="flex flex-col items-center gap-3">
                 <span className="map-loader size-12 rounded-full border-[3px] border-mint/20 border-t-mint" />
-                <span className="text-xs uppercase tracking-[0.2em] text-cream/40">Загружаем карту</span>
+                <span className="text-xs uppercase tracking-[0.2em] text-cream/40">{t.common.mapLoading}</span>
               </div>
             </div>
             <iframe
@@ -142,13 +148,13 @@ export function Contacts() {
                 mapReady ? "opacity-100" : "opacity-0",
               )}
               src={mapsEmbed(branch.mapAddress)}
-              title={`Карта: филиал DRUMSTARZ на ${branch.mapAddress}`}
+              title={`${t.common.mapBranch} ${branch.mapAddress}`}
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
               onLoad={() => onMapLoad.current()}
             />
-            <span className="sr-only">Карта: {branch.displayAddress}</span>
+            <span className="sr-only">{displayAddress(slug)}</span>
           </div>
         </div>
       </div>

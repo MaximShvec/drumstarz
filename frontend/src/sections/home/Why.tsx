@@ -1,7 +1,10 @@
 import { WHY_ITEMS } from "../../data/home";
+import { useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
 
 export function Why() {
+  const copy = useHome();
+
   return (
     <section id="why" className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="why-title">
       <img
@@ -13,18 +16,16 @@ export function Why() {
 
       <div className="container-site relative">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-mint">Никогда не держал палочки?</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-mint">{copy.why.kicker}</p>
           <h2
             id="why-title"
             className="mt-4 max-w-[16ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
           >
-            Все начинают с нуля.
+            {copy.why.title}
             <br />
-            И ты начнёшь.
+            {copy.why.titleLine2}
           </h2>
-          <p className="mt-6 max-w-2xl text-lg text-cream/65">
-            Не нужно уметь читать ноты, иметь чувство ритма или свой инструмент. Достаточно желания попробовать — обо всём остальном позаботится преподаватель.
-          </p>
+          <p className="mt-6 max-w-2xl text-lg text-cream/65">{copy.why.lead}</p>
         </Reveal>
 
         <ul className="mt-16 grid gap-6 md:grid-cols-2">
@@ -36,8 +37,8 @@ export function Why() {
               className={`rounded-[1.5rem] border border-white/8 bg-white/4 p-8 backdrop-blur-sm ${i % 2 ? "md:translate-y-8" : ""}`}
             >
               <span className="font-display text-sm tracking-[0.22em] text-mint">{item.num}</span>
-              <h3 className="mt-4 font-display text-2xl font-semibold">{item.title}</h3>
-              <p className="mt-3 text-cream/60">{item.text}</p>
+              <h3 className="mt-4 font-display text-2xl font-semibold">{copy.why.items[i].title}</h3>
+              <p className="mt-3 text-cream/60">{copy.why.items[i].text}</p>
             </Reveal>
           ))}
         </ul>

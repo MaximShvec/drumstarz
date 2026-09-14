@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 import { Link, type LinkProps } from "react-router-dom";
+import { useLocale } from "../../i18n/LocaleContext";
 import { cn } from "../../lib/cn";
 
 type Variant = "primary" | "outline" | "ghost" | "lime" | "dark";
@@ -14,8 +15,8 @@ const fill: Record<Variant, string> = {
 
 const styles: Record<Variant, string> = {
   primary: "bg-mint-deep text-cream hover:text-void",
-  outline: "border border-mint/70 text-cream hover:text-void hover:border-mint",
-  ghost: "text-cream/80 hover:text-mint",
+  outline: "border border-mint/70 text-inherit hover:text-void hover:border-mint",
+  ghost: "text-inherit hover:text-mint",
   lime: "bg-lime text-ink hover:text-ink",
   dark: "bg-void text-cream hover:text-void border border-white/10",
 };
@@ -59,7 +60,7 @@ export function Button({
   children: ReactNode;
 }) {
   return (
-    <button type="button" className={buttonClass(variant, className)} {...props}>
+    <button type="button" data-variant={variant} className={buttonClass(variant, className)} {...props}>
       <Face variant={variant}>{children}</Face>
     </button>
   );
@@ -69,10 +70,12 @@ export function ButtonLink({
   variant = "primary",
   className,
   children,
+  to,
   ...props
 }: LinkProps & { variant?: Variant; children: ReactNode }) {
+  const { to: localize } = useLocale();
   return (
-    <Link className={buttonClass(variant, className)} {...props}>
+    <Link data-variant={variant} className={buttonClass(variant, className)} to={localize(to)} {...props}>
       <Face variant={variant}>{children}</Face>
     </Link>
   );
@@ -85,7 +88,7 @@ export function ButtonAnchor({
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement> & { variant?: Variant; children: ReactNode }) {
   return (
-    <a className={buttonClass(variant, className)} {...props}>
+    <a data-variant={variant} className={buttonClass(variant, className)} {...props}>
       <Face variant={variant}>{children}</Face>
     </a>
   );

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { LEVEL_CARDS, type LevelKey } from "../../data/home";
+import { useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
 import { Segmented } from "../../components/ui/Segmented";
 
 export function Stereotypes() {
   const [level, setLevel] = useState<LevelKey>("new");
+  const copy = useHome();
+  const texts = level === "new" ? copy.stereotypes.newCards : copy.stereotypes.expCards;
   const cards = LEVEL_CARDS[level];
 
   return (
@@ -14,22 +17,20 @@ export function Stereotypes() {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">
-                Теперь заниматься музыкой — не скучно!
+                {copy.stereotypes.kicker}
               </p>
               <h2 id="stereotypes-title" className="mt-4 font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl">
-                Ломаем
+                {copy.stereotypes.title}
                 <br />
-                стереотипы
+                {copy.stereotypes.titleLine2}
               </h2>
             </div>
             <div className="relative">
               <span className="pointer-events-none absolute -top-10 right-0 font-display text-8xl font-extrabold text-ink/6">
                 01
               </span>
-              <p className="font-display text-xl">DRUMSTARZ — это школа нового поколения.</p>
-              <p className="mt-3 text-ink-soft leading-relaxed">
-                У нас нет скучных упражнений и формальностей — только живое общение, поддержка и настоящая музыкальная практика. Мы помогаем каждому раскрыть свой потенциал, почувствовать ритм и поверить, что заниматься музыкой может быть по-настоящему увлекательно!
-              </p>
+              <p className="font-display text-xl">{copy.stereotypes.claim}</p>
+              <p className="mt-3 text-ink-soft leading-relaxed">{copy.stereotypes.body}</p>
             </div>
           </div>
         </Reveal>
@@ -37,12 +38,12 @@ export function Stereotypes() {
         <div className="mt-12">
           <Segmented
             tone="dark"
-            aria-label="Ваш уровень подготовки"
+            aria-label={copy.stereotypes.levelAria}
             value={level}
             onChange={setLevel}
             options={[
-              { value: "new", label: "Я новичок" },
-              { value: "experienced", label: "Я с опытом" },
+              { value: "new", label: copy.stereotypes.newbie },
+              { value: "experienced", label: copy.stereotypes.experienced },
             ]}
           />
         </div>
@@ -50,7 +51,7 @@ export function Stereotypes() {
         <ul className="mt-10 grid gap-5 md:grid-cols-3">
           {cards.map((card, i) => (
             <Reveal
-              key={`${level}-${card.title}`}
+              key={`${level}-${texts[i].title}`}
               as="li"
               delay={i * 80}
               className="group relative isolate min-h-[420px] overflow-hidden rounded-[1.6rem] bg-ink"
@@ -65,8 +66,8 @@ export function Stereotypes() {
                 0{i + 1}
               </span>
               <div className="absolute inset-x-0 bottom-0 p-7 text-cream">
-                <h3 className="font-display text-3xl font-semibold">{card.title}</h3>
-                <p className="mt-2 text-cream/70">{card.text}</p>
+                <h3 className="font-display text-3xl font-semibold">{texts[i].title}</h3>
+                <p className="mt-2 text-cream/70">{texts[i].text}</p>
               </div>
             </Reveal>
           ))}

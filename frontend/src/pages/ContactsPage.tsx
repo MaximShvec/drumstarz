@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { BRANCHES, type BranchSlug, type RouteKind } from "../data/branches";
 import { SITE } from "../data/site";
+import { useContactsCopy } from "../content/useCopy";
 import { useBooking } from "../context/BookingContext";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
+import { useLocale } from "../i18n/LocaleContext";
 import { scrollToId } from "../hooks/useLenis";
 import { Reveal } from "../components/Reveal";
 import { Button, ButtonAnchor } from "../components/ui/Button";
@@ -21,6 +23,8 @@ function isRoute(value: string | null): value is RouteKind {
 
 export function ContactsPage() {
   const { openBooking } = useBooking();
+  const copy = useContactsCopy();
+  const { t } = useLocale();
   const [params] = useSearchParams();
   const [mapSlug, setMapSlug] = useState<BranchSlug>("first");
 
@@ -30,10 +34,7 @@ export function ContactsPage() {
   const initialRoute = isRoute(routeParam) ? routeParam : undefined;
   const initialFloor = params.get("floor") ?? undefined;
 
-  useDocumentMeta(
-    "Контакты — DRUMSTARZ школа барабанов в Риге",
-    "Два филиала DRUMSTARZ в центре Риги — Šarlotes и Tērbatas. Адреса, телефон, WhatsApp, маршруты и карта проезда, запись на бесплатный пробный урок.",
-  );
+  useDocumentMeta(copy.metaTitle, copy.metaDescription);
 
   useEffect(() => {
     if (initialBranch) setMapSlug(initialBranch);
@@ -70,28 +71,26 @@ export function ContactsPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(7,10,8,0.45)_100%)]" />
         </div>
         <div className="container-site relative z-10 flex min-h-[78svh] flex-col justify-end pb-16 pt-32 lg:pb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Ваш ритм начинается здесь</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.heroKicker}</p>
           <h1
             id="contacts-hero-title"
             className="mt-4 max-w-[14ch] font-display text-5xl font-extrabold leading-[0.92] tracking-[-0.03em] sm:text-7xl"
           >
-            Приходите
+            {copy.heroTitle}
             <br />
-            в Drumstarz
+            {copy.heroTitleLine2}
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-cream/70">
-            Найдите ближайший филиал, посмотрите, как к нам добраться, и запишитесь на занятие в пару кликов.
-          </p>
+          <p className="mt-6 max-w-xl text-lg text-cream/70">{copy.heroLead}</p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <ButtonAnchor href={SITE.phoneHref} className="px-6 py-3">
-              Позвонить
+              {copy.call}
             </ButtonAnchor>
             <ButtonAnchor href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="px-6 py-3">
               <img src="/assets/icons/whatsapp.png" alt="" className="h-4 w-4" />
               WhatsApp
             </ButtonAnchor>
             <Button className="px-6 py-3" onClick={openBooking}>
-              Записаться
+              {t.book}
             </Button>
           </div>
         </div>
@@ -100,9 +99,9 @@ export function ContactsPage() {
       <section className="bg-void py-16 lg:py-24" aria-labelledby="contacts-branches-title">
         <div className="container-site">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">Наши филиалы</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.branchesKicker}</p>
             <h2 id="contacts-branches-title" className="mt-3 max-w-[16ch] font-display text-4xl font-extrabold leading-[0.95] sm:text-5xl">
-              Два современных пространства в центре Риги
+              {copy.branchesTitle}
             </h2>
           </Reveal>
 
@@ -131,16 +130,14 @@ export function ContactsPage() {
             <div className="flex flex-col gap-6 rounded-[1.8rem] border border-mint/25 bg-panel p-8 md:flex-row md:items-center md:justify-between md:p-10">
               <div>
                 <h2 id="contacts-promo-title" className="font-display text-3xl font-semibold leading-tight sm:text-4xl">
-                  Запишись на пробное
+                  {copy.promoTitle}
                   <br />
-                  бесплатное занятие
+                  {copy.promoTitleLine2}
                 </h2>
-                <p className="mt-3 max-w-lg text-sm text-cream/60">
-                  Заполните форму — перезвоним в течение 1 рабочего часа, без обязательств.
-                </p>
+                <p className="mt-3 max-w-lg text-sm text-cream/60">{copy.promoLead}</p>
               </div>
               <Button className="px-8 py-4" onClick={openBooking}>
-                Записаться
+                {t.book}
               </Button>
             </div>
           </Reveal>
