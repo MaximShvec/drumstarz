@@ -24,8 +24,10 @@ export function ContactsPage() {
   const [params] = useSearchParams();
   const [mapSlug, setMapSlug] = useState<BranchSlug>("first");
 
-  const initialBranch = isBranch(params.get("branch")) ? params.get("branch")! : undefined;
-  const initialRoute = isRoute(params.get("route")) ? params.get("route")! : undefined;
+  const branchParam = params.get("branch");
+  const routeParam = params.get("route");
+  const initialBranch = isBranch(branchParam) ? branchParam : undefined;
+  const initialRoute = isRoute(routeParam) ? routeParam : undefined;
   const initialFloor = params.get("floor") ?? undefined;
 
   useDocumentMeta(
