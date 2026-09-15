@@ -1,77 +1,97 @@
-import { useEffect, useRef, useState } from "react";
 import { STUDENT_PHOTOS } from "../../data/home";
 import { useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
-import { Photo } from "../../components/media/Photo";
+import { cn } from "../../lib/cn";
+
+type Tile = (typeof STUDENT_PHOTOS)[number];
+
+function StudentTile({ photo, className }: { photo: Tile; className?: string }) {
+  return (
+    <span className={cn("block overflow-hidden rounded-lg bg-ink/8", className)}>
+      <img
+        src={photo.src}
+        alt=""
+        width={photo.w}
+        height={photo.h}
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        style={{ aspectRatio: `${photo.w} / ${photo.h}` }}
+      />
+    </span>
+  );
+}
+
+function TitleBlock() {
+  const copy = useHome();
+
+  return (
+    <div className="max-w-[18rem]">
+      <h2 className="font-display text-[1.7rem] font-extrabold uppercase leading-[1.05] sm:text-3xl md:text-[2.5rem] md:leading-[1.18]">
+        {copy.students.title}
+        <br />
+        {copy.students.titleLine2}
+      </h2>
+      <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-soft">{copy.students.lead}</p>
+    </div>
+  );
+}
 
 export function Students() {
   const copy = useHome();
-  const mobileRef = useRef<HTMLDivElement>(null);
-  const [index, setIndex] = useState(1);
-
-  useEffect(() => {
-    const root = mobileRef.current;
-    if (!root) return;
-    const tiles = [...root.querySelectorAll("[data-student-tile]")];
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        const i = tiles.indexOf(visible.target);
-        if (i >= 0) setIndex(i + 1);
-      },
-      { root, threshold: 0.6 },
-    );
-    tiles.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+  const [
+    a1,
+    a2,
+    b1,
+    b2,
+    b3,
+    c1,
+    d1,
+    wide,
+    c2,
+    d3,
+    d4,
+  ] = STUDENT_PHOTOS;
 
   return (
-    <section id="students" className="bg-paper py-24 text-ink lg:py-32" aria-label={copy.students.aria}>
+    <section id="students" className="bg-paper py-16 text-ink lg:py-24" aria-label={copy.students.aria}>
       <div className="container-site">
-        <Reveal>
-          <h2 className="font-display text-4xl font-extrabold leading-[0.95] sm:text-5xl">
-            {copy.students.title}
-            <br />
-            {copy.students.titleLine2}
-          </h2>
-          <p className="mt-4 max-w-md text-ink-soft">{copy.students.lead}</p>
+        <Reveal className="mb-8 md:hidden">
+          <TitleBlock />
         </Reveal>
 
-        <div
-          ref={mobileRef}
-          className="no-scrollbar mt-10 flex snap-x gap-3 overflow-x-auto md:hidden"
-        >
-          {STUDENT_PHOTOS.map((src) => (
-            <Photo
-              key={src}
-              data-student-tile
-              src={src}
-              alt=""
-              sizes="78vw"
-              loading="lazy"
-              className="h-72 w-[78%] shrink-0 snap-center rounded-[1.2rem] object-cover"
-            />
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-3 md:hidden">
+          {STUDENT_PHOTOS.map((photo) => (
+            <StudentTile key={photo.src} photo={photo} />
           ))}
         </div>
-        <p className="mt-3 text-sm text-ink-soft md:hidden">
-          {index} / {STUDENT_PHOTOS.length}
-        </p>
 
-        <div className="mt-12 hidden grid-cols-4 gap-3 md:grid">
-          {STUDENT_PHOTOS.map((src, i) => (
-            <Photo
-              key={src}
-              src={src}
-              alt=""
-              sizes="(min-width: 768px) 25vw, 100vw"
-              loading="lazy"
-              className={`h-full min-h-44 w-full rounded-[1.1rem] object-cover ${i === 0 ? "col-span-2 row-span-2 min-h-[22rem]" : ""}`}
-            />
-          ))}
-        </div>
+        <Reveal className="hidden md:flex md:items-start md:gap-[17px]">
+          <div className="flex min-w-0 flex-1 flex-col gap-[17px]">
+            <TitleBlock />
+            <StudentTile photo={a1} />
+            <StudentTile photo={a2} />
+          </div>
+          <div className="flex min-w-0 flex-1 flex-col gap-[17px]">
+            <StudentTile photo={b1} />
+            <StudentTile photo={b2} />
+            <StudentTile photo={b3} />
+          </div>
+          <div className="flex min-w-0 flex-[2] flex-col gap-[17px]">
+            <div className="flex gap-[17px]">
+              <StudentTile photo={c1} className="min-w-0 flex-1" />
+              <StudentTile photo={d1} className="min-w-0 flex-1" />
+            </div>
+            <StudentTile photo={wide} />
+            <div className="flex gap-[17px]">
+              <StudentTile photo={c2} className="min-w-0 flex-1" />
+              <div className="flex min-w-0 flex-1 flex-col gap-[17px]">
+                <StudentTile photo={d3} />
+                <StudentTile photo={d4} />
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,34 +1,34 @@
 export const LEVEL_CARDS = {
   new: [
     {
-      img: "/assets/img/giftcard/hero-drummer.webp",
+      img: "/assets/img/section2/card-1.webp",
       title: "Изучи",
       text: "основы игры на барабанах",
     },
     {
-      img: "/assets/img/giftcard/emotion-studio.webp",
+      img: "/assets/img/section2/card-2.webp",
       title: "Научись",
       text: "играть один из твоих любимых треков",
     },
     {
-      img: "/assets/img/events/hero-concert-stage.webp",
+      img: "/assets/img/section2/card-3.webp",
       title: "Выступи",
       text: "на настоящем концерте",
     },
   ],
   experienced: [
     {
-      img: "/assets/img/events/hero-drumstick.webp",
+      img: "/assets/img/section2/card-4-experienced.webp",
       title: "Прокачивай",
       text: "свой уровень",
     },
     {
-      img: "/assets/img/events/hero-drummer.webp",
+      img: "/assets/img/section2/card-5-experienced.webp",
       title: "Сними",
       text: "видео кавер",
     },
     {
-      img: "/assets/img/events/showcase-crowd.webp",
+      img: "/assets/img/section2/card-6-experienced.webp",
       title: "Отыграй",
       text: "на настоящем концерте",
     },
@@ -144,16 +144,19 @@ export const TRIAL_STEPS = [
   },
 ] as const;
 
+/** Original student portraits from `static/assets/img/section7` — small, pre-cropped tiles. */
 export const STUDENT_PHOTOS = [
-  "/assets/img/gallery/g5.webp",
-  "/assets/img/gallery/g4.webp",
-  "/assets/img/gallery/g2.webp",
-  "/assets/img/gallery/g8.webp",
-  "/assets/img/gallery/g1.webp",
-  "/assets/img/gallery/g6.webp",
-  "/assets/img/gallery/g9.webp",
-  "/assets/img/gallery/g3.webp",
-  "/assets/img/gallery/g7.webp",
+  { src: "/assets/img/section7/student-04.webp", w: 274, h: 272 },
+  { src: "/assets/img/section7/student-09.webp", w: 274, h: 192 },
+  { src: "/assets/img/section7/student-01.webp", w: 274, h: 432 },
+  { src: "/assets/img/section7/student-06.webp", w: 274, h: 272 },
+  { src: "/assets/img/section7/student-10.webp", w: 274, h: 192 },
+  { src: "/assets/img/section7/student-03.webp", w: 273, h: 192 },
+  { src: "/assets/img/section7/student-02.webp", w: 271, h: 270 },
+  { src: "/assets/img/section7/student-05.webp", w: 565, h: 228 },
+  { src: "/assets/img/section7/student-07.webp", w: 273, h: 272 },
+  { src: "/assets/img/section7/student-08.webp", w: 271, h: 194 },
+  { src: "/assets/img/section7/student-11.webp", w: 271, h: 192 },
 ] as const;
 
 export const FAQ = [

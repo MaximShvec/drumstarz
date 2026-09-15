@@ -55,7 +55,7 @@ export function Stereotypes() {
               key={`${level}-${texts[i].title}`}
               as="li"
               delay={i * 80}
-              className="group relative isolate min-h-[420px] overflow-hidden rounded-[1.6rem] bg-ink"
+              className="group relative isolate aspect-[372/320] overflow-hidden rounded-[1.6rem] bg-ink"
             >
               <Photo
                 src={card.img}
