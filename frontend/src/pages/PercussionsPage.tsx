@@ -254,7 +254,7 @@ export function PercussionsPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.scheduleKicker}</p>
             <h2
               id="percussions-schedule-title"
-              className="mt-4 font-display text-5xl font-extrabold leading-[0.9] tracking-[-0.03em] sm:text-7xl"
+              className="mt-4 break-words font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl lg:text-7xl"
             >
               {copy.scheduleTitle}
             </h2>

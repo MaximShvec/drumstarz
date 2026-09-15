@@ -31,7 +31,7 @@ export function TrainersPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.kicker}</p>
           <h1
             id="trainers-hero-title"
-            className="mt-4 max-w-[14ch] font-display text-5xl font-extrabold leading-[0.92] tracking-[-0.03em] sm:text-7xl"
+            className="mt-4 break-words font-display text-[1.9rem] font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl lg:text-7xl"
           >
             {copy.title}
             <br />
@@ -47,7 +47,7 @@ export function TrainersPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.introKicker}</p>
             <h2
               id="trainers-intro-title"
-              className="mt-4 font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
+              className="mt-4 break-words font-display text-[2.15rem] font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
             >
               {copy.introTitle}
               <br />
