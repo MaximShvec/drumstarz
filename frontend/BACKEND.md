@@ -2,6 +2,8 @@
 
 Краткая техсправка для бэкенда. Фронт — отдельное Vite SPA (React). Сейчас деплоится на Vercel. Формы ещё не ходят на сервер.
 
+Что осталось на выкладке (CRM, ключ капчи, 301 со старых адресов) — в `PROD.md`. Этот файл описывает контракт, который уже есть в коде.
+
 ## Что это
 
 | | |
@@ -50,8 +52,14 @@ Route::get('/{any}', function () {
 | Детский праздник | `/kids` | `/ru/kids` | `/en/kids` |
 | Подарочная карта | `/giftcard` | `/ru/giftcard` | `/en/giftcard` |
 | Лагерь | `/camp` | `/ru/camp` | `/en/camp` |
+| Новости | `/jaunumi`, `/jaunumi/:slug` | `/novosti`, `/novosti/:slug` | `/blog`, `/blog/:slug` |
+| Политика | `/privacy` | `/ru/privacy` | `/en/privacy` |
+| Cookies | `/cookies` | `/ru/cookies` | `/en/cookies` |
+| Соглашение | `/terms` | `/ru/terms` | `/en/terms` |
 
 `/lv/...` фронт редиректит на путь без префикса. Не плодите `/lv` на бэкенде.
+
+Старые адреса (например `/perkusijas`, `/ru/lager`, `/en/for-adults`) на Vercel отдают 301 из `vercel.json`. На localhost их ловит клиентский `LEGACY` в `App.tsx`. Если SPA отдаёт Laravel, те же 301 нужно скопировать в его маршруты — список в `PROD.md`.
 
 Якоря только на клиенте: `/#prices`, `/#faq`.
 
@@ -98,21 +106,31 @@ CORS: если SPA и Laravel на разных доменах — разреш�
 
 ## Поля, которые уже уходят с клиента
 
-Общие: `name`, `phone`, `consent` (boolean), `source` (откуда форма). Плюс `email` / свободный текст там, где форма его спрашивает.
+`submit.ts` всегда дописывает к телу формы:
 
-| `source` | Где | Дополнительно |
-|---|---|---|
-| *(нет, только name/phone/consent)* | модалка «бесплатный урок» | — |
-| `contacts-lead` | контакты / блок на главной | `email?`, `message?` |
-| `camp-form` | лагерь | `email`, `age?`, `message?` |
-| `kids-form` | детский праздник | `email`, `date?`, `message?` |
-| `events-form` | взрослый праздник | `email`, `date?`, `message?` |
-| `giftcard-form` | подарочная карта | `email`, `plan` (`single` / пакет), `comment?` |
-| `percussions-form` | перкуссия | `email`, `day?`, `message?` |
+| Поле | Откуда |
+|---|---|
+| `source` | поле формы, иначе код страницы из `src/lib/lead.ts` |
+| `sourceLabel` | поле формы, иначе русская подпись страницы. В CRM показывайте её, не сырой `source` |
+| `page` | путь без языка, например `/percussions` |
+| `captchaToken` | reCAPTCHA v3, действие `lead`, или `null`, пока нет `VITE_RECAPTCHA_SITE_KEY` |
 
-Клиент проверяет пустые обязательные поля и формат email. Телефон **не** нормализуется — примите строку, как есть (`+371 …` и локальный ввод). `consent === true` обязателен.
+Модалка «Записаться» шлёт только `name`, `phone`, `consent`. Источник берётся со страницы, на которой её открыли: главная → `drums` / «Барабаны», лагерь → `camp` / «Лагерь».
 
-Рекомендуемая таблица `leads`: `id`, `source`, `locale`, `name`, `phone`, `email`, `payload` (JSON с остальным), `consent_at`, `created_at`, `status`.
+Формы, которые задают `source` сами:
+
+| `source` | `sourceLabel` | Где | Поля |
+|---|---|---|---|
+| `contacts` | Контакты | `/contacts` | `email?`, `message` |
+| `camp-form` | со страницы: Лагерь | лагерь | `email`, `age?`, `message?` |
+| `kids-form` | со страницы: Детский праздник | детский праздник | `email`, `date?`, `message?` |
+| `events-form` | со страницы: Мероприятия | взрослый праздник | `email`, `date?`, `message?` |
+| `giftcard` | Подарочная | подарочная карта | `email`, `plan` (`1-lesson` \| `4-lessons`), `comment?` |
+| `percussions` | Перкуссия | перкуссия | `format?`: `Урок` или `Джем`. Почты нет |
+
+Обязательны везде `name`, `phone`, `consent === true`. Email обязателен на лагере, детском, мероприятиях и подарочной; на контактах он необязателен, обязателен `message`. Телефон **не** нормализуется — примите строку, как есть (`+371 …` и локальный ввод).
+
+Рекомендуемая таблица `leads`: `id`, `source`, `source_label`, `page`, `locale`, `name`, `phone`, `email`, `payload` (JSON с остальным), `consent_at`, `created_at`, `status`.
 
 ## Что бэкенду не нужно отдавать
 
@@ -145,6 +163,7 @@ CORS: если SPA и Laravel на разных доменах — разреш�
 | Переменная | Кто читает | Зачем |
 |---|---|---|
 | `VITE_SITE_URL` | сборка фронта | канонический origin |
+| `VITE_RECAPTCHA_SITE_KEY` | сборка фронта | публичный ключ reCAPTCHA v3. Секрет — только на сервере, проверка через `siteverify`. Подробности в `PROD.md` |
 | `VITE_API_URL` | ещё нет, добавить при интеграции | базовый URL Laravel API |
 
 Префикс `VITE_` обязателен: Vite вшивает только его.

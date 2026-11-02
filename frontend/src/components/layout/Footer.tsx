@@ -1,10 +1,14 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { useConsent } from "../../context/ConsentContext";
+import { cookiePolicyLabel, cookieSettingsLabel } from "../legal/CookieBanner";
 import { FOOTER_FORMATS, FOOTER_SCHOOL, SITE } from "../../data/site";
 import { useLocale } from "../../i18n/LocaleContext";
+import { newsBase } from "../../pages/NewsPage";
 
 export function Footer() {
-  const { t, href } = useLocale();
+  const { t, href, locale } = useLocale();
+  const { openSettings } = useConsent();
 
   return (
     <footer className="border-t border-white/8 bg-void-2">
@@ -45,7 +49,9 @@ export function Footer() {
             </li>
           ))}
           <li>
-            <span className="text-sm text-cream/60">{t.footer.news}</span>
+            <Link to={href(newsBase(locale))} className="link-draw text-sm text-cream/60">
+              {t.footer.news}
+            </Link>
           </li>
         </FooterCol>
 
@@ -75,9 +81,19 @@ export function Footer() {
 
       <div className="container-site flex flex-col gap-3 border-t border-white/8 py-6 text-xs text-cream/60 sm:flex-row sm:items-center sm:justify-between">
         <p>DRUMSTARZ © {SITE.year}. {t.footer.rights}</p>
-        <p className="flex gap-4">
-          <span>{t.footer.privacy}</span>
-          <span>{t.footer.terms}</span>
+        <p className="flex flex-wrap gap-4">
+          <Link to={href("/privacy")} className="link-draw">
+            {t.footer.privacy}
+          </Link>
+          <Link to={href("/terms")} className="link-draw">
+            {t.footer.terms}
+          </Link>
+          <Link to={href("/cookies")} className="link-draw">
+            {cookiePolicyLabel(locale)}
+          </Link>
+          <button type="button" className="link-draw cursor-pointer" onClick={openSettings}>
+            {cookieSettingsLabel(locale)}
+          </button>
         </p>
       </div>
     </footer>

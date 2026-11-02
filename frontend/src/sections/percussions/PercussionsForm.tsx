@@ -2,29 +2,22 @@ import { useState, type FormEvent } from "react";
 import { Reveal } from "../../components/Reveal";
 import { Photo } from "../../components/media/Photo";
 import { Button } from "../../components/ui/Button";
-import { LineField, LineSelect, LineTextarea } from "../../components/ui/Field";
+import { ConsentCheck } from "../../components/legal/ConsentCheck";
+import { LineField } from "../../components/ui/Field";
 import { usePercussions } from "../../content/useCopy";
 import { useLocale } from "../../i18n/LocaleContext";
 import { submitApplicationForm } from "../../lib/submit";
 
-function isEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
-export function PercussionsForm() {
+export function PercussionsForm({ intent = "" }: { intent?: "lesson" | "jam" | "" }) {
   const copy = usePercussions();
   const { t } = useLocale();
   const f = t.form;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [day, setDay] = useState("");
-  const [message, setMessage] = useState("");
   const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<{
     name?: string;
     phone?: string;
-    email?: string;
     consent?: string;
   }>({});
   const [status, setStatus] = useState("");
@@ -35,8 +28,6 @@ export function PercussionsForm() {
     const next: typeof errors = {};
     if (!name.trim()) next.name = f.errName;
     if (!phone.trim()) next.phone = f.errPhone;
-    if (!email.trim()) next.email = f.errEmail;
-    else if (!isEmail(email.trim())) next.email = f.errEmailInvalid;
     if (!consent) next.consent = f.errConsent;
     setErrors(next);
     if (Object.keys(next).length) return;
@@ -46,11 +37,10 @@ export function PercussionsForm() {
     const result = await submitApplicationForm({
       name,
       phone,
-      email,
-      day,
-      message,
       consent,
-      source: "percussions-form",
+      source: "percussions",
+      sourceLabel: "Перкуссия",
+      format: intent === "jam" ? "Джем" : intent === "lesson" ? "Урок" : undefined,
     });
     setPending(false);
     if (result.status === "not_configured") {
@@ -113,56 +103,11 @@ export function PercussionsForm() {
                 autoComplete="tel"
                 type="tel"
               />
-              <LineField
-                id="percussions-email"
-                label={f.email}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                error={errors.email}
-                autoComplete="email"
-                type="email"
-              />
-              <LineSelect
-                id="percussions-day"
-                label={copy.dayLabel}
-                value={day}
-                onChange={(e) => setDay(e.target.value)}
-              >
-                <option value="">{copy.dayPlaceholder}</option>
-                {copy.days.map((item) => (
-                  <option key={item.value} value={item.value}>
-                    {item.label}
-                  </option>
-                ))}
-              </LineSelect>
             </div>
 
-            <div className="mt-5">
-              <LineTextarea
-                id="percussions-message"
-                label={copy.experience}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                rows={4}
-              />
+            <div className="mt-6">
+              <ConsentCheck id="percussions-consent" checked={consent} onChange={setConsent} error={errors.consent} />
             </div>
-
-            <label className="mt-6 flex cursor-pointer items-start gap-3 text-sm text-cream/70">
-              <input
-                type="checkbox"
-                name="consent"
-                className="mt-1 h-4 w-4 accent-mint"
-                checked={consent}
-                onChange={(e) => setConsent(e.target.checked)}
-                aria-invalid={errors.consent ? true : undefined}
-              />
-              <span>{f.consent}</span>
-            </label>
-            {errors.consent ? (
-              <p className="mt-1.5 text-sm text-red-400" role="alert">
-                {errors.consent}
-              </p>
-            ) : null}
 
             <Button type="submit" className="mt-8 w-full py-4 sm:w-auto sm:px-10" disabled={pending}>
               {pending ? f.sending : copy.submit}

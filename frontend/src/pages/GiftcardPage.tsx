@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GIFTCARD_EXPERIENCE, GIFTCARD_PLANS, GIFTCARD_STEPS, type GiftcardPlanId } from "../data/giftcard";
+import { GIFTCARD_EXPERIENCE, GIFTCARD_PLANS, type GiftcardPlanId } from "../data/giftcard";
 import { useGiftcard } from "../content/useCopy";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { scrollToId } from "../hooks/useLenis";
@@ -13,6 +13,10 @@ function scrollToForm() {
   scrollToId("giftcard-form");
 }
 
+/** Пока нет отдельных фото — один и тот же файл на обе стороны. */
+const CERT_FRONT = "/assets/img/giftcard/real-cert.webp";
+const CERT_BACK = "/assets/img/giftcard/real-cert.webp";
+
 export function GiftcardPage() {
   const copy = useGiftcard();
   const [openFaq, setOpenFaq] = useState(0);
@@ -22,7 +26,6 @@ export function GiftcardPage() {
 
   const plans = GIFTCARD_PLANS.map((item) => ({ ...item, ...copy.plans[item.id] }));
   const experience = GIFTCARD_EXPERIENCE.map((step, i) => ({ num: step.num, ...copy.experience[i] }));
-  const steps = GIFTCARD_STEPS.map((step, i) => ({ num: step.num, ...copy.steps[i] }));
 
   return (
     <>
@@ -38,7 +41,7 @@ export function GiftcardPage() {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.42)_0%,rgba(7,10,8,0.2)_40%,rgba(7,10,8,0.92)_100%)]" />
         </div>
 
-        <div className="container-site relative z-10 grid min-h-[88svh] items-end gap-10 pb-16 pt-32 xl:grid-cols-[minmax(0,1fr)_minmax(18rem,22rem)] xl:pb-20">
+        <div className="container-site relative z-10 grid min-h-[88svh] items-end gap-10 pb-16 pt-32 xl:grid-cols-[minmax(0,1fr)_minmax(22rem,30rem)] xl:items-center xl:pb-20">
           <div className="min-w-0">
             <p className="inline-flex rounded-full border border-mint/45 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-mint">
               {copy.heroKicker}
@@ -57,13 +60,31 @@ export function GiftcardPage() {
             <p className="mt-2 text-sm text-cream/50">{copy.noExperience}</p>
           </div>
 
-          <Reveal delay={80}>
-            <Photo
-              src="/assets/img/giftcard/real-cert.webp"
-              alt={copy.certAlt}
-              sizes="(min-width: 1280px) 22rem, (min-width: 768px) 40vw, 100vw"
-              className="w-full max-w-sm rounded-[1.4rem] object-cover shadow-[0_24px_60px_-20px_rgba(0,0,0,0.65)] xl:max-w-none"
-            />
+          <Reveal delay={80} className="mx-auto w-full max-w-md xl:max-w-none">
+            <div className="relative px-1">
+              <figure className="relative z-0 ml-auto w-[84%] origin-top-right rotate-[5deg]">
+                <Photo
+                  src={CERT_BACK}
+                  alt={`${copy.certBack}. ${copy.certAlt}`}
+                  sizes="(min-width: 1280px) 24rem, 80vw"
+                  className="aspect-[1400/904] w-full rounded-[1.25rem] object-cover shadow-[0_22px_50px_-24px_rgba(0,0,0,0.85)] ring-1 ring-white/15 brightness-75"
+                />
+                <figcaption className="absolute right-3 top-3 rounded-full bg-void/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-cream backdrop-blur-sm">
+                  {copy.certBack}
+                </figcaption>
+              </figure>
+              <figure className="relative z-10 -mt-[34%] w-[84%] origin-bottom-left -rotate-[4deg]">
+                <Photo
+                  src={CERT_FRONT}
+                  alt={`${copy.certFront}. ${copy.certAlt}`}
+                  sizes="(min-width: 1280px) 24rem, 80vw"
+                  className="aspect-[1400/904] w-full rounded-[1.25rem] object-cover shadow-[0_28px_60px_-18px_rgba(0,0,0,0.75)] ring-1 ring-white/20"
+                />
+                <figcaption className="absolute bottom-3 left-3 rounded-full border border-mint/40 bg-void/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-mint backdrop-blur-sm">
+                  {copy.certFront}
+                </figcaption>
+              </figure>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -187,33 +208,6 @@ export function GiftcardPage() {
               className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
             />
           </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="giftcard-steps-title">
-        <div className="container-site">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.stepsKicker}</p>
-            <h2
-              id="giftcard-steps-title"
-              className="mt-4 max-w-[14ch] font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
-            >
-              {copy.stepsTitle}
-            </h2>
-            <p className="mt-4 max-w-xl text-cream/55">{copy.stepsLead}</p>
-          </Reveal>
-          <ol className="mt-14 divide-y divide-white/8 border-y border-white/8">
-            {steps.map((step, i) => (
-              <Reveal key={step.num} as="li" delay={i * 50} className="grid gap-4 py-8 sm:grid-cols-[7rem_1fr]">
-                <span className="font-display text-sm tracking-[0.22em] text-mint">{step.num}</span>
-                <div>
-                  <h3 className="font-display text-2xl font-semibold sm:text-3xl">{step.title}</h3>
-                  <p className="mt-3 max-w-2xl text-cream/60">{step.text}</p>
-                </div>
-              </Reveal>
-            ))}
-          </ol>
-          <p className="mt-10 text-sm uppercase tracking-[0.16em] text-cream/40">{copy.stepsFor}</p>
         </div>
       </section>
 

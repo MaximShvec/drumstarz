@@ -25,7 +25,7 @@ export type TrainersCopy = {
 const lv: TrainersCopy = {
   metaTitle: "Pasniedzēji — DRUMSTARZ bungu skola Rīgā",
   metaDescription:
-    "Deviņi aktīvi bundzinieki-mūziķi DRUMSTARZ Rīgā: Andrejs, Arturs, Edgars, Fjodors, Patriks, Rudolfs, Valerijs, Vladislavs, Alberts. Foto, video un pieraksts uz bezmaksas izmēģinājuma nodarbību.",
+    "Astoņi aktīvi bundzinieki-mūziķi DRUMSTARZ Rīgā: Andrejs, Arturs, Edgars, Patriks, Rudolfs, Valerijs, Vladislavs, Alberts. Foto, video un pieraksts uz bezmaksas izmēģinājuma nodarbību.",
   kicker: "Mūsu pasniedzēji",
   title: "Iepazīstieties",
   titleLine2: "ar pasniedzējiem",
@@ -46,7 +46,6 @@ const lv: TrainersCopy = {
     andrejs: "Mierīgi izkārto sarežģītu ritmu pa plauktiņiem — un pēkšņi rokas sāk saprast galvu.",
     arturs: "Par precizitāti bez garlaicības: palīdzēs savaldīt metronomu un atstāt spēlē dzīvu draivu.",
     edgars: "Meklē raksturu katrā partijā — no klusa groova līdz lielam skatuves sitienam.",
-    fjodors: "Uzlādē ar enerģiju tā, ka pat koordinācijas vingrinājums skan kā koncerta sākums.",
     patriks: "Saliek tehniku, spēku un labu gaumi vienā pārliecinātā groovā — bez liekas steigas.",
     rudolfs: "Parādīs, kā spēlēt brīvāk, drosmīgāk un ar raksturu — un kāpēc pauze arī ir mūzikas daļa.",
     valerijs: "Pieredze, miers un precīza dzirde: prot sarežģīto izstāstīt vienkārši un atbalstīt īstajā brīdī.",
@@ -59,7 +58,7 @@ const lv: TrainersCopy = {
 const ru: TrainersCopy = {
   metaTitle: "Преподаватели — DRUMSTARZ школа барабанов в Риге",
   metaDescription:
-    "Девять действующих музыкантов-барабанщиков DRUMSTARZ в Риге: Andrejs, Arturs, Edgars, Fjodors, Patriks, Rudolfs, Valerijs, Vladislavs, Alberts. Фото, видео и запись на бесплатный пробный урок.",
+    "Восемь действующих музыкантов-барабанщиков DRUMSTARZ в Риге: Andrejs, Arturs, Edgars, Patriks, Rudolfs, Valerijs, Vladislavs, Alberts. Фото, видео и запись на бесплатный пробный урок.",
   kicker: "Наши преподаватели",
   title: "Познакомьтесь",
   titleLine2: "с преподавателями",
@@ -80,7 +79,6 @@ const ru: TrainersCopy = {
     andrejs: "Спокойно раскладывает сложный ритм по полочкам — и внезапно руки начинают понимать голову.",
     arturs: "За точность без скуки: поможет приручить метроном и оставить в игре живой драйв.",
     edgars: "Любит искать характер в каждой партии — от тихого грува до большого сценического удара.",
-    fjodors: "Заряжает энергией так, что даже упражнение на координацию звучит как начало концерта.",
     patriks: "Собирает технику, мощь и хороший вкус в один уверенный грув — без лишней суеты.",
     rudolfs: "Покажет, как играть свободнее, смелее и с характером — и почему пауза тоже часть музыки.",
     valerijs: "Опыт, спокойствие и точный слух: умеет объяснить сложное просто и поддержать в нужный момент.",
@@ -93,7 +91,7 @@ const ru: TrainersCopy = {
 const en: TrainersCopy = {
   metaTitle: "Teachers — DRUMSTARZ drum school in Riga",
   metaDescription:
-    "Nine working drummer-musicians at DRUMSTARZ in Riga: Andrejs, Arturs, Edgars, Fjodors, Patriks, Rudolfs, Valerijs, Vladislavs, Alberts. Photos, videos and a free trial lesson.",
+    "Eight working drummer-musicians at DRUMSTARZ in Riga: Andrejs, Arturs, Edgars, Patriks, Rudolfs, Valerijs, Vladislavs, Alberts. Photos, videos and a free trial lesson.",
   kicker: "Our teachers",
   title: "Meet",
   titleLine2: "the teachers",
@@ -114,7 +112,6 @@ const en: TrainersCopy = {
     andrejs: "Calmly unpacks a complex groove — and suddenly the hands start catching up with the head.",
     arturs: "Precision without boredom: he’ll tame the metronome and keep the live drive in your playing.",
     edgars: "Looks for character in every part — from a quiet groove to a big stage hit.",
-    fjodors: "Charges the room so even a coordination exercise sounds like the start of a concert.",
     patriks: "Puts technique, power and good taste into one confident groove — no fuss.",
     rudolfs: "Shows how to play freer, bolder and with character — and why silence is part of the music too.",
     valerijs: "Experience, calm and a sharp ear: he explains the hard stuff simply and backs you at the right moment.",

@@ -7,6 +7,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru" />
     <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -15,6 +16,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/trainers" />
     <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/trainers" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/trainers" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -23,6 +25,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/contacts" />
     <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/contacts" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/contacts" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -31,6 +34,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/percussions" />
     <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/percussions" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/percussions" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -39,6 +43,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/events" />
     <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/events" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/events" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -47,6 +52,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/kids" />
     <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/kids" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/kids" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -55,6 +61,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/giftcard" />
     <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/giftcard" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/giftcard" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -63,6 +70,43 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/camp" />
     <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/camp" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/camp" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/cookies" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/cookies" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/cookies" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/privacy" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/privacy" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/terms</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/terms" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/terms" />
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://drumstarz.vercel.app/jaunumi</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://drumstarz.vercel.app/jaunumi" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://drumstarz.vercel.app/ru/novosti" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://drumstarz.vercel.app/en/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drumstarz.vercel.app/jaunumi" />
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

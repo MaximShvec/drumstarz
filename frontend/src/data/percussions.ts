@@ -2,7 +2,7 @@ export const PERCUSSION_PLANS = [
   { name: "Single", meta: "1 урок", unit: "30", ribbon: null, featured: false },
   { name: "Starter", meta: "95 € / 4 урока", unit: "23.75", ribbon: null, featured: false },
   { name: "Expert", meta: "245 € / 12 уроков", unit: "20.42", ribbon: "Хит продаж", featured: true },
-  { name: "Premium", meta: "450 € / 24 урока", unit: "18.45", ribbon: "Лучшая цена", featured: false },
+  { name: "Premium", meta: "450 € / 24 урока", unit: "18.75", ribbon: "Лучшая цена", featured: false },
 ] as const;
 
 export const PERCUSSION_INSTRUMENTS = ["Джембе", "Конги", "Кахон", "Шейкеры", "Другие перкуссионные"] as const;

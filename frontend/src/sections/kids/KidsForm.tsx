@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Reveal } from "../../components/Reveal";
 import { Photo } from "../../components/media/Photo";
+import { ConsentCheck } from "../../components/legal/ConsentCheck";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
 import { useKids } from "../../content/useCopy";
@@ -72,7 +73,7 @@ export function KidsForm() {
       aria-labelledby="kids-booking-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        <Photo src="/assets/img/kids/gallery-main-three-girls.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-cover" />
+        <Photo src="/assets/img/kids/real-05.jpg" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-contain" />
         <div className="absolute inset-0 bg-void/80" />
       </div>
 
@@ -153,22 +154,9 @@ export function KidsForm() {
                 rows={4}
               />
             </div>
-            <label className="mt-6 flex cursor-pointer items-start gap-3 text-sm text-cream/70">
-              <input
-                type="checkbox"
-                name="consent"
-                className="mt-1 h-4 w-4 accent-mint"
-                checked={consent}
-                onChange={(e) => setConsent(e.target.checked)}
-                aria-invalid={errors.consent ? true : undefined}
-              />
-              <span>{f.consentTerms}</span>
-            </label>
-            {errors.consent ? (
-              <p className="mt-1.5 text-sm text-red-400" role="alert">
-                {errors.consent}
-              </p>
-            ) : null}
+            <div className="mt-6">
+              <ConsentCheck id="kids-consent" checked={consent} onChange={setConsent} error={errors.consent} />
+            </div>
             <Button type="submit" className="mt-8 w-full py-4" disabled={pending}>
               {pending ? f.sending : f.submit}
             </Button>

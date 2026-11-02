@@ -1,0 +1,81 @@
+PRIVACY POLICY
+
+Last updated: 30 October 2026
+
+1. Data controller
+
+The controller of personal data relating to visitors to drumstarz.lv and applicants for a free lesson is DRUMSTARZ BALTIC SIA, registration number 40203242123, registered address: Jūrmalas gatve 100 k-2 - 78, Rīga, LV-1029, Latvia (“we”, “us”).
+
+For questions about personal data or to exercise your rights, contact drumstarz.riga@gmail.com. You may also write to our registered address.
+
+2. Data we process
+
+When applying for a free lesson, you provide your telephone number and email address. We also process information you provide in subsequent communications and information about handling your application and arranging the lesson.
+
+To operate and secure the website, the infrastructure we use may record your IP address, request time, technical browser and device information, and error logs. Cookies are addressed in our separate Cookie Policy.
+
+Please do not provide your personal identification number, health information or other sensitive information that is unnecessary for handling your application.
+
+3. Purposes and legal bases
+
+We use your information to handle your application, contact you, arrange the free lesson and send related operational messages. The legal basis is taking steps at your request before entering into a contract and providing the requested lesson: Article 6(1)(b) of the General Data Protection Regulation (GDPR).
+
+Website security, preventing misuse and, where necessary, establishing or defending legal claims are based on our legitimate interests under Article 6(1)(f) GDPR. We assess these interests against your rights and interests.
+
+Where processing is required by a specific legal obligation, the basis is Article 6(1)(c) GDPR.
+
+Submitting an application does not constitute consent to advertising. You may separately and voluntarily consent to annual school offers by email. The basis is Article 6(1)(a) GDPR. Refusal does not affect the free lesson. You may withdraw consent through the unsubscribe link in a message or by emailing drumstarz.riga@gmail.com; promotional messages stop after withdrawal.
+
+Once Google Analytics and Meta Pixel are connected, website usage data, browser identifiers, device and interaction information may be shared with Google and Meta for statistics and advertising measurement only with the relevant consent under Article 6(1)(a) GDPR. Analytics and marketing tracking remain disabled before consent. See the Cookie Policy for details.
+
+4. Providing your information
+
+Applying is voluntary. Your telephone number and email address are required to process the application and arrange the lesson. Without them, we cannot handle an application through this form.
+
+5. Who may receive your data
+
+Within the company, only the company owner and customer service manager have access to applications.
+
+Garmtech hosts the website and Google provides email services. Applications and correspondence may be received by email and Facebook. Depending on the channel used, Google and Meta process data when providing their services, including under their own privacy policies. Information needed for subsequent tuition may be used in internal customer records; the software name does not affect your rights.
+
+Once Google Analytics, Google Maps and Meta Pixel are connected, Google and Meta may receive technical data in accordance with your choices and the Cookie Policy. Website maintenance providers have access only to the information necessary for their tasks, subject to appropriate data protection obligations.
+
+Information may be disclosed to public authorities where required by law and to professional advisers where necessary to protect legal interests. We do not sell personal data.
+
+6. Where data is processed
+
+Using Google and Meta may involve processing outside the European Economic Area, including in the United States. International transfers use mechanisms provided by the GDPR: a European Commission adequacy decision where it covers the particular recipient, or Standard Contractual Clauses and any necessary supplementary measures.
+
+Google transfer information: https://policies.google.com/privacy/frameworks. Meta information: https://www.facebook.com/privacy/policy/. You may request a description and, where applicable, a copy of the relevant safeguards at drumstarz.riga@gmail.com. The services’ own privacy policies also apply when you use Facebook and Google.
+
+7. Retention
+
+Applications and related correspondence in email and Facebook are deleted no later than 6 months after the application is closed or the last communication about it. Applications may be deleted earlier if the applicant does not respond or declines a lesson. Without separate consent, we do not keep closed applications for future advertising.
+
+With separate consent to annual offers, we retain the email address, consent details and minimum information needed for those messages until consent is withdrawn or the mailing programme ends. We review the need for retention annually. A subscription does not mean that the entire original application and correspondence are kept indefinitely.
+
+If you become a customer, information needed for tuition is retained during the customer relationship. Afterwards it is deleted, except where retention is required by law or necessary for specific legal claims, limited to the necessary information and applicable period.
+
+After an unsubscribe request, we may retain a minimal suppression record to prevent further advertising. Consent evidence is retained only to the extent and for the period necessary to demonstrate compliance and protect specific legal claims.
+
+Technical logs are retained within the infrastructure’s log rotation cycle while needed to detect and investigate failures or misuse. Records relating to a specific incident may be retained until it is resolved. Cookies are addressed in the Cookie Policy.
+
+8. Your rights
+
+Subject to the conditions in the GDPR, you may request access, correction, erasure, restriction of processing and data portability, and object to processing based on legitimate interests.
+
+Where processing relies on consent, you may withdraw it at any time. Withdrawal does not affect the lawfulness of processing carried out beforehand.
+
+Send requests to drumstarz.riga@gmail.com. We normally respond within one month. Where legally permitted, this period may be extended and we will inform you. We may request information necessary to verify your identity.
+
+You may lodge a complaint with Latvia’s Data State Inspectorate, Datu valsts inspekcija, at www.dvi.gov.lv, or with the competent supervisory authority where you live.
+
+9. Children and automated decisions
+
+A parent or legal guardian should submit applications for a child’s lesson using their own contact details. Please provide information about the child only where necessary.
+
+We do not make decisions on applications based solely on automated processing that produce legal or similarly significant effects.
+
+10. Updates
+
+The current version is available on drumstarz.lv. If processing changes materially, we will provide appropriate information and obtain fresh consent where required.

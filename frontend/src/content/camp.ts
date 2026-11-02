@@ -66,14 +66,14 @@ export type CampCopy = {
 const lv: CampCopy = {
   metaTitle: "DRUMSTARZ bungu nometne — vasaras nometne bērniem 7–15 gadi",
   metaDescription:
-    "DRUMSTARZ bungu nometne, 2026. gada 5.–10. jūlijs: bungas, mūzika, sports un jauni draugi dabā 40 km no Rīgas. Bērni 7–15 gadi, 470 € par nedēļu, ēdināšana un transfers iekļauti.",
+    "DRUMSTARZ bungu nometne, : bungas, mūzika, sports un jauni draugi dabā 40 km no Rīgas. Bērni 7–15 gadi, 470 € par nedēļu, ēdināšana un transfers iekļauti.",
   heroKicker: "Vasaras nometne · 6 dienas pie ezera",
   heroTitle: "Drumstarz bungu nometne",
   heroLead:
     "Nedēļa prom no ierastās rutīnas: bungas, mūzika, sports un jauni draugi — īstā skatuvē meža un ezeru vidū 40 km no Rīgas. Iepriekšēja muzikālā pieredze nav svarīga.",
   cta: "Pierakstīties nometnē",
   factsTitle: "Īsumā par nometni",
-  facts: { dates: "2026. gada 5.–10. jūlijs", age: "7–15 gadi", location: "«Turbas», Turkalne, Ogres nov." },
+  facts: { dates: "", age: "7–15 gadi", location: "«Turbas», Turkalne, Ogres nov." },
   factLabels: { dates: "Datumi", age: "Vecums", location: "Vieta" },
   perStay: "par 6 dienām / 5 naktīm",
   introKicker: "Bungas, mūzika, draudzība",
@@ -104,7 +104,7 @@ const lv: CampCopy = {
   locationPitch: "Bungas, mūzika, sports, garda ēdienreize četras reizes dienā, jauni draugi un neaizmirstamas emocijas",
   mapCta: "Skatīt kartē",
   locLabels: { dates: "Datumi", age: "Vecums", meals: "Ēdināšana", address: "Adrese" },
-  locValues: { dates: "2026. gada 5.–10. jūlijs", age: "7–15 gadi", meals: "4 reizes dienā" },
+  locValues: { dates: "", age: "7–15 gadi", meals: "4 reizes dienā" },
   included: [
     { title: "Naktsmītne", text: "Nedēļa «Turbas» teritorijā — 6 dienas / 5 naktis." },
     { title: "Ēdināšana", text: "Četras reizes dienā." },
@@ -115,11 +115,11 @@ const lv: CampCopy = {
   faqTitle: "Biežākie jautājumi",
   cardKicker: "Vasaras nometne",
   cardTitle: "470 € par visu nedēļu",
-  cardLines: ["2026. gada 5.–10. jūlijs · bērni 7–15 gadi", "Naktsmītne un 4 ēdienreizes", "Autobuss no Šarlotes 18a, Rīga"],
+  cardLines: ["Bērni 7–15 gadi", "Naktsmītne un 4 ēdienreizes", "Autobuss no Šarlotes 18a, Rīga"],
   days: [
     {
       day: "1. diena",
-      date: "Svētdiena, 5. jūlijs — iebraukšana",
+      date: "Svētdiena — iebraukšana",
       note: null,
       items: [
         { time: "15:00", text: "Autobuss no bungu skolas (Šarlotes 18a)" },
@@ -133,7 +133,7 @@ const lv: CampCopy = {
     },
     {
       day: "2. diena",
-      date: "Pirmdiena, 6. jūlijs",
+      date: "Pirmdiena",
       note: "Dienas pamata ritms, kopīgs visām nometnes darba dienām:",
       items: [
         { time: "09:00", text: "Celšanās, higiēna" },
@@ -153,7 +153,7 @@ const lv: CampCopy = {
     },
     {
       day: "3. diena",
-      date: "Otrdiena, 7. jūlijs",
+      date: "Otrdiena",
       note: "09:00–16:00 — kopīgais dienas ritms, tāpat kā iepriekšējā dienā. Tālāk:",
       items: [
         { time: "16:40", text: "Komandu spēle «Meža kaķis un Tarzāns»" },
@@ -165,7 +165,7 @@ const lv: CampCopy = {
     },
     {
       day: "4. diena",
-      date: "Trešdiena, 8. jūlijs",
+      date: "Trešdiena",
       note: "09:00–16:00 — kopīgais dienas ritms. Tālāk:",
       items: [
         { time: "14:00", text: "Sagatavošanās koncertam vecākiem" },
@@ -176,7 +176,7 @@ const lv: CampCopy = {
     },
     {
       day: "5. diena",
-      date: "Ceturtdiena, 9. jūlijs",
+      date: "Ceturtdiena",
       note: "09:00–16:00 — kopīgais dienas ritms. Vakarā — nedēļas galvenais notikums:",
       items: [
         { time: "16:40", text: "Pēdējā sagatavošanās koncertam" },
@@ -186,7 +186,7 @@ const lv: CampCopy = {
     },
     {
       day: "6. diena",
-      date: "Piektdiena, 10. jūlijs — izbraukšana",
+      date: "Piektdiena — izbraukšana",
       note: null,
       items: [
         { time: "10:00", text: "Brokastis" },
@@ -216,7 +216,7 @@ const lv: CampCopy = {
     kicker: "Atlicis precizēt detaļas",
     title: "Pierakstīties nometnē",
     lead: "Atstājiet pieteikumu — precizēsim brīvās vietas un visus iebraukšanas jautājumus.",
-    bullets: ["2026. gada 5.–10. jūlijs", "Bērni 7–15 gadi", "470 € par nedēļu · ēdināšana un transfers iekļauti"],
+    bullets: ["6 dienas", "Bērni 7–15 gadi", "470 € par nedēļu · ēdināšana un transfers iekļauti"],
     formKicker: "Pieteikums nometnei",
     formTitle: "Vecāka kontakti",
     formLead: "Vārds, tālrunis un e-pasts ir obligāti. Bērna vecumu var norādīt uzreiz.",
@@ -230,14 +230,14 @@ const lv: CampCopy = {
 const ru: CampCopy = {
   metaTitle: "Барабанный лагерь Drumstarz — летний лагерь для детей 7–15 лет",
   metaDescription:
-    "Барабанный лагерь DRUMSTARZ, 5–10 июля 2026: барабаны, музыка, спорт и новые друзья на природе в 40 км от Риги. Дети 7–15 лет, 470 € за неделю, питание и трансфер включены.",
+    "Барабанный лагерь DRUMSTARZ, : барабаны, музыка, спорт и новые друзья на природе в 40 км от Риги. Дети 7–15 лет, 470 € за неделю, питание и трансфер включены.",
   heroKicker: "Летний лагерь · 6 дней у озера",
   heroTitle: "Барабанный лагерь Drumstarz",
   heroLead:
     "Неделя вдали от привычной рутины: барабаны, музыка, спорт и новые друзья — на настоящей сцене посреди леса и озёр в 40 км от Риги. Предыдущий музыкальный опыт не важен.",
   cta: "Записаться в лагерь",
   factsTitle: "Коротко о лагере",
-  facts: { dates: "5–10 июля 2026", age: "7–15 лет", location: "«Turbas», Turkalne, Ogres nov." },
+  facts: { dates: "", age: "7–15 лет", location: "«Turbas», Turkalne, Ogres nov." },
   factLabels: { dates: "Даты", age: "Возраст", location: "Локация" },
   perStay: "за 6 дней / 5 ночей",
   introKicker: "Барабаны, музыка, дружба",
@@ -268,7 +268,7 @@ const ru: CampCopy = {
   locationPitch: "Игра на барабанах, музыка, спорт, вкусная еда четыре раза в день, новые друзья и незабываемые эмоции",
   mapCta: "Посмотреть на карте",
   locLabels: { dates: "Даты", age: "Возраст", meals: "Питание", address: "Адрес" },
-  locValues: { dates: "5–10 июля 2026", age: "7–15 лет", meals: "4 раза в день" },
+  locValues: { dates: "", age: "7–15 лет", meals: "4 раза в день" },
   included: [
     { title: "Проживание", text: "Неделя на территории «Turbas» — 6 дней / 5 ночей." },
     { title: "Питание", text: "Четыре раза в день." },
@@ -279,11 +279,11 @@ const ru: CampCopy = {
   faqTitle: "Частые вопросы",
   cardKicker: "Летний лагерь",
   cardTitle: "470 € за всю неделю",
-  cardLines: ["5–10 июля 2026 · дети 7–15 лет", "Проживание и 4-разовое питание", "Автобус от Šarlotes 18a, Rīga"],
+  cardLines: ["дети 7–15 лет", "Проживание и 4-разовое питание", "Автобус от Šarlotes 18a, Rīga"],
   days: [
     {
       day: "День 1",
-      date: "Воскресенье, 5 июля — заезд",
+      date: "Воскресенье — заезд",
       note: null,
       items: [
         { time: "15:00", text: "Автобус от барабанной школы (Šarlotes 18a)" },
@@ -297,7 +297,7 @@ const ru: CampCopy = {
     },
     {
       day: "День 2",
-      date: "Понедельник, 6 июля",
+      date: "Понедельник",
       note: "Базовый распорядок дня, общий для всех будних дней лагеря:",
       items: [
         { time: "09:00", text: "Подъём, гигиена" },
@@ -317,7 +317,7 @@ const ru: CampCopy = {
     },
     {
       day: "День 3",
-      date: "Вторник, 7 июля",
+      date: "Вторник",
       note: "09:00–16:00 — общий распорядок дня, как и накануне. Дальше:",
       items: [
         { time: "16:40", text: "Командная игра «Лесной кот и Тарзан»" },
@@ -329,7 +329,7 @@ const ru: CampCopy = {
     },
     {
       day: "День 4",
-      date: "Среда, 8 июля",
+      date: "Среда",
       note: "09:00–16:00 — общий распорядок дня. Дальше:",
       items: [
         { time: "14:00", text: "Подготовка к концерту для родителей" },
@@ -340,7 +340,7 @@ const ru: CampCopy = {
     },
     {
       day: "День 5",
-      date: "Четверг, 9 июля",
+      date: "Четверг",
       note: "09:00–16:00 — общий распорядок дня. Вечером — главное событие недели:",
       items: [
         { time: "16:40", text: "Финальная подготовка к концерту" },
@@ -350,7 +350,7 @@ const ru: CampCopy = {
     },
     {
       day: "День 6",
-      date: "Пятница, 10 июля — отъезд",
+      date: "Пятница — отъезд",
       note: null,
       items: [
         { time: "10:00", text: "Завтрак" },
@@ -380,7 +380,7 @@ const ru: CampCopy = {
     kicker: "Осталось уточнить детали",
     title: "Записаться в лагерь",
     lead: "Оставьте заявку — мы уточним свободные места и все детали заезда.",
-    bullets: ["5–10 июля 2026", "Дети 7–15 лет", "470 € за неделю · питание и трансфер включены"],
+    bullets: ["6 дней", "Дети 7–15 лет", "470 € за неделю · питание и трансфер включены"],
     formKicker: "Заявка в лагерь",
     formTitle: "Контакты родителя",
     formLead: "Имя, телефон и почта — обязательны. Возраст ребёнка можно указать сразу.",
@@ -394,14 +394,14 @@ const ru: CampCopy = {
 const en: CampCopy = {
   metaTitle: "DRUMSTARZ drum camp — summer camp for kids 7–15",
   metaDescription:
-    "DRUMSTARZ drum camp, 5–10 July 2026: drums, music, sport and new friends in nature 40 km from Riga. Ages 7–15, 470 € per week, meals and transfer included.",
+    "DRUMSTARZ drum camp, : drums, music, sport and new friends in nature 40 km from Riga. Ages 7–15, 470 € per week, meals and transfer included.",
   heroKicker: "Summer camp · 6 days by the lake",
   heroTitle: "Drumstarz drum camp",
   heroLead:
     "A week away from the usual routine: drums, music, sport and new friends — on a real stage among forest and lakes 40 km from Riga. Previous musical experience doesn’t matter.",
   cta: "Book the camp",
   factsTitle: "Camp in brief",
-  facts: { dates: "5–10 July 2026", age: "7–15 years", location: "«Turbas», Turkalne, Ogres nov." },
+  facts: { dates: "", age: "7–15 years", location: "«Turbas», Turkalne, Ogres nov." },
   factLabels: { dates: "Dates", age: "Age", location: "Location" },
   perStay: "for 6 days / 5 nights",
   introKicker: "Drums, music, friendship",
@@ -431,7 +431,7 @@ const en: CampCopy = {
   locationPitch: "Drums, music, sport, tasty meals four times a day, new friends and unforgettable emotions",
   mapCta: "View on map",
   locLabels: { dates: "Dates", age: "Age", meals: "Meals", address: "Address" },
-  locValues: { dates: "5–10 July 2026", age: "7–15 years", meals: "4 times a day" },
+  locValues: { dates: "", age: "7–15 years", meals: "4 times a day" },
   included: [
     { title: "Stay", text: "A week on the «Turbas» grounds — 6 days / 5 nights." },
     { title: "Meals", text: "Four times a day." },
@@ -442,11 +442,11 @@ const en: CampCopy = {
   faqTitle: "Common questions",
   cardKicker: "Summer camp",
   cardTitle: "470 € for the whole week",
-  cardLines: ["5–10 July 2026 · kids 7–15", "Stay and 4 meals a day", "Bus from Šarlotes 18a, Rīga"],
+  cardLines: ["kids 7–15", "Stay and 4 meals a day", "Bus from Šarlotes 18a, Rīga"],
   days: [
     {
       day: "Day 1",
-      date: "Sunday, 5 July — arrival",
+      date: "Sunday — arrival",
       note: null,
       items: [
         { time: "15:00", text: "Bus from the drum school (Šarlotes 18a)" },
@@ -460,7 +460,7 @@ const en: CampCopy = {
     },
     {
       day: "Day 2",
-      date: "Monday, 6 July",
+      date: "Monday",
       note: "The basic daily rhythm, shared by all weekday camp days:",
       items: [
         { time: "09:00", text: "Wake-up, hygiene" },
@@ -480,7 +480,7 @@ const en: CampCopy = {
     },
     {
       day: "Day 3",
-      date: "Tuesday, 7 July",
+      date: "Tuesday",
       note: "09:00–16:00 — the shared daily rhythm, same as the day before. Then:",
       items: [
         { time: "16:40", text: "Team game “Forest Cat and Tarzan”" },
@@ -492,7 +492,7 @@ const en: CampCopy = {
     },
     {
       day: "Day 4",
-      date: "Wednesday, 8 July",
+      date: "Wednesday",
       note: "09:00–16:00 — the shared daily rhythm. Then:",
       items: [
         { time: "14:00", text: "Prep for the parents’ concert" },
@@ -503,7 +503,7 @@ const en: CampCopy = {
     },
     {
       day: "Day 5",
-      date: "Thursday, 9 July",
+      date: "Thursday",
       note: "09:00–16:00 — the shared daily rhythm. In the evening — the week’s main event:",
       items: [
         { time: "16:40", text: "Final concert prep" },
@@ -513,7 +513,7 @@ const en: CampCopy = {
     },
     {
       day: "Day 6",
-      date: "Friday, 10 July — departure",
+      date: "Friday — departure",
       note: null,
       items: [
         { time: "10:00", text: "Breakfast" },
@@ -543,7 +543,7 @@ const en: CampCopy = {
     kicker: "Just a few details left",
     title: "Book the camp",
     lead: "Leave a request — we’ll check free places and all arrival details.",
-    bullets: ["5–10 July 2026", "Kids 7–15", "470 € per week · meals and transfer included"],
+    bullets: ["6 days", "Kids 7–15", "470 € per week · meals and transfer included"],
     formKicker: "Camp request",
     formTitle: "Parent contacts",
     formLead: "Name, phone and email are required. You can add the child’s age right away.",

@@ -74,7 +74,7 @@ export function Hero() {
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <Button variant="outline" className="px-8 py-4 text-base" onClick={openBooking}>
-            {copy.hero.ctaBefore} <strong className="ml-1">{copy.hero.ctaStrong}</strong>
+            {copy.hero.ctaBefore} <strong>{copy.hero.ctaStrong}</strong>
           </Button>
           <span className="text-xs uppercase tracking-[0.2em] text-cream/55">{copy.hero.scroll}</span>
         </div>

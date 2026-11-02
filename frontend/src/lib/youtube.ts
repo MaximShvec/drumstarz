@@ -7,8 +7,8 @@ export function youtubePosterSrcSet(id: string) {
   return `${youtubePoster(id, "hq")} 480w, ${youtubePoster(id, "sd")} 640w, ${youtubePoster(id, "maxres")} 1280w`;
 }
 
-export function youtubeEmbed(id: string) {
-  return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
+export function youtubeEmbed(id: string, autoplay = true) {
+  return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=${autoplay ? 1 : 0}&rel=0`;
 }
 
 export function mapsEmbed(address: string) {

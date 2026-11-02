@@ -1,5 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Reveal } from "../../components/Reveal";
+import { ConsentCheck } from "../../components/legal/ConsentCheck";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
 import { useContactsCopy } from "../../content/useCopy";
@@ -15,7 +16,8 @@ export function ContactsLead() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [errors, setErrors] = useState<{ name?: string; phone?: string; message?: string }>({});
+  const [consent, setConsent] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; message?: string; consent?: string }>({});
   const [status, setStatus] = useState("");
   const [pending, setPending] = useState(false);
 
@@ -25,12 +27,21 @@ export function ContactsLead() {
     if (!name.trim()) next.name = f.errName;
     if (!phone.trim()) next.phone = f.errPhone;
     if (!message.trim()) next.message = f.errMessage;
+    if (!consent) next.consent = f.errConsent;
     setErrors(next);
     if (Object.keys(next).length) return;
 
     setPending(true);
     setStatus("");
-    const result = await submitApplicationForm({ name, phone, email, message, source: "contacts-lead" });
+    const result = await submitApplicationForm({
+      name,
+      phone,
+      email,
+      message,
+      consent,
+      source: "contacts",
+      sourceLabel: "Контакты",
+    });
     setPending(false);
     if (result.status === "not_configured") {
       setStatus(f.notConfigured);
@@ -94,6 +105,10 @@ export function ContactsLead() {
                 error={errors.message}
                 rows={4}
               />
+            </div>
+
+            <div className="mt-6">
+              <ConsentCheck id="contacts-consent" checked={consent} onChange={setConsent} error={errors.consent} />
             </div>
 
             <Button type="submit" className="mt-8 w-full py-4 sm:w-auto sm:px-10" disabled={pending}>

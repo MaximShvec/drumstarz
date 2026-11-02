@@ -10,9 +10,12 @@ export const SITE_PAGES = [
   "/kids",
   "/giftcard",
   "/camp",
+  "/cookies",
+  "/privacy",
+  "/terms",
 ] as const;
 
-export function buildSitemap(origin: string) {
+export function buildSitemap(origin: string, lastmod = new Date().toISOString().slice(0, 10)) {
   const host = origin.replace(/\/$/, "");
   const loc = (path: string, locale: (typeof LOCALES)[number]) =>
     `${host}${localizePathname(path, locale)}`;
@@ -28,6 +31,7 @@ export function buildSitemap(origin: string) {
     return `  <url>
     <loc>${loc(path, "lv")}</loc>
 ${alternates}
+    <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
   </url>`;
   }).join("\n");

@@ -48,10 +48,21 @@ export function ContactsPage() {
       branch.slug === "first" ? Boolean(initialFloor || initialRoute) : Boolean(initialRoute);
     if (!hasTarget) return;
 
-    const timer = window.setTimeout(() => {
-      scrollToId(`branch-${initialBranch}-routes`);
-    }, 180);
-    return () => window.clearTimeout(timer);
+    const id = `branch-${initialBranch}-routes`;
+    let attempts = 0;
+    const timer = window.setInterval(() => {
+      attempts += 1;
+      const el = document.getElementById(id);
+      if (!el) {
+        if (attempts > 20) window.clearInterval(timer);
+        return;
+      }
+      const top = el.getBoundingClientRect().top;
+      const settled = top >= 70 && top <= 140;
+      if (!settled) scrollToId(id);
+      if (settled || attempts > 8) window.clearInterval(timer);
+    }, 700);
+    return () => window.clearInterval(timer);
   }, [initialBranch, initialFloor, initialRoute]);
 
   function showMap(slug: BranchSlug) {
@@ -77,11 +88,11 @@ export function ContactsPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.heroKicker}</p>
           <h1
             id="contacts-hero-title"
-            className="mt-4 max-w-[14ch] font-display text-5xl font-extrabold leading-[0.92] tracking-[-0.03em] sm:text-7xl"
+            className="mt-4 max-w-[16ch] font-display text-5xl font-extrabold leading-[0.92] tracking-[-0.03em] sm:text-7xl"
           >
             {copy.heroTitle}
             <br />
-            {copy.heroTitleLine2}
+            <span className="whitespace-nowrap">{copy.heroTitleLine2}</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-cream/70">{copy.heroLead}</p>
           <div className="mt-8 flex flex-wrap items-center gap-3">

@@ -2,6 +2,7 @@ import { useId, useState, type FormEvent } from "react";
 import { useBooking } from "../../context/BookingContext";
 import { useLocale } from "../../i18n/LocaleContext";
 import { submitApplicationForm } from "../../lib/submit";
+import { ConsentCheck } from "../legal/ConsentCheck";
 import { Button } from "../ui/Button";
 import { LineField } from "../ui/Field";
 import { Modal } from "../ui/Modal";
@@ -79,16 +80,7 @@ export function BookingModal() {
           autoComplete="tel"
           type="tel"
         />
-        <label className="flex cursor-pointer items-start gap-3 text-sm text-cream/70">
-          <input
-            type="checkbox"
-            className="mt-1 h-4 w-4 accent-mint"
-            checked={consent}
-            onChange={(e) => setConsent(e.target.checked)}
-          />
-          <span>{b.consent}</span>
-        </label>
-        {errors.consent ? <p className="text-sm text-red-400">{errors.consent}</p> : null}
+        <ConsentCheck id="booking-consent" checked={consent} onChange={setConsent} error={errors.consent} />
 
         <Button type="submit" variant="primary" className="w-full py-4" disabled={pending}>
           {pending ? b.sending : b.submit}

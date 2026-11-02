@@ -52,7 +52,7 @@ export function TrialSteps() {
               </h3>
               <p className="mt-3 max-w-lg text-sm text-cream/60">{copy.trial.ctaLead}</p>
             </div>
-            <Button variant="lime" className="px-8 py-4" onClick={openBooking}>
+            <Button variant="primary" className="px-8 py-4" onClick={openBooking}>
               {copy.trial.cta}
             </Button>
           </div>

@@ -47,9 +47,9 @@ export function TrainersPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.introKicker}</p>
             <h2
               id="trainers-intro-title"
-              className="mt-4 break-words font-display text-[2.15rem] font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl"
+              className="mt-4 font-display text-[2.15rem] font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-5xl lg:text-6xl"
             >
-              {copy.introTitle}
+              <span className="whitespace-nowrap">{copy.introTitle}</span>
               <br />
               {copy.introTitleLine2}
             </h2>

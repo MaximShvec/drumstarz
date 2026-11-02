@@ -100,7 +100,7 @@ export const PRICING = [
   {
     name: "Премиум",
     kind: "Абонемент",
-    photo: "/assets/img/events/showcase-crowd.webp",
+    photo: "/assets/img/pricing/pass.jpg",
     lessons: "24 занятия",
     discount: "-40%",
     ribbon: "Лучшая цена",

@@ -3,6 +3,7 @@ import { GIFTCARD_PLANS, type GiftcardPlanId } from "../../data/giftcard";
 import { useGiftcard } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
 import { Photo } from "../../components/media/Photo";
+import { ConsentCheck } from "../../components/legal/ConsentCheck";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
 import { useLocale } from "../../i18n/LocaleContext";
@@ -57,7 +58,8 @@ export function GiftcardForm({
       email,
       comment,
       consent,
-      source: "giftcard-form",
+      source: "giftcard",
+      sourceLabel: "Подарочная",
     });
     setPending(false);
     if (result.status === "not_configured") {
@@ -175,22 +177,9 @@ export function GiftcardForm({
                 rows={3}
               />
             </div>
-            <label className="mt-6 flex cursor-pointer items-start gap-3 text-sm text-cream/70">
-              <input
-                type="checkbox"
-                name="consent"
-                className="mt-1 h-4 w-4 accent-mint"
-                checked={consent}
-                onChange={(e) => setConsent(e.target.checked)}
-                aria-invalid={errors.consent ? true : undefined}
-              />
-              <span>{f.consentData}</span>
-            </label>
-            {errors.consent ? (
-              <p className="mt-1.5 text-sm text-red-400" role="alert">
-                {errors.consent}
-              </p>
-            ) : null}
+            <div className="mt-6">
+              <ConsentCheck id="gift-consent" checked={consent} onChange={setConsent} error={errors.consent} />
+            </div>
             <Button type="submit" className="mt-8 w-full py-4" disabled={pending}>
               {pending ? f.sending : copy.form.submit}
             </Button>

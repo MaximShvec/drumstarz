@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { useLocale } from "../../i18n/LocaleContext";
 import { BookingModal } from "../booking/BookingModal";
+import { CookieBanner } from "../legal/CookieBanner";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
@@ -15,6 +16,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <Header />
       <main id="main">{children}</main>
       <Footer />
+      <CookieBanner />
       <BookingModal />
     </>
   );

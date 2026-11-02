@@ -1,0 +1,4 @@
+Contact: mailto:drumstarz.riga@gmail.com
+Expires: 2027-09-15T00:00:00.000Z
+Preferred-Languages: lv, ru, en
+Canonical: https://drumstarz.vercel.app/.well-known/security.txt

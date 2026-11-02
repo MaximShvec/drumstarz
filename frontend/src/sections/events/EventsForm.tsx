@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Reveal } from "../../components/Reveal";
+import { ConsentCheck } from "../../components/legal/ConsentCheck";
 import { Button } from "../../components/ui/Button";
 import { LineField, LineTextarea } from "../../components/ui/Field";
 import { useEvents } from "../../content/useCopy";
@@ -123,22 +124,9 @@ export function EventsForm() {
                 rows={4}
               />
             </div>
-            <label className="mt-6 flex cursor-pointer items-start gap-3 text-sm text-cream/70">
-              <input
-                type="checkbox"
-                name="consent"
-                className="mt-1 h-4 w-4 accent-mint"
-                checked={consent}
-                onChange={(e) => setConsent(e.target.checked)}
-                aria-invalid={errors.consent ? true : undefined}
-              />
-              <span>{f.consent}</span>
-            </label>
-            {errors.consent ? (
-              <p className="mt-1.5 text-sm text-red-400" role="alert">
-                {errors.consent}
-              </p>
-            ) : null}
+            <div className="mt-6">
+              <ConsentCheck id="events-consent" checked={consent} onChange={setConsent} error={errors.consent} />
+            </div>
             <Button type="submit" className="mt-8 w-full py-4 sm:w-auto sm:px-10" disabled={pending}>
               {pending ? f.sending : f.submit}
             </Button>

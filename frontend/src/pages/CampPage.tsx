@@ -71,7 +71,9 @@ export function CampPage() {
                   [copy.factLabels.age, copy.facts.age],
                   [copy.factLabels.location, copy.facts.location],
                 ] as const
-              ).map(([label, value]) => (
+              )
+                .filter(([, value]) => value)
+                .map(([label, value]) => (
                 <div key={label} className="flex items-baseline justify-between gap-3 py-3">
                   <dt className="text-sm text-cream/45">{label}</dt>
                   <dd className="text-right font-display text-lg font-semibold leading-tight">{value}</dd>
@@ -157,7 +159,7 @@ export function CampPage() {
                       <span className="font-display text-sm tracking-[0.22em] text-mint">{String(i + 1).padStart(2, "0")}</span>
                       <span>
                         <span className="block font-display text-xl font-semibold sm:text-2xl">{day.day}</span>
-                        <span className="mt-1 block text-sm text-cream/45">{day.date}</span>
+                        {day.date ? <span className="mt-1 block text-sm text-cream/45">{day.date}</span> : null}
                       </span>
                     </span>
                     <span className="mt-1 text-mint" aria-hidden="true">
@@ -219,37 +221,36 @@ export function CampPage() {
               {copy.galleryTitle}
             </h2>
           </Reveal>
-          <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-12 md:gap-4">
-            {gallery.map((item, i) => (
-              <li
-                key={item.src}
-                className={cn(
-                  "group overflow-hidden rounded-[1.2rem]",
-                  i === 0 && "col-span-2 h-56 md:col-span-7 md:row-span-2 md:h-[480px]",
-                  i === 1 && "h-40 md:col-span-5 md:h-[232px]",
-                  i === 2 && "h-40 md:col-span-5 md:h-[232px]",
-                  i === 3 && "h-40 md:col-span-3 md:h-[210px]",
-                  i === 4 && "h-40 md:col-span-3 md:h-[210px]",
-                  i === 5 && "h-40 md:col-span-3 md:h-[210px]",
-                  i === 6 && "h-40 md:col-span-3 md:h-[210px]",
-                )}
-              >
-                <button
-                  type="button"
-                  className="relative block h-full w-full cursor-pointer"
-                  onClick={() => setGalleryIndex(i)}
-                  aria-label={`${t.common.openPhoto}: ${item.alt}`}
+          <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-6 md:gap-4">
+            {[0, 1, 2, 3, 5, 4, 6].map((i) => {
+              const item = gallery[i];
+              const aspect = i < 3 ? "aspect-[5/4]" : i === 4 ? "aspect-video" : i === 6 ? "aspect-[3/2]" : "aspect-[4/3]";
+              return (
+                <li
+                  key={item.src}
+                  className={cn(
+                    "self-start overflow-hidden rounded-[1.2rem]",
+                    i < 3 ? "md:col-span-2" : "md:col-span-3",
+                    i === 2 && "col-span-2",
+                  )}
                 >
-                  <Photo
-                    src={item.src}
-                    alt=""
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </button>
-              </li>
-            ))}
+                  <button
+                    type="button"
+                    className={cn("relative block w-full cursor-pointer", aspect)}
+                    onClick={() => setGalleryIndex(i)}
+                    aria-label={`${t.common.openPhoto}: ${item.alt}`}
+                  >
+                    <Photo
+                      src={item.src}
+                      alt=""
+                      sizes="(min-width: 768px) 33vw, 50vw"
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover object-center"
+                    />
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
@@ -278,10 +279,12 @@ export function CampPage() {
 
           <Reveal delay={80}>
             <dl className="divide-y divide-ink/10 border-y border-ink/10">
+              {copy.locValues.dates ? (
               <div className="flex items-baseline justify-between gap-4 py-5">
                 <dt className="text-sm uppercase tracking-[0.16em] text-ink/40">{copy.locLabels.dates}</dt>
                 <dd className="font-display text-xl font-semibold">{copy.locValues.dates}</dd>
               </div>
+              ) : null}
               <div className="flex items-baseline justify-between gap-4 py-5">
                 <dt className="text-sm uppercase tracking-[0.16em] text-ink/40">{copy.locLabels.age}</dt>
                 <dd className="font-display text-xl font-semibold">{copy.locValues.age}</dd>

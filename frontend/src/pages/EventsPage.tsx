@@ -29,20 +29,31 @@ export function EventsPage() {
 
   return (
     <>
-      <section className="relative isolate min-h-[88svh] overflow-hidden" aria-labelledby="events-hero-title">
-        <div className="absolute inset-0" aria-hidden="true">
-          <Photo
+      <section className="relative isolate min-h-[88svh] overflow-hidden lg:h-dvh" aria-labelledby="events-hero-title">
+        <div className="absolute inset-0 bg-void" aria-hidden="true">
+          <img
             src="/assets/img/events/hero-drummer.webp"
             alt=""
-            sizes="100vw"
+            width={962}
+            height={650}
             fetchPriority="high"
-            className="h-full w-full object-cover object-[center_20%]"
+            decoding="async"
+            className="absolute top-1/2 right-0 h-[650px] w-[962px] max-w-none -translate-y-1/2"
+            style={{
+              maskImage:
+                "linear-gradient(90deg, transparent 0%, #000 30%, #000 74%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(90deg, transparent 0%, #000 30%, #000 74%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%)",
+              maskComposite: "intersect",
+              WebkitMaskComposite: "destination-in",
+            }}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.4)_0%,rgba(7,10,8,0.18)_35%,rgba(7,10,8,0.92)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#070A08_0%,rgba(7,10,8,0.72)_22%,rgba(7,10,8,0)_48%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.35)_0%,transparent_16%,transparent_70%,rgba(7,10,8,0.88)_100%)]" />
         </div>
 
-        <div className="container-site relative z-10 flex min-h-[88svh] items-end pb-16 pt-32 lg:pb-20">
-          <div className="max-w-3xl">
+        <div className="container-site relative z-10 grid min-h-[88svh] items-end gap-10 pb-16 pt-32 lg:h-dvh xl:grid-cols-[minmax(0,1fr)_minmax(19rem,23rem)] xl:pb-20">
+          <div className="min-w-0 max-w-3xl">
             <p className="inline-flex rounded-full border border-mint/45 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-mint">
               {copy.heroKicker}
             </p>
@@ -57,6 +68,34 @@ export function EventsPage() {
               {copy.cta}
             </Button>
           </div>
+
+          <aside
+            className="min-w-0 w-full overflow-hidden rounded-[1.6rem] border border-white/10 bg-void/72 p-6 backdrop-blur-md md:p-7"
+            aria-label={copy.priceTitle}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-mint">{copy.priceLabel}</p>
+            <p className="mt-4 font-display text-4xl font-extrabold leading-none">
+              30 €
+              <span className="ml-2 text-base font-medium tracking-normal text-cream/50">{copy.perPerson}</span>
+            </p>
+            <dl className="mt-6 divide-y divide-white/8 border-y border-white/8">
+              <div className="flex items-baseline justify-between gap-3 py-3">
+                <dt className="text-sm text-cream/45">{copy.min}</dt>
+                <dd className="font-display text-2xl font-semibold">300 €</dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-3 py-3">
+                <dt className="text-sm text-cream/45">{copy.guests}</dt>
+                <dd className="font-display text-2xl font-semibold">{copy.guestsValue}</dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-3 py-3">
+                <dt className="text-sm text-cream/45">{copy.duration}</dt>
+                <dd className="font-display text-2xl font-semibold">{copy.durationValue}</dd>
+              </div>
+            </dl>
+            <Button className="mt-6 w-full py-3.5" onClick={scrollToForm}>
+              {copy.book}
+            </Button>
+          </aside>
         </div>
       </section>
 
@@ -76,7 +115,6 @@ export function EventsPage() {
               id={EVENTS_YOUTUBE_ID}
               title={copy.videoTitle}
               className="aspect-video w-full rounded-[1.6rem]"
-              poster="/assets/img/events/showcase-crowd.webp"
             />
           </Reveal>
         </div>
@@ -98,7 +136,7 @@ export function EventsPage() {
 
       <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="timeline-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <Photo src="/assets/img/events/why-bg.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-cover" />
+          <Photo src="/assets/img/events/why-bg.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-contain" />
           <div className="absolute inset-0 bg-void/82" />
         </div>
         <div className="container-site relative z-10">
@@ -181,7 +219,7 @@ export function EventsPage() {
 
       <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="why-drums-title">
         <div className="absolute inset-0" aria-hidden="true">
-          <Photo src="/assets/img/events/why-bg.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-cover" />
+          <Photo src="/assets/img/events/why-bg.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-contain" />
           <div className="absolute inset-0 bg-void/84" />
         </div>
         <div className="container-site relative z-10">
@@ -222,35 +260,31 @@ export function EventsPage() {
               {copy.galleryTitle}
             </h2>
           </Reveal>
-          <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-12 md:gap-4">
-            {gallery.map((item, i) => (
-              <li
-                key={item.src}
-                className={cn(
-                  "group overflow-hidden rounded-[1.2rem]",
-                  i === 0 && "col-span-2 h-56 md:col-span-7 md:row-span-2 md:h-[480px]",
-                  i === 1 && "h-40 md:col-span-5 md:h-[232px]",
-                  i === 2 && "h-40 md:col-span-5 md:h-[232px]",
-                  i === 3 && "col-span-2 h-44 md:col-span-8 md:h-[210px]",
-                  i === 4 && "col-span-2 h-40 md:col-span-4 md:h-[210px]",
-                )}
-              >
-                <button
-                  type="button"
-                  className="relative block h-full w-full cursor-pointer"
-                  onClick={() => setGalleryIndex(i)}
-                  aria-label={`${t.common.openPhoto}: ${item.alt}`}
+          <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-6 md:gap-4">
+            {gallery.map((item, i) => {
+              const portrait = i >= 6;
+              return (
+                <li
+                  key={item.src}
+                  className={cn("overflow-hidden rounded-[1.2rem]", portrait ? "md:col-span-3" : "md:col-span-2")}
                 >
-                  <Photo
-                    src={item.src}
-                    alt=""
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </button>
-              </li>
-            ))}
+                  <button
+                    type="button"
+                    className={cn("relative block w-full cursor-pointer", portrait ? "aspect-[3/4]" : "aspect-[3/2]")}
+                    onClick={() => setGalleryIndex(i)}
+                    aria-label={`${t.common.openPhoto}: ${item.alt}`}
+                  >
+                    <Photo
+                      src={item.src}
+                      alt=""
+                      sizes="(min-width: 768px) 33vw, 50vw"
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover object-center"
+                    />
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>

@@ -89,6 +89,8 @@ export type UiCopy = {
     date: string;
     guests: string;
     consent: string;
+    consentBefore: string;
+    consentLink: string;
     consentData: string;
     consentTerms: string;
     submit: string;
@@ -133,10 +135,10 @@ const lv: UiCopy = {
   homeAria: "DRUMSTARZ RIGA — uz sākumu",
   navAria: "Galvenā navigācija",
   navMobileAria: "Galvenā navigācija (mobilā)",
-  extras: "Ekstras",
-  book: "Pierakstīties",
-  bookFree: "Pierakstīties uz bezmaksas nodarbību",
-  bookFreeStrong: "bezmaksas nodarbību",
+  extras: "Papildu iespējas",
+  book: "Pieteikties",
+  bookFree: "Pierakstīties bezmaksai nodarbībai",
+  bookFreeStrong: "bezmaksai nodarbībai",
   whatsappAria: "Rakstīt WhatsApp",
   openMenu: "Atvērt izvēlni",
   closeMenu: "Aizvērt izvēlni",
@@ -190,9 +192,9 @@ const lv: UiCopy = {
   },
   booking: {
     kicker: "Izmēģinājuma nodarbība",
-    titleBefore: "Pierakstīties uz ",
-    titleAccent: "bezmaksas",
-    titleAfter: " nodarbību",
+    titleBefore: "Pierakstīties ",
+    titleAccent: "bezmaksai",
+    titleAfter: " nodarbībai",
     lead: "Atstājiet pieteikumu — palīdzēsim spert pirmo soli mūzikā!",
     name: "Vārds",
     phone: "Tālruņa numurs",
@@ -217,6 +219,8 @@ const lv: UiCopy = {
     date: "Vēlamais datums",
     guests: "Viesu skaits un vēlmes",
     consent: "Esmu iepazinies ar lietošanas noteikumiem",
+    consentBefore: "Esmu iepazinies ar",
+    consentLink: "lietošanas noteikumiem",
     consentData: "Piekrītu personas datu apstrādei",
     consentTerms: "Piekrītu datu apstrādei un servisa noteikumiem.",
     submit: "Nosūtīt pieteikumu",
@@ -345,6 +349,8 @@ const ru: UiCopy = {
     date: "Желаемая дата",
     guests: "Количество гостей и пожелания",
     consent: "Я ознакомился с пользовательским соглашением",
+    consentBefore: "Я ознакомился с",
+    consentLink: "пользовательским соглашением",
     consentData: "Согласен на обработку персональных данных",
     consentTerms: "Согласен на обработку данных и условия сервиса.",
     submit: "Отправить заявку",
@@ -473,6 +479,8 @@ const en: UiCopy = {
     date: "Preferred date",
     guests: "Guest count and notes",
     consent: "I have read the terms of use",
+    consentBefore: "I have read the",
+    consentLink: "terms of use",
     consentData: "I agree to the processing of personal data",
     consentTerms: "I agree to data processing and the service terms.",
     submit: "Send request",

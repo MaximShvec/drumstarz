@@ -1,5 +1,41 @@
 {
-  "rewrites": [{ "source": "/((?!robots\\.txt|sitemap\\.xml|og\\.jpg).*)", "destination": "/index.html" }],
+  "redirects": [
+    { "source": "/bungas-berniem", "destination": "/kids", "permanent": true },
+    { "source": "/bungas-pieaugusiem", "destination": "/events", "permanent": true },
+    { "source": "/cenas", "destination": "/#prices", "permanent": true },
+    { "source": "/davana", "destination": "/giftcard", "permanent": true },
+    { "source": "/konfidencialitates-politika", "destination": "/privacy", "permanent": true },
+    { "source": "/kontakti", "destination": "/contacts", "permanent": true },
+    { "source": "/lietosanas-noteikumi", "destination": "/terms", "permanent": true },
+    { "source": "/nometne", "destination": "/camp", "permanent": true },
+    { "source": "/pasniedzeji", "destination": "/trainers", "permanent": true },
+    { "source": "/perkusijas", "destination": "/percussions", "permanent": true },
+    { "source": "/faq", "destination": "/#faq", "permanent": true },
+    { "source": "/ru/barabani-detskie", "destination": "/ru/kids", "permanent": true },
+    { "source": "/ru/barabani-vzroslim", "destination": "/ru/events", "permanent": true },
+    { "source": "/ru/ceni", "destination": "/ru/#prices", "permanent": true },
+    { "source": "/ru/kontakti", "destination": "/ru/contacts", "permanent": true },
+    { "source": "/ru/lager", "destination": "/ru/camp", "permanent": true },
+    { "source": "/ru/perkussii", "destination": "/ru/percussions", "permanent": true },
+    { "source": "/ru/podarok", "destination": "/ru/giftcard", "permanent": true },
+    { "source": "/ru/politika-konfidentsialnosti", "destination": "/ru/privacy", "permanent": true },
+    { "source": "/ru/polzovatelskoe-soglashenie", "destination": "/ru/terms", "permanent": true },
+    { "source": "/ru/prepodavateli", "destination": "/ru/trainers", "permanent": true },
+    { "source": "/ru/faq", "destination": "/ru/#faq", "permanent": true },
+    { "source": "/en/for-adults", "destination": "/en/events", "permanent": true },
+    { "source": "/en/for-children", "destination": "/en/kids", "permanent": true },
+    { "source": "/en/instructors", "destination": "/en/trainers", "permanent": true },
+    { "source": "/en/prices", "destination": "/en/#prices", "permanent": true },
+    { "source": "/en/privacy-policy", "destination": "/en/privacy", "permanent": true },
+    { "source": "/en/terms-of-service", "destination": "/en/terms", "permanent": true },
+    { "source": "/en/faq", "destination": "/en/#faq", "permanent": true }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!robots\\.txt|sitemap\\.xml|og\\.jpg|humans\\.txt|llms\\.txt|site\\.webmanifest|\\.well-known/).*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

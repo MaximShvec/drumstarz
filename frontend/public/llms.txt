@@ -1,0 +1,23 @@
+# DRUMSTARZ
+
+Drum school in Riga, Latvia. Individual drum lessons, group percussion, kids parties, adult events, gift cards, and a summer camp.
+
+Default language is Latvian. Russian: /ru. English: /en.
+
+## Site
+
+- Home: https://drumstarz.vercel.app/
+- Teachers: https://drumstarz.vercel.app/trainers
+- Contacts: https://drumstarz.vercel.app/contacts
+- Percussion: https://drumstarz.vercel.app/percussions
+- Events: https://drumstarz.vercel.app/events
+- Kids: https://drumstarz.vercel.app/kids
+- Gift card: https://drumstarz.vercel.app/giftcard
+- Summer camp: https://drumstarz.vercel.app/camp
+
+## Contact
+
+- Phone / WhatsApp: +371 26 25 31 58
+- Email: drumstarz.riga@gmail.com
+- Branch 1: Šarlotes iela 18A, Rīga
+- Branch 2: Tērbatas iela 76, Rīga

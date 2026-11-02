@@ -27,18 +27,9 @@ export const TRAINERS = [
     photo: "/assets/img/trainers/edgars.webp",
   },
   {
-    id: "fjodors",
-    name: "Fjodors",
-    number: "04",
-    role: "Преподаватель DRUMSTARZ",
-    bio: "Заряжает энергией так, что даже упражнение на координацию звучит как начало концерта.",
-    youtubeId: "LkPEbsTEaOY",
-    photo: "/assets/img/trainers/fjodors.webp",
-  },
-  {
     id: "patriks",
     name: "Patriks",
-    number: "05",
+    number: "04",
     role: "Преподаватель DRUMSTARZ",
     bio: "Собирает технику, мощь и хороший вкус в один уверенный грув — без лишней суеты.",
     youtubeId: "kfQa9Brh4dQ",
@@ -47,7 +38,7 @@ export const TRAINERS = [
   {
     id: "rudolfs",
     name: "Rudolfs",
-    number: "06",
+    number: "05",
     role: "Преподаватель DRUMSTARZ",
     bio: "Покажет, как играть свободнее, смелее и с характером — и почему пауза тоже часть музыки.",
     youtubeId: "RSULXVe9w04",
@@ -56,7 +47,7 @@ export const TRAINERS = [
   {
     id: "valerijs",
     name: "Valerijs",
-    number: "07",
+    number: "06",
     role: "Преподаватель DRUMSTARZ",
     bio: "Опыт, спокойствие и точный слух: умеет объяснить сложное просто и поддержать в нужный момент.",
     youtubeId: "zzz_Klg-Dg4",
@@ -65,7 +56,7 @@ export const TRAINERS = [
   {
     id: "vladislavs",
     name: "Vladislavs",
-    number: "08",
+    number: "07",
     role: "Преподаватель DRUMSTARZ",
     bio: "Внимателен к деталям и любит крепкий фундамент — чтобы ритм держался уверенно в любой песне.",
     youtubeId: "tN-DrgQNz1g",
@@ -74,7 +65,7 @@ export const TRAINERS = [
   {
     id: "alberts",
     name: "Alberts",
-    number: "09",
+    number: "08",
     role: "Преподаватель DRUMSTARZ",
     bio: "Альберт умеет превратить сложный ритм в понятную последовательность и спокойно довести её до уверенной игры. На занятиях — внимание к технике, музыкальности и удовольствие от каждого нового результата.",
     youtubeId: "LS_IADAzZV4",

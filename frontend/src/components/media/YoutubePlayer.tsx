@@ -9,6 +9,7 @@ export function YoutubePlayer({
   className,
   poster,
   autoPlay = false,
+  embedded = false,
   sizes = "(min-width: 1024px) 40rem, 92vw",
 }: {
   id: string;
@@ -16,6 +17,7 @@ export function YoutubePlayer({
   className?: string;
   poster?: string;
   autoPlay?: boolean;
+  embedded?: boolean;
   sizes?: string;
 }) {
   const [playing, setPlaying] = useState(autoPlay);
@@ -40,7 +42,15 @@ export function YoutubePlayer({
 
   return (
     <div ref={wrapRef} className={cn("relative overflow-hidden bg-void", className)}>
-      {playing ? (
+      {embedded ? (
+        <iframe
+          className="absolute inset-0 h-full w-full"
+          src={youtubeEmbed(id, false)}
+          title={title}
+          allow="encrypted-media; picture-in-picture"
+          allowFullScreen
+        />
+      ) : playing ? (
         <iframe
           className="absolute inset-0 h-full w-full"
           src={youtubeEmbed(id)}

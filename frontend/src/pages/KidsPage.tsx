@@ -30,19 +30,30 @@ export function KidsPage() {
 
   return (
     <>
-      <section className="relative isolate min-h-[92svh]" aria-labelledby="kids-hero-title">
-        <div className="absolute inset-0" aria-hidden="true">
-          <Photo
+      <section className="relative isolate min-h-[92svh] overflow-hidden lg:h-dvh" aria-labelledby="kids-hero-title">
+        <div className="absolute inset-0 bg-void" aria-hidden="true">
+          <img
             src="/assets/img/kids/hero-child-drummer.webp"
             alt=""
-            sizes="100vw"
+            width={962}
+            height={650}
             fetchPriority="high"
-            className="h-full w-full object-cover object-[70%_top]"
+            decoding="async"
+            className="absolute top-1/2 left-1/2 h-[650px] w-[962px] max-w-none -translate-x-1/2 -translate-y-1/2"
+            style={{
+              maskImage:
+                "linear-gradient(90deg, transparent 0%, #000 22%, #000 78%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(90deg, transparent 0%, #000 22%, #000 78%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%)",
+              maskComposite: "intersect",
+              WebkitMaskComposite: "destination-in",
+            }}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.45)_0%,rgba(7,10,8,0.18)_40%,rgba(7,10,8,0.92)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#070A08_0%,rgba(7,10,8,0.72)_18%,rgba(7,10,8,0)_40%,rgba(7,10,8,0)_60%,rgba(7,10,8,0.72)_82%,#070A08_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.35)_0%,transparent_16%,transparent_70%,rgba(7,10,8,0.88)_100%)]" />
         </div>
 
-        <div className="container-site relative z-10 grid min-h-[92svh] items-end gap-10 pb-16 pt-32 xl:grid-cols-[minmax(0,1fr)_minmax(19rem,23rem)] xl:pb-20">
+        <div className="container-site relative z-10 grid min-h-[92svh] items-end gap-10 pb-16 pt-32 lg:h-dvh xl:grid-cols-[minmax(0,1fr)_minmax(19rem,23rem)] xl:pb-20">
           <div className="min-w-0">
             <p className="inline-flex rounded-full border border-mint/45 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-mint">
               {copy.heroKicker}
@@ -214,11 +225,11 @@ export function KidsPage() {
             <Reveal>
               <article className="relative isolate overflow-hidden rounded-[1.6rem]">
                 <Photo
-                  src="/assets/img/kids/gallery-main-three-girls.webp"
+                  src="/assets/img/kids/real-04.jpg"
                   alt={copy.whyAlt}
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   loading="lazy"
-                  className="h-full min-h-[28rem] w-full object-cover"
+                  className="h-full min-h-[28rem] w-full object-contain object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-void via-void/25 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-8">
@@ -253,35 +264,35 @@ export function KidsPage() {
             </h2>
             <p className="mt-4 max-w-xl text-cream/55">{copy.galleryLead}</p>
           </Reveal>
-          <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-12 md:gap-4">
-            {gallery.map((item, i) => (
-              <li
-                key={item.src}
-                className={cn(
-                  "group overflow-hidden rounded-[1.2rem]",
-                  i === 0 && "col-span-2 h-56 md:col-span-7 md:row-span-2 md:h-[480px]",
-                  i === 1 && "h-40 md:col-span-5 md:h-[232px]",
-                  i === 2 && "h-40 md:col-span-5 md:h-[232px]",
-                  i === 3 && "col-span-2 h-44 md:col-span-8 md:h-[210px]",
-                  i === 4 && "col-span-2 h-40 md:col-span-4 md:h-[210px]",
-                )}
-              >
-                <button
-                  type="button"
-                  className="relative block h-full w-full cursor-pointer"
-                  onClick={() => setGalleryIndex(i)}
-                  aria-label={`${t.common.openPhoto}: ${item.alt}`}
+          <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-6 md:gap-4">
+            {gallery.map((item, i) => {
+              const portrait = i < 2;
+              return (
+                <li
+                  key={item.src}
+                  className={cn(
+                    "overflow-hidden rounded-[1.2rem]",
+                    portrait ? "md:col-span-3" : "md:col-span-2",
+                    i === 4 && "col-span-2",
+                  )}
                 >
-                  <Photo
-                    src={item.src}
-                    alt=""
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </button>
-              </li>
-            ))}
+                  <button
+                    type="button"
+                    className={cn("relative block w-full cursor-pointer", portrait ? "aspect-[4/5]" : "aspect-[3/2]")}
+                    onClick={() => setGalleryIndex(i)}
+                    aria-label={`${t.common.openPhoto}: ${item.alt}`}
+                  >
+                    <Photo
+                      src={item.src}
+                      alt=""
+                      sizes="(min-width: 768px) 33vw, 50vw"
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover object-center"
+                    />
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>

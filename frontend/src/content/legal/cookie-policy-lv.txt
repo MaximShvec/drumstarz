@@ -1,0 +1,47 @@
+SĪKDATŅU POLITIKA
+
+Pēdējās atjaunināšanas datums: 2026. gada 30. oktobris
+
+1. Par šo politiku
+
+Šī politika skaidro sīkdatņu un līdzīgu tehnoloģiju izmantošanu tīmekļvietnē drumstarz.lv. Tīmekļvietni pārvalda DRUMSTARZ BALTIC SIA, reģistrācijas numurs 40203242123, juridiskā adrese: Jūrmalas gatve 100 k-2 - 78, Rīga, LV-1029, Latvija. Saziņa: drumstarz.riga@gmail.com.
+
+2. Kas ir sīkdatnes
+
+Sīkdatnes ir nelieli teksta faili, kurus tīmekļvietne saglabā jūsu ierīcē. Līdzīgiem nolūkiem var izmantot arī pārlūkprogrammas lokālo krātuvi un citas tehnoloģijas. Tās var nodrošināt vietnes darbību, saglabāt izvēles vai, ja dodat piekrišanu, palīdzēt analizēt apmeklējumus un novērtēt reklāmas.
+
+3. Sīkdatņu veidi un piekrišana
+
+Stingri nepieciešamās sīkdatnes izmanto tikai tādā apjomā, kāds nepieciešams vietnes darbībai vai jūsu skaidri pieprasītas funkcijas nodrošināšanai. Šādām sīkdatnēm piekrišana nav nepieciešama.
+
+Izvēles saglabāšanas, analītikas un mārketinga tehnoloģijām, kas nav stingri nepieciešamas, pirms to aktivizēšanas ir vajadzīga jūsu piekrišana. Varat tām piekrist vai tās noraidīt pa kategorijām. Nepiekrišana neierobežo iespēju pieteikties bezmaksas nodarbībai.
+
+Vietnes pārlūkošanas turpināšana vai paziņojuma aizvēršana nav piekrišana.
+
+4. Pakalpojumi un tehnoloģijas
+
+Vietnei plānots pieslēgt Google Analytics un Meta Pixel. Pakalpojuma norādīšana šajā politikā nenozīmē, ka tas jau ir aktivizēts. Pieslēdzot jaunas tehnoloģijas, atjaunināsim šo politiku un informāciju piekrišanas iestatījumos.
+
+Google Analytics (Google) — apmeklējumu, datplūsmas avotu un mijiedarbības statistika. Pakalpojums saņem pārlūkprogrammas identifikatorus, lapu, ierīces un aptuvenās atrašanās vietas datus. Kategorija — analītikas sīkdatnes; nepieciešama piekrišana. Standarta GA4 sīkdatnes ir _ga un _ga_<container-id> vietnes domēnā. Google dokumentācijā norādītais standarta termiņš ir 2 gadi, ja iestatījumi vai pārlūkprogramma nenosaka īsāku termiņu. Tie ir pakalpojuma standarta parametri, nevis drumstarz.lv iestatījumu pārbaudes rezultāts.
+
+Meta Pixel (Meta) — Facebook/Instagram reklāmas efektivitātes un auditoriju novērtēšana. Pēc piekrišanas Meta var saņemt IP adresi, pārlūkprogrammas, apmeklēto lapu un notikumu datus un saistīt tos ar citu Meta rīcībā esošu informāciju. Kategorija — mārketinga tehnoloģijas. Konkrētas sīkdatnes un termiņi ir atkarīgi no konfigurācijas; informāciju par tiem publicēsim pirms aktivizēšanas. Pakalpojuma politika: https://www.facebook.com/privacy/policies/cookies/.
+
+Google Maps — skolas atrašanās vietas parādīšana. Ielādējot karti, Google var saņemt IP adresi un pārlūkprogrammas tehniskos datus. Ja karte izmanto neobligātas tehnoloģijas vai nodod datus papildu nolūkiem, to ielādē pēc attiecīgas piekrišanas. Atteikšanās no kartes netraucē pieteikties nodarbībai.
+
+YouTube — saites uz pasniedzēju video ved uz ārēju vietni. Parastas saites attēlošana pati par sevi neielādē YouTube atskaņotāju. Pēc pārejas piemēro YouTube/Google noteikumus. Ja tiek pievienots iegults atskaņotājs ar neobligātu izsekošanu, tā ielādei vajadzīga iepriekšēja attiecīga piekrišana.
+
+Plānota formas aizsardzība pret robotiem; pakalpojuma sniedzējs vēl nav izvēlēts. Pirms pieslēgšanas publicēsim informāciju par sniedzēju, apstrādātajiem datiem un tehnoloģijām. Neobligāta izsekošana pieļaujama tikai pēc attiecīgas piekrišanas.
+
+Sīkdatņu izvēles saglabāšanai pārlūkprogrammā var izmantot nepieciešamu ierakstu. Ieviešot baneri, publicēsim šī ieraksta nosaukumu un glabāšanas termiņu un aktuālo pārējo tehnoloģiju sarakstu. Kamēr pakalpojums nav pieslēgts, tā sīkdatnes netiek iestatītas.
+
+5. Izvēles maiņa
+
+Paneli var atkārtoti atvērt ar pastāvīgu saiti “Sīkdatņu iestatījumi” vietnes kājenē. Banerī ir paredzēta visu sīkdatņu pieņemšana, neobligāto sīkdatņu noraidīšana un kategoriju iestatīšana. Analītikas un mārketinga kategorijas sākotnēji ir izslēgtas.
+
+Šajā rīkā jebkurā laikā varat mainīt izvēli vai atsaukt piekrišanu tikpat vienkārši, kā to devāt. Atsaukšana neietekmē iepriekš veiktās apstrādes likumību.
+
+Papildus varat dzēst vai bloķēt sīkdatnes pārlūkprogrammas iestatījumos. Nepieciešamo sīkdatņu bloķēšana var ietekmēt atsevišķu funkciju darbību.
+
+6. Personas dati un izmaiņas
+
+Informācija par personas datu apstrādi un jūsu tiesībām ir pieejama Privātuma politikā. Mainot izmantotās tehnoloģijas, atjauninām šo politiku un vajadzības gadījumā atkārtoti lūdzam piekrišanu.

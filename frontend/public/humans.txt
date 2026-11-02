@@ -1,0 +1,10 @@
+/* TEAM */
+DRUMSTARZ Riga
+Contact: drumstarz.riga@gmail.com
+From: Riga, Latvia
+
+/* SITE */
+Last update: 2026/09/15
+Language: lv / ru / en
+Doctype: HTML5
+Standards: Vite, React

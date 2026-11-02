@@ -1,0 +1,47 @@
+COOKIE POLICY
+
+Last updated: 30 October 2026
+
+1. About this policy
+
+This policy explains cookies and similar technologies on drumstarz.lv. The website is operated by DRUMSTARZ BALTIC SIA, registration number 40203242123, registered address: Jūrmalas gatve 100 k-2 - 78, Rīga, LV-1029, Latvia. Contact: drumstarz.riga@gmail.com.
+
+2. What cookies are
+
+Cookies are small text files stored on your device by a website. Browser local storage and other technologies may serve similar purposes. They can support website functionality, remember preferences or, with your consent, help analyse visits and measure advertising.
+
+3. Categories and consent
+
+Strictly necessary cookies are used only to the extent required for the website to operate or to provide a function you expressly request. These cookies do not require consent.
+
+Preference, analytics and marketing technologies that are not strictly necessary require your consent before activation. You may accept or reject them by category. Refusing them does not prevent you from applying for a free lesson.
+
+Continuing to browse or closing a notice does not constitute consent.
+
+4. Services and technologies
+
+Google Analytics and Meta Pixel are planned for the website. Naming a service in this policy does not mean that it is already active. When connecting new technologies, we will update this policy and the information in the consent settings.
+
+Google Analytics (Google) — statistics about visits, traffic sources and interactions. It receives browser identifiers, page and device information and approximate location data. Category: analytics cookies; consent is required. Standard GA4 cookies are _ga and _ga_<container-id>, on the website domain. Google documents a default duration of 2 years unless a shorter duration is set by configuration or the browser. These are service defaults, not verified drumstarz.lv settings.
+
+Meta Pixel (Meta) — Facebook/Instagram advertising performance and audience measurement. Following consent, Meta may receive IP addresses, browser, page and event information and associate it with other information Meta holds. Category: marketing technologies. Specific cookies and durations depend on configuration; we will publish this information before activation. Provider policy: https://www.facebook.com/privacy/policies/cookies/.
+
+Google Maps — displaying the school’s location. Loading the map may transmit your IP address and technical browser information to Google. Where the map uses optional technologies or transmits information for additional purposes, it loads after the relevant consent. Refusing the map does not prevent you from applying for a lesson.
+
+YouTube — teacher video links lead to an external website. Displaying an ordinary link does not itself load a YouTube player. After you follow it, YouTube/Google terms apply. If an embedded player using optional tracking is added, loading it requires the relevant prior consent.
+
+Bot protection for the form is planned; the provider has not yet been selected. Before connection, we will publish information about the provider, data processing and technologies. Optional tracking requires the relevant prior consent.
+
+A necessary browser record may store cookie choices. When introducing the banner, we will publish the record’s name and duration and the current inventory of other technologies. A service that has not been connected does not set its cookies.
+
+5. Changing your choice
+
+You can reopen the panel through the permanent “Cookie settings” link in the website footer. The banner provides options to accept all cookies, reject optional cookies and configure categories. Analytics and marketing categories are initially disabled.
+
+You can use this tool at any time to change your choice or withdraw consent as easily as you gave it. Withdrawal does not affect the lawfulness of earlier processing.
+
+You can also delete or block cookies through your browser settings. Blocking necessary cookies may affect certain functions.
+
+6. Personal data and updates
+
+Our Privacy Policy explains personal data processing and your rights. We update this policy when technologies change and request fresh consent where necessary.

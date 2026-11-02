@@ -1,0 +1,19 @@
+{
+  "name": "DRUMSTARZ",
+  "short_name": "DRUMSTARZ",
+  "description": "Bungu skola Nr. 1 Rīgā",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#070A08",
+  "theme_color": "#070A08",
+  "lang": "lv",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

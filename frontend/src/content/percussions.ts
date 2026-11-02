@@ -31,6 +31,18 @@ export type PercussionsCopy = {
   why: readonly [Block, Block, Block, Block, Block, Block];
   scheduleKicker: string;
   scheduleTitle: string;
+  lessonsLabel: string;
+  lessonsWhen: string;
+  lessonsCta: string;
+  jamsLabel: string;
+  jamsNote: string;
+  jamsWhen: string;
+  jamsCta: string;
+  jamTitle: string;
+  jamLead: string;
+  jamBring: string;
+  jamPrice: string;
+  conditional: string;
   duration: string;
   durationValue: string;
   address: string;
@@ -69,8 +81,9 @@ const lv: PercussionsCopy = {
   introLead:
     "Djembe, kongas, kahons un šekeri — četri dažādi instrumenti, viens kopīgs ritms. Grupa mācās klausīties vienam otru un turēt tempu kopā, tāpēc rezultāts jūtams jau pirmajā nodarbībā: vienkāršs ritma zīmējums savācas no katra dalībnieka ieguldījuma, neatkarīgi no tā, vai viņš kādreiz ir turējis kaut vienu perkusijas instrumentu.",
   introAlt: "Grupa spēlē djembe aplī",
-  firstFree: "Pirmā nodarbība — bez maksas",
-  firstFreeLead: "Īpaša sagatavotība un savs instruments nav vajadzīgi — viss nepieciešamais jau ir studijā.",
+  firstFree: "Nosacīti bez maksas",
+  firstFreeLead:
+    "Jūs atnākat uz džemu, samaksājat 10 eiro par dalību, bet, ja iegādājaties abonementu, iedodam atlaidi šo 10 eiro apmērā.",
   instrumentsKicker: "Nodarbībā",
   instrumentsTitle: "Izmēģiniet 5+ instrumentus",
   instrumentsLead:
@@ -88,7 +101,21 @@ const lv: PercussionsCopy = {
     { title: "Rīgas centrs", text: "Studija Tērbatas ielā 76 — viegli aizbraukt pēc darba vai mācībām." },
   ],
   scheduleKicker: "Grafiks",
-  scheduleTitle: "Darbadienas · 20:00",
+  scheduleTitle: "Nodarbības un džemi",
+  lessonsLabel: "Nodarbības",
+  lessonsWhen: "Pirmdiena 18:00 · Trešdiena 19:00",
+  lessonsCta: "Pieteikties nodarbībai",
+  jamsLabel: "Džemi",
+  jamsNote: "plus izmēģinājuma nodarbības",
+  jamsWhen: "Pirmdiena 19:00 · Trešdiena 20:00",
+  jamsCta: "Pieteikties džemam",
+  jamTitle: "Perkusiju džems — mūzika, ko radām kopā",
+  jamLead:
+    "Aicinām visus uz kopīgu muzicēšanu! Jebkurš sagatavotības līmenis, jebkurš perkusiju instruments — galvenais ir vēlme spēlēt un sajust ritmu kopā.",
+  jamBring: "Nāciet ar savu instrumentu vai bez maksas paņemiet kādu no mūsējiem uz vietas.",
+  jamPrice: "Dalība — 10 €. Ja pēc džema iegādāsieties abonementu, šos 10 € ieskaitīsim tā cenā.",
+  conditional:
+    "Nosacīti bez maksas. Jūs atnākat uz džemu, samaksājat 10 eiro par dalību, bet, ja iegādājaties abonementu, iedodam atlaidi šo 10 eiro apmērā.",
   duration: "Ilgums",
   durationValue: "90 minūtes",
   address: "Adrese",
@@ -101,11 +128,14 @@ const lv: PercussionsCopy = {
     { q: "Vai vajadzīgs savs instruments?", a: "Nē, instrumentu līdzi ņemt nevajag — djembe, kongas, kahons un šekeri jau ir studijā." },
     { q: "Cik ilga ir nodarbība?", a: "Viena nodarbība ilgst 90 minūtes." },
     { q: "Vai var pievienoties vēlāk?", a: "Jā, grupai var pievienoties jebkurā brīdī, negaidot jauna plūsmas sākumu." },
-    { q: "Kur un kad notiek nodarbības?", a: "Darbadienās plkst. 20:00, Rīga, Tērbatas iela 76." },
-    { q: "Vai pirmā nodarbība ir bez maksas?", a: "Jā, pirmo nodarbību var pamēģināt bez maksas." },
+    { q: "Kur un kad notiek nodarbības?", a: "Nodarbības: pirmdien 18:00 un trešdien 19:00. Džemi un izmēģinājuma nodarbības: pirmdien 19:00 un trešdien 20:00. Rīga, Tērbatas iela 76." },
+    {
+      q: "Vai nodarbība ir bez maksas?",
+      a: "Nosacīti. Uz džemu atnākat un samaksājat 10 € par dalību. Ja pēc tam iegādājaties abonementu, dodam atlaidi tieši šo 10 € apmērā.",
+    },
   ],
-  cardTitle: "Pirmā nodarbība — bez maksas",
-  cardLines: ["90 minūtes grupā", "Instruments nav vajadzīgs", "Darbadienas, 20:00 · Tērbatas iela 76"],
+  cardTitle: "Nosacīti bez maksas",
+  cardLines: ["Nodarbības: pr. 18:00, tr. 19:00", "Džemi: pr. 19:00, tr. 20:00", "Džems 10 € — ieskaitām abonementā"],
   ctaFreeShort: "Pierakstīties bez maksas",
   alts: [
     "Dalībnieks ar tamburīnu perkusijas nodarbībā",
@@ -151,8 +181,9 @@ const ru: PercussionsCopy = {
   introLead:
     "Джембе, конги, кахон и шейкеры — четыре разных инструмента, один общий ритм. Группа учится слушать друг друга и держать темп вместе, поэтому результат чувствуется уже на первом занятии: простой ритм-рисунок собирается из вклада каждого участника, независимо от того, держал ли он раньше в руках хоть один перкуссионный инструмент.",
   introAlt: "Группа играет на джембе в кругу",
-  firstFree: "Первый урок — бесплатно",
-  firstFreeLead: "Специальная подготовка и свой инструмент не нужны — всё необходимое уже есть в студии.",
+  firstFree: "Условно бесплатно",
+  firstFreeLead:
+    "Вы приходите на джем, платите 10 евро за участие, но если приобретаете абонемент, мы даем вам скидку, равную этим 10 евро.",
   instrumentsKicker: "На занятии",
   instrumentsTitle: "Попробуйте 5+ инструментов",
   instrumentsLead:
@@ -170,7 +201,21 @@ const ru: PercussionsCopy = {
     { title: "Центр Риги", text: "Студия на Tērbatas iela 76 — легко добраться после работы или учёбы." },
   ],
   scheduleKicker: "Расписание",
-  scheduleTitle: "Будни · 20:00",
+  scheduleTitle: "Уроки и джемы",
+  lessonsLabel: "Уроки",
+  lessonsWhen: "Понедельник 18:00 · Среда 19:00",
+  lessonsCta: "Записаться на урок",
+  jamsLabel: "Джемы",
+  jamsNote: "плюс пробные занятия",
+  jamsWhen: "Понедельник 19:00 · Среда 20:00",
+  jamsCta: "Записаться на джем",
+  jamTitle: "Перкуссионный джем — музыка, которую мы создаём вместе",
+  jamLead:
+    "Приглашаем всех желающих на совместное музицирование! Любой уровень подготовки, любой перкуссионный инструмент — главное, желание играть и чувствовать ритм вместе.",
+  jamBring: "Приходите со своим инструментом или бесплатно возьмите один из наших на месте.",
+  jamPrice: "Участие — 10 €. Если после джема вы приобретёте абонемент, мы зачтём эти 10 € в его стоимость.",
+  conditional:
+    "Условно бесплатно. Вы приходите на джем, платите 10 евро за участие, но если приобретаете абонемент, мы даем вам скидку, равную этим 10 евро.",
   duration: "Длительность",
   durationValue: "90 минут",
   address: "Адрес",
@@ -183,11 +228,14 @@ const ru: PercussionsCopy = {
     { q: "Нужен ли свой инструмент?", a: "Нет, брать инструмент с собой не нужно — джембе, конги, кахон и шейкеры уже есть в студии." },
     { q: "Сколько длится занятие?", a: "Одно занятие длится 90 минут." },
     { q: "Можно ли присоединиться позже?", a: "Да, к группе можно присоединиться в любой момент, не дожидаясь начала нового потока." },
-    { q: "Где и когда проходят занятия?", a: "По будням в 20:00, по адресу Rīga, Tērbatas iela 76." },
-    { q: "Первое занятие бесплатно?", a: "Да, первое занятие можно попробовать бесплатно." },
+    { q: "Где и когда проходят занятия?", a: "Уроки: понедельник 18:00 и среда 19:00. Джемы и пробные занятия: понедельник 19:00 и среда 20:00. Rīga, Tērbatas iela 76." },
+    {
+      q: "Занятие бесплатное?",
+      a: "Условно. На джем вы платите 10 € за участие. Если после этого берёте абонемент, мы даём скидку ровно на эти 10 €.",
+    },
   ],
-  cardTitle: "Первое занятие — бесплатно",
-  cardLines: ["90 минут в группе", "Инструмент не нужен", "Будни, 20:00 · Tērbatas iela 76"],
+  cardTitle: "Условно бесплатно",
+  cardLines: ["Уроки: пн 18:00, ср 19:00", "Джемы: пн 19:00, ср 20:00", "Джем 10 € — зачтём в абонемент"],
   ctaFreeShort: "Записаться бесплатно",
   alts: [
     "Участник с бубном на занятии перкуссии",
@@ -233,8 +281,9 @@ const en: PercussionsCopy = {
   introLead:
     "Djembe, congas, cajon and shakers — four different instruments, one shared groove. The group learns to listen to each other and hold the tempo together, so the result is felt on the first lesson: a simple pattern is built from every person’s part, whether or not they’ve ever held a percussion instrument.",
   introAlt: "A group playing djembe in a circle",
-  firstFree: "First lesson — free",
-  firstFreeLead: "No special prep and no own instrument needed — everything is already in the studio.",
+  firstFree: "Conditionally free",
+  firstFreeLead:
+    "You come to the jam and pay €10 to take part, and if you buy a pass we give you a discount equal to those €10.",
   instrumentsKicker: "In class",
   instrumentsTitle: "Try 5+ instruments",
   instrumentsLead:
@@ -252,7 +301,21 @@ const en: PercussionsCopy = {
     { title: "Central Riga", text: "The studio at Tērbatas iela 76 — easy to reach after work or studies." },
   ],
   scheduleKicker: "Schedule",
-  scheduleTitle: "Weekdays · 20:00",
+  scheduleTitle: "Lessons and jams",
+  lessonsLabel: "Lessons",
+  lessonsWhen: "Monday 18:00 · Wednesday 19:00",
+  lessonsCta: "Sign up for a lesson",
+  jamsLabel: "Jams",
+  jamsNote: "plus trial classes",
+  jamsWhen: "Monday 19:00 · Wednesday 20:00",
+  jamsCta: "Sign up for a jam",
+  jamTitle: "Percussion jam — music we make together",
+  jamLead:
+    "Everyone is welcome to play together. Any level, any percussion instrument — what matters is wanting to play and feel the rhythm together.",
+  jamBring: "Bring your own instrument or take one of ours on the spot, free of charge.",
+  jamPrice: "Participation — €10. If you buy a pass after the jam, we credit those €10 toward it.",
+  conditional:
+    "Conditionally free. You come to the jam and pay €10 to take part, and if you buy a pass we give you a discount equal to those €10.",
   duration: "Duration",
   durationValue: "90 minutes",
   address: "Address",
@@ -265,11 +328,14 @@ const en: PercussionsCopy = {
     { q: "Do I need my own instrument?", a: "No — don’t bring one. Djembe, congas, cajon and shakers are already in the studio." },
     { q: "How long is a class?", a: "One class is 90 minutes." },
     { q: "Can I join later?", a: "Yes — you can join the group at any time, without waiting for a new intake." },
-    { q: "Where and when are the classes?", a: "Weekdays at 20:00, Rīga, Tērbatas iela 76." },
-    { q: "Is the first lesson free?", a: "Yes — you can try the first lesson for free." },
+    { q: "Where and when are the classes?", a: "Lessons: Monday 18:00 and Wednesday 19:00. Jams and trial classes: Monday 19:00 and Wednesday 20:00. Rīga, Tērbatas iela 76." },
+    {
+      q: "Is a class free?",
+      a: "Conditionally. You pay €10 to join the jam. If you then buy a pass, we give you a discount equal to those €10.",
+    },
   ],
-  cardTitle: "First lesson — free",
-  cardLines: ["90 minutes in a group", "No instrument needed", "Weekdays, 20:00 · Tērbatas iela 76"],
+  cardTitle: "Conditionally free",
+  cardLines: ["Lessons: Mon 18:00, Wed 19:00", "Jams: Mon 19:00, Wed 20:00", "Jam €10 — credited to a pass"],
   ctaFreeShort: "Book for free",
   alts: [
     "A participant with a tambourine in a percussion class",

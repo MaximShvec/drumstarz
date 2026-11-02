@@ -16,8 +16,8 @@ export const EVENTS_TIMELINE = [
   {
     mins: "30",
     time: "30 мин",
-    title: "Банкет / фуршет",
-    text: "Заранее подготовленный фуршет для гостей. Обсуждение эмоций, общение в свободной рок-н-ролл атмосфере.",
+    title: "После программы",
+    text: "Заранее подготовленного фуршета нет. Если гостям он нужен — накрывают стол сами. Мы фуршет не предоставляем.",
   },
   {
     mins: "15",
@@ -31,7 +31,7 @@ export const EVENTS_INCLUDED = [
   "Аренда рок-пространства и всех залов",
   "Доставка, сборка и полная настройка акустических барабанов",
   "Программа с профессиональным барабанщиком",
-  "Доступ к банкетной зоне, кухне и большому столу",
+  "Кухня и большой стол — если стол нужен, гости накрывают его сами. Фуршет не предоставляем",
 ] as const;
 
 export const EVENTS_WHY = [
@@ -68,9 +68,12 @@ export const EVENTS_WHY = [
 ] as const;
 
 export const EVENTS_GALLERY = [
-  { src: "/assets/img/events/gallery-01.webp", alt: "Корпоративная барабанная программа — гости играют на джембе" },
-  { src: "/assets/img/events/gallery-02.webp", alt: "Гости играют на джембе в кругу" },
-  { src: "/assets/img/events/gallery-03.webp", alt: "Рок-концерт со светом и залом" },
-  { src: "/assets/img/events/gallery-04.webp", alt: "Два барабанщика играют на сцене под конфетти" },
-  { src: "/assets/img/events/gallery-05.webp", alt: "Групповое барабанное выступление перед залом" },
+  { src: "/assets/img/events/real-01.jpg", alt: "Гости на барабанном мероприятии" },
+  { src: "/assets/img/events/real-02.jpg", alt: "Барабанная программа в зале" },
+  { src: "/assets/img/events/real-03.jpg", alt: "Участники играют вместе" },
+  { src: "/assets/img/events/real-04.jpg", alt: "Мероприятие DRUMSTARZ" },
+  { src: "/assets/img/events/real-05.jpg", alt: "Гости за барабанами" },
+  { src: "/assets/img/events/real-06.jpg", alt: "Групповая игра" },
+  { src: "/assets/img/events/real-07.jpg", alt: "Барабанное выступление" },
+  { src: "/assets/img/events/real-08.jpg", alt: "Участники мероприятия" },
 ] as const;

@@ -65,7 +65,7 @@ src/
   data/                   stable IDs, images, prices, phones
   i18n/                   locales, paths, UI chrome, switcher
   hooks/                  SEO, Lenis
-  lib/                    submit stub, SEO, YouTube, telegram
+  lib/                    submit stub, lead source, captcha, SEO, YouTube, telegram
   context/BookingContext.tsx
 public/assets/            images, video, icons — already in the repo
 ```
@@ -86,7 +86,11 @@ Do not translate phones, emails, street addresses, prices, trainer names, YouTub
 
 `/lv/...` redirects to the unprefixed path.
 
-Pages: `/`, `/trainers`, `/contacts`, `/percussions`, `/events`, `/kids`, `/giftcard`, `/camp`, plus `*` → `NotFoundPage` (`noindex`).
+Pages: `/`, `/trainers`, `/contacts`, `/percussions`, `/events`, `/kids`, `/giftcard`, `/camp`, legal (`/privacy`, `/cookies`, `/terms`), news, plus `*` → `NotFoundPage` (`noindex`).
+
+News paths depend on locale: `/jaunumi` (lv), `/novosti` (ru), `/blog` (en), each with `/:slug`. `newsBase()` in `src/pages/NewsPage.tsx` is the only way to link them.
+
+Old slugs (`/perkusijas`, `/ru/lager`, `/en/for-adults`, …) redirect in two places: client `LEGACY` in `App.tsx` (works on localhost) and 301s in `vercel.json` (only after deploy). The list for the person shipping this is `PROD.md`.
 
 Home hashes: `/#prices`, `/#faq`, `/#top`. `HashOrRoute` in the header keeps same-page hashes as `#...` and localizes the rest.
 
@@ -107,7 +111,7 @@ When you add a page:
 
 | Path | Page | Notes |
 |---|---|---|
-| `/` | `HomePage` | Hero video, pricing, trial, teachers, FAQ, contacts |
+| `/` | `HomePage` | Hero video, pricing, trial, teachers, concerts, FAQ |
 | `/trainers` | `TrainersPage` | Cards + YouTube |
 | `/contacts` | `ContactsPage` | Two branches, map, lead form |
 | `/percussions` | `PercussionsPage` | Group classes |
@@ -115,14 +119,16 @@ When you add a page:
 | `/kids` | `KidsPage` | Kids party |
 | `/giftcard` | `GiftcardPage` | Gift card |
 | `/camp` | `CampPage` | Summer camp |
+| `/jaunumi`, `/novosti`, `/blog` | `NewsListPage` / `NewsArticlePage` | Locale-specific base path |
+| `/privacy`, `/cookies`, `/terms` | `LegalPage` | |
 
 Booking modal is global (`BookingContext` + `BookingModal` in `SiteLayout`). Open it with `useBooking().openBooking`.
 
 ## Forms
 
-All forms go through `submitApplicationForm` in `src/lib/submit.ts`. It is a **stub**: it returns `{ status: "not_configured" }` and must not fake success.
+All forms go through `submitApplicationForm` in `src/lib/submit.ts`. It is a **stub**: it attaches `source`, `sourceLabel`, `page` and `captchaToken`, then returns `{ status: "not_configured" }`. Do not fake success. Forms have no `{ status: "ok" }` branch yet.
 
-Each form already sends a `source` string. See `BACKEND.md` for the payload shapes.
+The booking modal sends only `name`, `phone`, `consent`. Its source comes from the current page (`drums` on home). Page forms that set their own `source` are listed in `BACKEND.md`. Deploy leftovers (CRM POST, reCAPTCHA key, old-URL 301s) are in `PROD.md`.
 
 Client validation lives in the form. Shared field UI is `LineField` / `LineTextarea` / `LineSelect`.
 
@@ -140,7 +146,7 @@ This is a client-rendered SPA. Google runs JS. Social crawlers that do not run J
 
 - Hero: poster is LCP (`/assets/images/hero-drums-bw-poster.webp`). Video (`/assets/video/hero-drums-bw.mp4`) mounts after a short delay. `?hero=image` or `prefers-reduced-motion` skips the video. Photos in `public/` are WebP with 800/1280 `srcset` via `Photo`. Keep `og.jpg` for social crawlers. New photos: `npm install --no-save sharp && node scripts/to-webp.mjs && node scripts/gen-srcset.mjs`.
 - Below-fold images: `loading="lazy"` `decoding="async"`. Page heroes: `fetchPriority="high"`.
-- YouTube: click-to-play via `YoutubePlayer` (`youtube-nocookie`).
+- YouTube: `YoutubePlayer` (`youtube-nocookie`). Click-to-play everywhere except the home concerts block, which embeds a paused player (`autoplay=0`). Do not turn that one back on.
 - Telegram WebApp script loads only if the UA contains `Telegram`.
 - Fonts are self-hosted. Do not add Google Fonts back.
 
