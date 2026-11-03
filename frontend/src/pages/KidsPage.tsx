@@ -118,7 +118,7 @@ export function KidsPage() {
           </Reveal>
           <Reveal delay={80}>
             <Photo
-              src="/assets/img/kids/concept-group-jam.webp"
+              src="/assets/img/kids/concept-child-star.webp"
               alt={copy.conceptAlt}
               sizes="(min-width: 1024px) 50vw, 100vw"
               loading="lazy"
