@@ -50,19 +50,23 @@ export function Hero() {
             preload="none"
           />
         ) : null}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.35)_0%,rgba(7,10,8,0.2)_40%,rgba(7,10,8,0.88)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(7,10,8,0.45)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.62)_0%,rgba(7,10,8,0.5)_18%,rgba(7,10,8,0.78)_46%,rgba(7,10,8,0.94)_100%)] lg:bg-[linear-gradient(180deg,rgba(7,10,8,0.35)_0%,rgba(7,10,8,0.2)_40%,rgba(7,10,8,0.88)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(7,10,8,0.5)_100%)] lg:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(7,10,8,0.45)_100%)]" />
       </div>
 
-      <div className="container-site relative z-10 flex min-h-svh flex-col justify-end pb-16 pt-32 lg:pb-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-mint">Riga · since 2013</p>
-        <h1 className="mt-5 max-w-[18ch] font-display text-[clamp(2.6rem,8vw,7.5rem)] font-extrabold leading-[0.88] tracking-[-0.04em] text-cream">
-          DRUMSTARZ
+      <div className="container-site relative z-10 flex min-h-svh flex-col justify-end pb-10 pt-28 lg:pb-20 lg:pt-32">
+        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-mint lg:text-xs lg:tracking-[0.35em]">
+          Riga · since 2013
+        </p>
+        <h1 className="mt-4 font-display text-[clamp(2.2rem,11.5vw,7.5rem)] font-extrabold leading-[0.86] tracking-[-0.045em] text-cream [text-shadow:0_10px_36px_rgba(0,0,0,0.55)] lg:mt-5 lg:max-w-[18ch] lg:text-[clamp(2.6rem,8vw,7.5rem)] lg:leading-[0.88] lg:tracking-[-0.04em] lg:[text-shadow:none]">
+          <span className="block whitespace-nowrap">DRUMSTARZ</span>
           <span className="block text-mint">RIGA</span>
         </h1>
-        <p className="mt-4 font-display text-xl text-cream/80 sm:text-3xl">{copy.tagline}</p>
+        <p className="mt-4 max-w-[14ch] font-display text-[1.95rem] font-semibold leading-[1.05] text-cream [text-shadow:0_8px_28px_rgba(0,0,0,0.6)] sm:max-w-none sm:text-3xl sm:font-normal sm:text-cream/80 sm:[text-shadow:none]">
+          {copy.tagline}
+        </p>
 
-        <div className="mt-10 grid max-w-3xl gap-6 text-sm text-cream/70 sm:grid-cols-2 sm:text-base">
+        <div className="mt-6 grid max-w-md gap-3 text-lg leading-snug text-cream sm:mt-10 sm:max-w-3xl sm:grid-cols-2 sm:gap-6 sm:text-base sm:text-cream/70">
           <p>
             {copy.hero.leadBefore}
             <strong className="font-semibold text-cream">{copy.hero.leadStrong}</strong>
@@ -70,13 +74,26 @@ export function Hero() {
           <p>{copy.hero.concert}</p>
         </div>
 
-        <p className="mt-8 text-cream/55">{copy.hero.start}</p>
+        <p className="mt-5 text-lg font-medium text-cream sm:mt-8 sm:text-base sm:font-normal sm:text-cream/55">{copy.hero.start}</p>
 
-        <div className="mt-6 flex flex-wrap items-center gap-4">
-          <Button variant="outline" className="px-8 py-4 text-base" onClick={openBooking}>
-            {copy.hero.ctaBefore} <strong>{copy.hero.ctaStrong}</strong>
-          </Button>
-          <span className="text-xs uppercase tracking-[0.2em] text-cream/55">{copy.hero.scroll}</span>
+        <div className="mt-6 flex flex-col items-stretch gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+          <div className="sm:hidden">
+            <Button
+              variant="primary"
+              className="w-full bg-mint! px-6 py-4 text-lg! font-extrabold text-void shadow-[0_14px_36px_-10px_rgba(26,212,161,0.55)]"
+              onClick={openBooking}
+            >
+              {copy.hero.ctaBefore} <strong>{copy.hero.ctaStrong}</strong>
+            </Button>
+          </div>
+          <div className="hidden sm:block">
+            <Button variant="outline" className="px-8 py-4 text-base" onClick={openBooking}>
+              {copy.hero.ctaBefore} <strong>{copy.hero.ctaStrong}</strong>
+            </Button>
+          </div>
+          <span className="text-center text-[0.7rem] uppercase tracking-[0.22em] text-cream/70 sm:text-left sm:text-xs sm:text-cream/55">
+            {copy.hero.scroll}
+          </span>
         </div>
       </div>
     </section>

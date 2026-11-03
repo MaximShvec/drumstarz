@@ -59,7 +59,7 @@ export function Pricing() {
           </div>
         </Reveal>
 
-        <ul className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <ul className="no-scrollbar -mx-3 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-px-3 px-3 pb-1 sm:-mx-5 sm:scroll-px-5 sm:px-5 md:mx-0 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:px-0 md:pb-0 md:scroll-px-0 xl:grid-cols-4">
           {PRICING.map((card, i) => {
             const text = copy.pricing.cards[i];
             return (
@@ -68,12 +68,12 @@ export function Pricing() {
                 as="li"
                 delay={i * 60}
                 className={cn(
-                  "flex h-full flex-col overflow-hidden rounded-[1.6rem] border bg-panel",
+                  "flex h-full w-[84%] shrink-0 snap-start flex-col overflow-hidden rounded-[1.6rem] border bg-panel md:w-auto",
                   card.featured ? "border-mint/50 shadow-glow" : "border-white/8",
                 )}
               >
                 <div className="relative h-52">
-                  <Photo src={card.photo} alt="" sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw" loading="lazy" className="h-full w-full object-cover" />
+                  <Photo src={card.photo} alt="" sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 84vw" loading="lazy" className="h-full w-full object-cover grayscale" />
                   <div className="absolute inset-0 bg-gradient-to-t from-panel to-transparent" />
                   {text.ribbon ? (
                     <span

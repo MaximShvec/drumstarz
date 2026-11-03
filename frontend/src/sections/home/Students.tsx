@@ -15,8 +15,8 @@ function StudentTile({ photo, className }: { photo: Tile; className?: string }) 
         height={photo.h}
         loading="lazy"
         decoding="async"
-        className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-        style={{ aspectRatio: `${photo.w} / ${photo.h}` }}
+        className="h-full w-full object-cover grayscale"
+        style={{ aspectRatio: `${photo.w} / ${photo.h}`, objectPosition: "focus" in photo ? photo.focus : undefined }}
       />
     </span>
   );
@@ -26,8 +26,8 @@ function TitleBlock() {
   const copy = useHome();
 
   return (
-    <div className="max-w-[18rem]">
-      <h2 className="font-display text-[1.7rem] font-extrabold uppercase leading-[1.05] sm:text-3xl md:text-[2.5rem] md:leading-[1.18]">
+    <div className="@container max-w-[18rem] md:pr-5">
+      <h2 className="font-display text-[1.7rem] font-extrabold uppercase leading-[1.05] sm:text-3xl md:text-[clamp(1.35rem,15.5cqw,2.5rem)] md:leading-[1.12]">
         {copy.students.title}
         <br />
         {copy.students.titleLine2}
@@ -42,6 +42,7 @@ export function Students() {
   const [
     a1,
     a2,
+    a3,
     b1,
     b2,
     b3,
@@ -71,6 +72,7 @@ export function Students() {
             <TitleBlock />
             <StudentTile photo={a1} />
             <StudentTile photo={a2} />
+            <StudentTile photo={a3} />
           </div>
           <div className="flex min-w-0 flex-1 flex-col gap-[17px]">
             <StudentTile photo={b1} />

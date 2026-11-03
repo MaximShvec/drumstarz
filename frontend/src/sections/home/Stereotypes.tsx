@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LEVEL_CARDS, type LevelKey } from "../../data/home";
 import { useHome } from "../../content/useCopy";
 import { Reveal } from "../../components/Reveal";
@@ -10,6 +10,11 @@ export function Stereotypes() {
   const copy = useHome();
   const texts = level === "new" ? copy.stereotypes.newCards : copy.stereotypes.expCards;
   const cards = LEVEL_CARDS[level];
+  const scroller = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    scroller.current?.scrollTo({ left: 0 });
+  }, [level]);
 
   return (
     <section id="stereotypes" className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="stereotypes-title">
@@ -49,18 +54,21 @@ export function Stereotypes() {
           />
         </div>
 
-        <ul className="mt-10 grid gap-5 md:grid-cols-3">
+        <ul
+          ref={scroller}
+          className="no-scrollbar -mx-3 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-px-3 px-3 pb-1 sm:-mx-5 sm:scroll-px-5 sm:px-5 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0 md:scroll-px-0"
+        >
           {cards.map((card, i) => (
             <Reveal
               key={`${level}-${texts[i].title}`}
               as="li"
               delay={i * 80}
-              className="group relative isolate aspect-[372/320] overflow-hidden rounded-[1.6rem] bg-ink"
+              className="group relative isolate aspect-[372/320] w-[84%] shrink-0 snap-start overflow-hidden rounded-[1.6rem] bg-ink md:w-auto"
             >
               <Photo
                 src={card.img}
                 alt=""
-                sizes="(min-width: 768px) 33vw, 100vw"
+                sizes="(min-width: 768px) 33vw, 84vw"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

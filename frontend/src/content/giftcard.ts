@@ -15,8 +15,6 @@ export type GiftcardCopy = {
   pricesLine: string;
   noExperience: string;
   certAlt: string;
-  certFront: string;
-  certBack: string;
   emotionKicker: string;
   emotionTitle: string;
   emotionLead: string;
@@ -75,8 +73,6 @@ const lv: GiftcardCopy = {
   pricesLine: "1 nodarbība · 35 € / 4 nodarbības · 115 €",
   noExperience: "Pieredze un savs komplekts nav vajadzīgi",
   certAlt: "Īsta DRUMSTARZ dāvanu karte vienai nodarbībai",
-  certFront: "Priekšpuse",
-  certBack: "Otrā puse",
   emotionKicker: "Ne tikai sertifikāts",
   emotionTitle: "Dāvana, kas skan",
   emotionLead:
@@ -165,8 +161,6 @@ const ru: GiftcardCopy = {
   pricesLine: "1 урок · 35 € / 4 урока · 115 €",
   noExperience: "Опыт и своя установка не нужны",
   certAlt: "Настоящая подарочная карта DRUMSTARZ на одно занятие",
-  certFront: "Лицевая сторона",
-  certBack: "Оборотная сторона",
   emotionKicker: "Не просто сертификат",
   emotionTitle: "Подарок, который звучит",
   emotionLead:
@@ -255,8 +249,6 @@ const en: GiftcardCopy = {
   pricesLine: "1 lesson · 35 € / 4 lessons · 115 €",
   noExperience: "No experience or own kit needed",
   certAlt: "A real DRUMSTARZ gift card for one lesson",
-  certFront: "Front",
-  certBack: "Back",
   emotionKicker: "Not just a certificate",
   emotionTitle: "A gift that sounds",
   emotionLead:

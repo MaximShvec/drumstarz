@@ -65,24 +65,18 @@ export function GiftcardPage() {
               <figure className="relative z-0 ml-auto w-[84%] origin-top-right rotate-[5deg]">
                 <Photo
                   src={CERT_BACK}
-                  alt={`${copy.certBack}. ${copy.certAlt}`}
+                  alt={copy.certAlt}
                   sizes="(min-width: 1280px) 24rem, 80vw"
-                  className="aspect-[1400/904] w-full rounded-[1.25rem] object-cover shadow-[0_22px_50px_-24px_rgba(0,0,0,0.85)] ring-1 ring-white/15 brightness-75"
+                  className="aspect-[1749/1241] w-full rounded-[1.25rem] object-cover shadow-[0_22px_50px_-24px_rgba(0,0,0,0.85)] ring-1 ring-white/15 brightness-75"
                 />
-                <figcaption className="absolute right-3 top-3 rounded-full bg-void/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-cream backdrop-blur-sm">
-                  {copy.certBack}
-                </figcaption>
               </figure>
               <figure className="relative z-10 -mt-[34%] w-[84%] origin-bottom-left -rotate-[4deg]">
                 <Photo
                   src={CERT_FRONT}
-                  alt={`${copy.certFront}. ${copy.certAlt}`}
+                  alt={copy.certAlt}
                   sizes="(min-width: 1280px) 24rem, 80vw"
-                  className="aspect-[1400/904] w-full rounded-[1.25rem] object-cover shadow-[0_28px_60px_-18px_rgba(0,0,0,0.75)] ring-1 ring-white/20"
+                  className="aspect-[1749/1241] w-full rounded-[1.25rem] object-cover shadow-[0_28px_60px_-18px_rgba(0,0,0,0.75)] ring-1 ring-white/20"
                 />
-                <figcaption className="absolute bottom-3 left-3 rounded-full border border-mint/40 bg-void/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-mint backdrop-blur-sm">
-                  {copy.certFront}
-                </figcaption>
               </figure>
             </div>
           </Reveal>
@@ -163,7 +157,7 @@ export function GiftcardPage() {
                       </p>
                     </div>
                   </div>
-                  <Photo src={item.photo} alt="" sizes="(min-width: 768px) 16rem, 100vw" loading="lazy" className="h-44 w-full rounded-[1.2rem] object-cover md:h-52" />
+                  <Photo src={item.photo} alt="" sizes="(min-width: 768px) 16rem, 100vw" loading="lazy" className="aspect-[1749/1241] w-full rounded-[1.2rem] object-cover" />
                 </button>
               </Reveal>
             ))}
@@ -175,7 +169,7 @@ export function GiftcardPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="giftcard-experience-title">
+      <section className="bg-paper pt-24 pb-10 text-ink lg:pt-32 lg:pb-12" aria-labelledby="giftcard-experience-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.expKicker}</p>
@@ -211,7 +205,7 @@ export function GiftcardPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="giftcard-faq-title">
+      <section className="bg-paper pt-10 pb-24 text-ink lg:pt-12 lg:pb-32" aria-labelledby="giftcard-faq-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.faqKicker}</p>

@@ -144,19 +144,20 @@ export const TRIAL_STEPS = [
   },
 ] as const;
 
-/** Original student portraits from `static/assets/img/section7` — small, pre-cropped tiles. */
+/** Homepage student mosaic. Sources are in public/gallery_main_page; grayscale is CSS. */
 export const STUDENT_PHOTOS = [
-  { src: "/assets/img/section7/student-04.webp", w: 274, h: 272 },
-  { src: "/assets/img/section7/student-09.webp", w: 274, h: 192 },
-  { src: "/assets/img/section7/student-01.webp", w: 274, h: 432 },
-  { src: "/assets/img/section7/student-06.webp", w: 274, h: 272 },
-  { src: "/assets/img/section7/student-10.webp", w: 274, h: 192 },
-  { src: "/assets/img/section7/student-03.webp", w: 273, h: 192 },
-  { src: "/assets/img/section7/student-02.webp", w: 271, h: 270 },
-  { src: "/assets/img/section7/student-05.webp", w: 565, h: 228 },
-  { src: "/assets/img/section7/student-07.webp", w: 273, h: 272 },
-  { src: "/assets/img/section7/student-08.webp", w: 271, h: 194 },
-  { src: "/assets/img/section7/student-11.webp", w: 271, h: 192 },
+  { src: "/assets/img/students/02.webp", w: 274, h: 272, focus: "center 22%" },
+  { src: "/assets/img/students/05.webp", w: 274, h: 192 },
+  { src: "/assets/img/students/06.webp", w: 274, h: 192 },
+  { src: "/assets/img/students/01.webp", w: 274, h: 432 },
+  { src: "/assets/img/students/03.webp", w: 274, h: 272, focus: "center 22%" },
+  { src: "/assets/img/students/07.webp", w: 274, h: 192 },
+  { src: "/assets/img/students/08.webp", w: 273, h: 192 },
+  { src: "/assets/img/students/09.webp", w: 271, h: 270 },
+  { src: "/assets/img/students/04.webp", w: 565, h: 228 },
+  { src: "/assets/img/students/10.webp", w: 273, h: 272 },
+  { src: "/assets/img/students/11.webp", w: 271, h: 194 },
+  { src: "/assets/img/students/12.webp", w: 271, h: 192 },
 ] as const;
 
 export const FAQ = [

@@ -7,7 +7,7 @@ export function Why() {
   const copy = useHome();
 
   return (
-    <section id="why" className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="why-title">
+    <section id="why" className="relative isolate overflow-clip py-24 lg:py-32" aria-labelledby="why-title">
       <Photo
         src="/assets/img/section3/why-drumstarz-bg.webp"
         alt=""
@@ -18,7 +18,7 @@ export function Why() {
       <div className="absolute inset-0 bg-void/78" />
 
       <div className="container-site relative">
-        <Reveal>
+        <Reveal className="relative z-10">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-mint">{copy.why.kicker}</p>
           <h2
             id="why-title"
@@ -37,11 +37,15 @@ export function Why() {
               key={item.num}
               as="li"
               delay={i * 70}
-              className={`rounded-[1.5rem] border border-white/8 bg-white/4 p-8 backdrop-blur-sm ${i % 2 ? "md:translate-y-8" : ""}`}
+              className={`relative rounded-[1.5rem] border border-white/8 p-8 ${i % 2 ? "md:translate-y-8" : ""}`}
             >
-              <span className="font-display text-sm tracking-[0.22em] text-mint">{item.num}</span>
-              <h3 className="mt-4 font-display text-2xl font-semibold">{copy.why.items[i].title}</h3>
-              <p className="mt-3 text-cream/60">{copy.why.items[i].text}</p>
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-[1.5rem] bg-white/4 backdrop-blur-sm [transform:translateZ(0)]"
+              />
+              <span className="relative font-display text-sm tracking-[0.22em] text-mint">{item.num}</span>
+              <h3 className="relative mt-4 font-display text-2xl font-semibold">{copy.why.items[i].title}</h3>
+              <p className="relative mt-3 text-cream/60">{copy.why.items[i].text}</p>
             </Reveal>
           ))}
         </ul>
