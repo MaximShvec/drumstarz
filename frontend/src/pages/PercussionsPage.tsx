@@ -35,20 +35,20 @@ export function PercussionsPage() {
 
   return (
     <>
-      <section className="relative isolate min-h-[88svh] overflow-hidden" aria-labelledby="percussions-hero-title">
+      <section className="relative isolate min-h-[88svh] overflow-hidden lg:h-dvh" aria-labelledby="percussions-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <Photo
             src="/assets/img/percussions/hero-group.webp"
             alt=""
             sizes="100vw"
             fetchPriority="high"
-            className="h-full w-full object-cover object-[center_30%]"
+            className="h-full w-full object-cover object-[center_30%] grayscale"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.35)_0%,rgba(7,10,8,0.2)_35%,rgba(7,10,8,0.92)_100%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,transparent_0%,rgba(7,10,8,0.5)_100%)]" />
         </div>
 
-        <div className="container-site relative z-10 grid min-h-[88svh] items-end gap-10 pb-16 pt-32 xl:grid-cols-[minmax(0,1fr)_minmax(20rem,24rem)] xl:pb-20">
+        <div className="container-site relative z-10 grid min-h-[88svh] items-end gap-10 pb-16 pt-32 lg:h-dvh xl:grid-cols-[minmax(0,1fr)_minmax(20rem,24rem)] xl:pb-20">
           <div className="min-w-0">
             <p className="inline-flex rounded-full border border-mint/45 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-mint">
               {copy.heroKicker}
@@ -109,7 +109,7 @@ export function PercussionsPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="percussions-intro-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="percussions-intro-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.introKicker}</p>
@@ -145,7 +145,7 @@ export function PercussionsPage() {
         </div>
       </section>
 
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="percussions-instruments-title">
+      <section className="bg-void py-12 lg:py-32" aria-labelledby="percussions-instruments-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.instrumentsKicker}</p>
@@ -179,7 +179,7 @@ export function PercussionsPage() {
         </div>
       </section>
 
-      <section className="bg-void pb-24 lg:pb-32" aria-labelledby="percussions-gallery-title">
+      <section className="bg-void pb-12 lg:pb-32" aria-labelledby="percussions-gallery-title">
         <div className="container-site">
           <Reveal>
             <h2
@@ -215,7 +215,7 @@ export function PercussionsPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="percussions-why-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="percussions-why-title">
         <div className="container-site">
           <Reveal>
             <h2
@@ -242,7 +242,7 @@ export function PercussionsPage() {
         </div>
       </section>
 
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="percussions-schedule-title">
+      <section className="bg-void py-12 lg:py-32" aria-labelledby="percussions-schedule-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.scheduleKicker}</p>
@@ -299,7 +299,7 @@ export function PercussionsPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="percussions-faq-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="percussions-faq-title">
         <div className="container-site">
           <Reveal>
             <h2 id="percussions-faq-title" className="font-display text-4xl font-extrabold sm:text-5xl">

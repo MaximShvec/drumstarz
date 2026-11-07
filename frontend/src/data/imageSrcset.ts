@@ -42,6 +42,7 @@ export const IMAGE_SRCSET: Record<
   "/assets/img/giftcard/hero-drummer.webp": { srcSet: "/assets/img/giftcard/hero-drummer-800.webp 800w, /assets/img/giftcard/hero-drummer-1280.webp 1280w, /assets/img/giftcard/hero-drummer.webp 1920w", width: 1920, height: 1280 },
   "/assets/img/giftcard/purchase-bg.webp": { srcSet: "/assets/img/giftcard/purchase-bg-800.webp 800w, /assets/img/giftcard/purchase-bg-1280.webp 1280w, /assets/img/giftcard/purchase-bg.webp 1900w", width: 1900, height: 1013 },
   "/assets/img/giftcard/real-cert.webp": { srcSet: "/assets/img/giftcard/real-cert-800.webp 800w, /assets/img/giftcard/real-cert-1280.webp 1280w, /assets/img/giftcard/real-cert.webp 1749w", width: 1749, height: 1241 },
+  "/assets/img/giftcard/real-cert-1.webp": { srcSet: "/assets/img/giftcard/real-cert-1-800.webp 800w, /assets/img/giftcard/real-cert-1-1280.webp 1280w, /assets/img/giftcard/real-cert-1.webp 1749w", width: 1749, height: 1241 },
   "/assets/img/kids/hero-child-drummer.webp": { srcSet: "/assets/img/kids/hero-child-drummer-800.webp 800w, /assets/img/kids/hero-child-drummer.webp 962w", width: 962, height: 650 },
   "/assets/img/percussions/circle-djembe.webp": { srcSet: "/assets/img/percussions/circle-djembe-800.webp 800w, /assets/img/percussions/circle-djembe-1280.webp 1280w, /assets/img/percussions/circle-djembe.webp 1800w", width: 1800, height: 1200 },
   "/assets/img/percussions/ensemble-instruments.webp": { srcSet: "/assets/img/percussions/ensemble-instruments-800.webp 800w, /assets/img/percussions/ensemble-instruments.webp 1200w", width: 1200, height: 1800 },
@@ -53,4 +54,5 @@ export const IMAGE_SRCSET: Record<
   "/assets/img/percussions/gallery-tambourine.webp": { srcSet: "/assets/img/percussions/gallery-tambourine-800.webp 800w, /assets/img/percussions/gallery-tambourine.webp 933w", width: 933, height: 1400 },
   "/assets/img/percussions/hero-group.webp": { srcSet: "/assets/img/percussions/hero-group-800.webp 800w, /assets/img/percussions/hero-group-1280.webp 1280w, /assets/img/percussions/hero-group.webp 1920w", width: 1920, height: 1080 },
   "/assets/img/section3/why-drumstarz-bg.webp": { srcSet: "/assets/img/section3/why-drumstarz-bg-800.webp 800w, /assets/img/section3/why-drumstarz-bg.webp 1103w", width: 1103, height: 787 },
+  "/assets/img/trainers/hero.webp": { srcSet: "/assets/img/trainers/hero-800.webp 800w, /assets/img/trainers/hero-1280.webp 1280w, /assets/img/trainers/hero.webp 1920w", width: 1920, height: 1280 },
 };

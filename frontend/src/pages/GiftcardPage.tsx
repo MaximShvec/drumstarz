@@ -13,9 +13,8 @@ function scrollToForm() {
   scrollToId("giftcard-form");
 }
 
-/** Пока нет отдельных фото — один и тот же файл на обе стороны. */
 const CERT_FRONT = "/assets/img/giftcard/real-cert.webp";
-const CERT_BACK = "/assets/img/giftcard/real-cert.webp";
+const CERT_BACK = "/assets/img/giftcard/real-cert-1.webp";
 
 export function GiftcardPage() {
   const copy = useGiftcard();
@@ -29,19 +28,19 @@ export function GiftcardPage() {
 
   return (
     <>
-      <section className="relative isolate min-h-[88svh]" aria-labelledby="giftcard-hero-title">
+      <section className="relative isolate min-h-[88svh] lg:h-dvh" aria-labelledby="giftcard-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <Photo
             src="/assets/img/giftcard/hero-drummer.webp"
             alt=""
             sizes="100vw"
             fetchPriority="high"
-            className="h-full w-full object-cover object-[center_20%]"
+            className="h-full w-full object-cover object-[center_20%] grayscale"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.42)_0%,rgba(7,10,8,0.2)_40%,rgba(7,10,8,0.92)_100%)]" />
         </div>
 
-        <div className="container-site relative z-10 grid min-h-[88svh] items-end gap-10 pb-16 pt-32 xl:grid-cols-[minmax(0,1fr)_minmax(22rem,30rem)] xl:items-center xl:pb-20">
+        <div className="container-site relative z-10 grid min-h-[88svh] items-end gap-10 pb-16 pt-32 lg:h-dvh xl:grid-cols-[minmax(0,1fr)_minmax(22rem,30rem)] xl:items-center xl:pb-20">
           <div className="min-w-0">
             <p className="inline-flex rounded-full border border-mint/45 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-mint">
               {copy.heroKicker}
@@ -83,7 +82,7 @@ export function GiftcardPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="giftcard-emotion-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="giftcard-emotion-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.emotionKicker}</p>
@@ -112,7 +111,7 @@ export function GiftcardPage() {
         </div>
       </section>
 
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="giftcard-pricing-title">
+      <section className="bg-void py-12 lg:py-32" aria-labelledby="giftcard-pricing-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.pricingKicker}</p>
@@ -169,7 +168,7 @@ export function GiftcardPage() {
         </div>
       </section>
 
-      <section className="bg-paper pt-24 pb-10 text-ink lg:pt-32 lg:pb-12" aria-labelledby="giftcard-experience-title">
+      <section className="bg-paper pt-12 pb-10 text-ink lg:pt-32 lg:pb-12" aria-labelledby="giftcard-experience-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.expKicker}</p>
@@ -205,7 +204,7 @@ export function GiftcardPage() {
         </div>
       </section>
 
-      <section className="bg-paper pt-10 pb-24 text-ink lg:pt-12 lg:pb-32" aria-labelledby="giftcard-faq-title">
+      <section className="bg-paper pt-10 pb-12 text-ink lg:pt-12 lg:pb-32" aria-labelledby="giftcard-faq-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.faqKicker}</p>

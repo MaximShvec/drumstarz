@@ -63,7 +63,7 @@ export function EventsForm() {
   }
 
   return (
-    <section id="booking-events" className="bg-void py-24 lg:py-32" aria-labelledby="booking-events-title">
+    <section id="booking-events" className="bg-void py-12 lg:py-32" aria-labelledby="booking-events-title">
       <div className="container-site">
         <Reveal className="mx-auto max-w-2xl">
           <form

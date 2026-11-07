@@ -44,6 +44,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+#tg-top-cover {
+  display: none;
+}
+
+/* Telegram iOS draws scrolled content above the webview, under the URL pill.
+   Fixed elements are clipped to the webview and cannot cover it. */
+html.tg-ios #tg-top-cover {
+  display: block;
+  position: sticky;
+  top: -200px;
+  z-index: 30;
+  height: 200px;
+  margin-top: -200px;
+  pointer-events: none;
+  background: var(--color-void);
+}
+
 #root {
   width: 100%;
 }

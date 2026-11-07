@@ -7,7 +7,7 @@ export function Why() {
   const copy = useHome();
 
   return (
-    <section id="why" className="relative isolate overflow-clip py-24 lg:py-32" aria-labelledby="why-title">
+    <section id="why" className="relative isolate overflow-clip py-12 lg:py-32" aria-labelledby="why-title">
       <Photo
         src="/assets/img/section3/why-drumstarz-bg.webp"
         alt=""

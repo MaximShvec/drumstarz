@@ -70,14 +70,20 @@ export function Header() {
           )}
           aria-hidden="true"
         />
-        <div className="container-site flex h-[72px] items-center justify-between gap-4 lg:h-[88px]">
+        <div className="container-site flex h-[72px] items-center justify-between gap-1.5 min-[360px]:gap-2 sm:gap-4 lg:h-[88px]">
           <Link
             to={href("/")}
-            className="flex shrink-0 flex-col items-center gap-0.5 sm:flex-row sm:items-center sm:gap-3"
+            className="flex items-center gap-1.5 min-[360px]:gap-2 sm:gap-3"
             aria-label={t.homeAria}
           >
-            <img src="/assets/img/logo.svg" alt="" width={48} height={48} className="h-10 w-10 lg:h-12 lg:w-12" />
-            <span className="whitespace-nowrap font-display text-[0.5rem] font-semibold leading-none tracking-[0.12em] text-cream sm:text-sm sm:tracking-[0.18em]">
+            <img
+              src="/assets/img/logo.svg"
+              alt=""
+              width={48}
+              height={48}
+              className="hidden h-10 w-10 shrink-0 sm:block lg:h-12 lg:w-12"
+            />
+            <span className="whitespace-nowrap font-display text-[0.55rem] font-semibold leading-none tracking-[0.04em] text-cream min-[360px]:text-[0.65rem] min-[360px]:tracking-[0.08em] sm:text-sm sm:tracking-[0.18em]">
               DRUMSTARZ RIGA
             </span>
           </Link>
@@ -141,12 +147,16 @@ export function Header() {
             </div>
           </nav>
 
-          <div className="flex items-center gap-3">
-            <LanguageSwitcher className="hidden md:block" />
+          <div className="flex shrink-0 items-center gap-1.5 min-[360px]:gap-2 sm:gap-3">
+            <LanguageSwitcher className="max-sm:[&>button]:!px-1" />
             <a href={SITE.phoneHref} className="link-draw hidden text-sm text-cream/80 md:inline">
               {SITE.phone}
             </a>
-            <Button variant="primary" className="hidden px-5 py-2.5 text-xs uppercase tracking-[0.14em] sm:inline-flex" onClick={openBooking}>
+            <Button
+              variant="primary"
+              className="uppercase leading-none max-sm:!px-1.5 max-sm:!py-2 max-sm:!text-[0.6rem] max-sm:!tracking-normal min-[360px]:max-sm:!px-2.5 min-[360px]:max-sm:!text-[0.65rem] min-[360px]:max-sm:!tracking-[0.04em] sm:px-5 sm:py-2.5 sm:text-xs sm:tracking-[0.14em]"
+              onClick={openBooking}
+            >
               {t.book}
             </Button>
             <a

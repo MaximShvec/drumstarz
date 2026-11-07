@@ -13,7 +13,7 @@ export function Pricing() {
   const { t } = useLocale();
 
   return (
-    <section id="prices" className="bg-void py-24 lg:py-32" aria-labelledby="pricing-title">
+    <section id="prices" className="bg-void py-12 lg:py-32" aria-labelledby="pricing-title">
       <div className="container-site">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.pricing.kicker}</p>

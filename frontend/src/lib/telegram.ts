@@ -33,7 +33,15 @@ function paintWebApp() {
   webApp.setBottomBarColor?.(VOID);
 }
 
+function markTelegramIos() {
+  const ua = navigator.userAgent;
+  const ios = /iPhone|iPad|iPod/.test(ua);
+  const telegram = typeof window.TelegramWebviewProxy !== "undefined" || (ios && /Telegram/i.test(ua));
+  if (telegram && ios) document.documentElement.classList.add("tg-ios");
+}
+
 export function applyTelegramChrome() {
+  markTelegramIos();
   document.documentElement.style.backgroundColor = VOID;
   document.body.style.backgroundColor = VOID;
 

@@ -74,7 +74,7 @@ export function GiftcardForm({
   return (
     <section
       id="giftcard-form"
-      className="relative isolate overflow-hidden py-24 lg:py-32"
+      className="relative isolate overflow-hidden py-12 lg:py-32"
       aria-labelledby="giftcard-form-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
@@ -128,11 +128,11 @@ export function GiftcardForm({
                       selected ? "border-mint/50 bg-mint/10" : "border-white/10 hover:border-white/20",
                     )}
                   >
-                    <span>
+                    <span className="min-w-0">
                       <span className="block text-xs uppercase tracking-[0.16em] text-cream/45">{planCopy.meta}</span>
                       <span className="mt-1 block font-display text-lg font-semibold">{planCopy.title}</span>
                     </span>
-                    <span className="font-display text-2xl font-semibold">{item.price} €</span>
+                    <span className="shrink-0 whitespace-nowrap pl-3 font-display text-2xl font-semibold">{item.price} €</span>
                   </button>
                 );
               })}

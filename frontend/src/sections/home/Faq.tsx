@@ -14,7 +14,7 @@ export function Faq() {
   const [open, setOpen] = useState(4);
 
   return (
-    <section id="faq" className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="faq-title">
+    <section id="faq" className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="faq-title">
       <div className="container-site">
         <Reveal>
           <h2 id="faq-title" className="font-display text-4xl font-extrabold sm:text-5xl">

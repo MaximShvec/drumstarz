@@ -138,7 +138,7 @@ export function ContactsPage() {
       <ContactsMap slug={mapSlug} onSelect={setMapSlug} />
       <ContactsLead />
 
-      <section className="bg-void pb-24 lg:pb-32" aria-labelledby="contacts-promo-title">
+      <section className="bg-void pb-12 lg:pb-32" aria-labelledby="contacts-promo-title">
         <div className="container-site">
           <Reveal>
             <div className="flex flex-col gap-6 rounded-[1.8rem] border border-mint/25 bg-panel p-8 md:flex-row md:items-center md:justify-between md:p-10">

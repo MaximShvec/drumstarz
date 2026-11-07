@@ -54,7 +54,7 @@ export function NewsListPage() {
   const base = newsBase(locale);
 
   return (
-    <section className="container-site pb-24 pt-32">
+    <section className="container-site pb-12 pt-32">
       <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{meta.kicker}</p>
       <h1 className="mt-4 font-display text-5xl font-extrabold leading-[0.92] tracking-[-0.03em] sm:text-7xl">
         {meta.heading}
@@ -93,7 +93,7 @@ export function NewsArticlePage() {
   if (!article) return <Navigate to={href(base)} replace />;
 
   return (
-    <article className="container-site pb-24 pt-32">
+    <article className="container-site pb-12 pt-32">
       <Link to={href(base)} className="link-draw text-sm text-mint">
         ← {LIST_META[locale].kicker}
       </Link>

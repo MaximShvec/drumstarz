@@ -6,7 +6,7 @@ import { YoutubePlayer } from "../../components/media/YoutubePlayer";
 export function Concerts() {
   const copy = useHome();
   return (
-    <section id="concerts" className="bg-void py-24 lg:py-32" aria-labelledby="concerts-title">
+    <section id="concerts" className="bg-void py-12 lg:py-32" aria-labelledby="concerts-title">
       <div className="container-site">
         <Reveal>
           <div className="flex items-center gap-4">

@@ -66,21 +66,21 @@ export function Hero() {
           {copy.tagline}
         </p>
 
-        <div className="mt-6 grid max-w-md gap-3 text-lg leading-snug text-cream sm:mt-10 sm:max-w-3xl sm:grid-cols-2 sm:gap-6 sm:text-base sm:text-cream/70">
+        <div className="mt-6 max-w-md text-lg leading-snug text-cream sm:mt-10 sm:max-w-3xl sm:text-xl sm:text-cream/70">
           <p>
             {copy.hero.leadBefore}
             <strong className="font-semibold text-cream">{copy.hero.leadStrong}</strong>
           </p>
-          <p>{copy.hero.concert}</p>
+          {/* <p>{copy.hero.concert}</p> */}
         </div>
 
-        <p className="mt-5 text-lg font-medium text-cream sm:mt-8 sm:text-base sm:font-normal sm:text-cream/55">{copy.hero.start}</p>
+        {/* <p>{copy.hero.start}</p> */}
 
         <div className="mt-6 flex flex-col items-stretch gap-4 sm:flex-row sm:flex-wrap sm:items-center">
           <div className="sm:hidden">
             <Button
               variant="primary"
-              className="w-full bg-mint! px-6 py-4 text-lg! font-extrabold text-void shadow-[0_14px_36px_-10px_rgba(26,212,161,0.55)]"
+              className="w-full whitespace-nowrap bg-mint! !px-4 !py-3 !text-sm font-extrabold leading-none text-void shadow-[0_14px_36px_-10px_rgba(26,212,161,0.55)]"
               onClick={openBooking}
             >
               {copy.hero.ctaBefore} <strong>{copy.hero.ctaStrong}</strong>

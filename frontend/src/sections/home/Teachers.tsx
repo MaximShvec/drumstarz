@@ -20,7 +20,7 @@ export function Teachers() {
   }
 
   return (
-    <section id="teachers" className="bg-void py-24 lg:py-32" aria-labelledby="teachers-title">
+    <section id="teachers" className="bg-void py-12 lg:py-32" aria-labelledby="teachers-title">
       <div className="container-site">
         <Reveal>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

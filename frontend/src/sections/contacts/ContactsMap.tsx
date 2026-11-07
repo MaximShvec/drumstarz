@@ -50,7 +50,7 @@ export function ContactsMap({
   }, [slug]);
 
   return (
-    <section id="map" className="scroll-mt-28 bg-void pb-24 lg:pb-32" aria-labelledby="contacts-map-title">
+    <section id="map" className="scroll-mt-28 bg-void pb-12 lg:pb-32" aria-labelledby="contacts-map-title">
       <div className="container-site">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.mapKicker}</p>

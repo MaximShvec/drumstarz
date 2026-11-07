@@ -92,7 +92,7 @@ export function CampPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="camp-intro-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="camp-intro-title">
         <div className="container-site">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Reveal>
@@ -131,7 +131,7 @@ export function CampPage() {
         </div>
       </section>
 
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="camp-program-title">
+      <section className="bg-void py-12 lg:py-32" aria-labelledby="camp-program-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.programKicker}</p>
@@ -187,7 +187,7 @@ export function CampPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="camp-video-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="camp-video-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.videoKicker}</p>
@@ -210,7 +210,7 @@ export function CampPage() {
         </div>
       </section>
 
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="camp-gallery-title">
+      <section className="bg-void py-12 lg:py-32" aria-labelledby="camp-gallery-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.galleryKicker}</p>
@@ -255,7 +255,7 @@ export function CampPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="camp-location-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="camp-location-title">
         <div className="container-site grid items-start gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.locationKicker}</p>
@@ -315,7 +315,7 @@ export function CampPage() {
         </div>
       </section>
 
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="camp-faq-title">
+      <section className="bg-void py-12 lg:py-32" aria-labelledby="camp-faq-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.faqKicker}</p>

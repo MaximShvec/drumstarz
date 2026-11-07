@@ -53,7 +53,7 @@ export function ContactsLead() {
   }
 
   return (
-    <section className="bg-void pb-24 lg:pb-32" aria-labelledby="contacts-lead-title">
+    <section className="bg-void pb-12 lg:pb-32" aria-labelledby="contacts-lead-title">
       <div className="container-site grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
         <Reveal>
           <form

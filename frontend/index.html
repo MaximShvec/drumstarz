@@ -107,10 +107,16 @@
         post("web_app_set_header_color", { color: color });
         post("web_app_set_background_color", { color: color });
         post("web_app_set_bottom_bar_color", { color: color });
+        var ua = navigator.userAgent || "";
+        var ios = /iPhone|iPad|iPod/.test(ua);
+        var telegram =
+          typeof window.TelegramWebviewProxy !== "undefined" || (ios && /Telegram/i.test(ua));
+        if (telegram && ios) document.documentElement.classList.add("tg-ios");
       })();
     </script>
   </head>
   <body style="background-color: #070a08">
+    <div id="tg-top-cover" aria-hidden="true"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

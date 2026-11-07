@@ -69,7 +69,7 @@ export function KidsForm() {
   return (
     <section
       id="kids-booking"
-      className="relative isolate overflow-hidden py-24 lg:py-32"
+      className="relative isolate overflow-hidden py-12 lg:py-32"
       aria-labelledby="kids-booking-title"
     >
       <div className="absolute inset-0" aria-hidden="true">

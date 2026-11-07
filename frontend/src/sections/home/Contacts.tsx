@@ -57,7 +57,7 @@ export function Contacts() {
   }, [slug]);
 
   return (
-    <section id="contacts" className="bg-void py-24 lg:py-32" aria-labelledby="contacts-title">
+    <section id="contacts" className="bg-void py-12 lg:py-32" aria-labelledby="contacts-title">
       <div className="container-site">
         <Reveal>
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">

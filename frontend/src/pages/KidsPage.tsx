@@ -39,7 +39,7 @@ export function KidsPage() {
             height={650}
             fetchPriority="high"
             decoding="async"
-            className="absolute top-1/2 left-1/2 h-[650px] w-[962px] max-w-none -translate-x-1/2 -translate-y-1/2"
+            className="absolute top-1/2 left-1/2 h-[650px] w-[962px] max-w-none -translate-x-1/2 -translate-y-1/2 grayscale"
             style={{
               maskImage:
                 "linear-gradient(90deg, transparent 0%, #000 22%, #000 78%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%)",
@@ -102,7 +102,7 @@ export function KidsPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="kids-concept-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="kids-concept-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.conceptKicker}</p>
@@ -121,14 +121,16 @@ export function KidsPage() {
               src="/assets/img/kids/concept-child-star.webp"
               alt={copy.conceptAlt}
               sizes="(min-width: 1024px) 50vw, 100vw"
+              width={1600}
+              height={1067}
               loading="lazy"
-              className="h-full min-h-80 w-full rounded-[1.6rem] object-cover"
+              className="aspect-[3/2] w-full rounded-[1.6rem] object-cover"
             />
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="kids-program-title">
+      <section className="bg-void py-12 lg:py-32" aria-labelledby="kids-program-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.programKicker}</p>
@@ -159,7 +161,7 @@ export function KidsPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="kids-pricing-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="kids-pricing-title">
         <div className="container-site grid items-start gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.priceKicker}</p>
@@ -208,7 +210,7 @@ export function KidsPage() {
         </div>
       </section>
 
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="kids-benefits-title">
+      <section className="bg-void py-12 lg:py-32" aria-labelledby="kids-benefits-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.whyKicker}</p>
@@ -221,26 +223,18 @@ export function KidsPage() {
             <p className="mt-4 text-sm uppercase tracking-[0.16em] text-cream/40">{copy.whyMeta}</p>
           </Reveal>
 
-          <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="mt-10 grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr]">
             <Reveal>
-              <article className="relative isolate overflow-hidden rounded-[1.6rem]">
-                <Photo
-                  src="/assets/img/kids/real-04.jpg"
-                  alt={copy.whyAlt}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  loading="lazy"
-                  className="h-full min-h-[28rem] w-full object-contain object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-void via-void/25 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-8">
-                  <span className="font-display text-sm tracking-[0.22em] text-mint">01</span>
-                  <h3 className="mt-3 font-display text-3xl font-semibold">{why[0].title}</h3>
-                  <p className="mt-3 max-w-md text-cream/70">{why[0].text}</p>
-                </div>
-              </article>
+              <Photo
+                src="/assets/img/kids/real-04.jpg"
+                alt={copy.whyAlt}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                loading="lazy"
+                className="aspect-[4/3] w-full rounded-[1.6rem] object-cover object-[center_30%]"
+              />
             </Reveal>
             <ul>
-              {why.slice(1).map((item, i) => (
+              {why.map((item, i) => (
                 <Reveal key={item.num} as="li" delay={i * 50} className="border-t border-white/8 py-6 last:border-b">
                   <span className="font-display text-sm tracking-[0.22em] text-mint">{item.num}</span>
                   <h3 className="mt-2 font-display text-2xl font-semibold">{item.title}</h3>
@@ -252,7 +246,7 @@ export function KidsPage() {
         </div>
       </section>
 
-      <section className="bg-void pb-24 lg:pb-32" aria-labelledby="kids-gallery-title">
+      <section className="bg-void pb-12 lg:pb-32" aria-labelledby="kids-gallery-title">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.galleryKicker}</p>

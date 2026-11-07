@@ -17,7 +17,7 @@ export function Stereotypes() {
   }, [level]);
 
   return (
-    <section id="stereotypes" className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="stereotypes-title">
+    <section id="stereotypes" className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="stereotypes-title">
       <div className="container-site">
         <Reveal>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">

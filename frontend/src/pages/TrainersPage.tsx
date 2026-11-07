@@ -15,19 +15,19 @@ export function TrainersPage() {
 
   return (
     <>
-      <section className="relative isolate min-h-[78svh] overflow-hidden" aria-labelledby="trainers-hero-title">
+      <section className="relative isolate min-h-dvh overflow-hidden" aria-labelledby="trainers-hero-title">
         <div className="absolute inset-0" aria-hidden="true">
           <Photo
-            src="/assets/images/contacts-hero-drums-backdrop.webp"
+            src="/assets/img/trainers/hero.webp"
             alt=""
             sizes="100vw"
             fetchPriority="high"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-[62%_top]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,8,0.4)_0%,rgba(7,10,8,0.25)_40%,rgba(7,10,8,0.92)_100%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(7,10,8,0.45)_100%)]" />
         </div>
-        <div className="container-site relative z-10 flex min-h-[78svh] flex-col justify-end pb-16 pt-32 lg:pb-20">
+        <div className="container-site relative z-10 flex min-h-dvh flex-col justify-end pb-16 pt-32 lg:pb-20">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint">{copy.kicker}</p>
           <h1
             id="trainers-hero-title"
@@ -41,7 +41,7 @@ export function TrainersPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="trainers-intro-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="trainers-intro-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-mint-dim">{copy.introKicker}</p>
@@ -82,7 +82,7 @@ export function TrainersPage() {
         </div>
       </section>
 
-      <section className="bg-void pb-24 lg:pb-32" aria-labelledby="trainers-cta-title">
+      <section className="bg-void pb-12 lg:pb-32" aria-labelledby="trainers-cta-title">
         <div className="container-site">
           <Reveal>
             <div className="flex flex-col gap-6 rounded-[1.8rem] border border-mint/25 bg-panel p-8 md:flex-row md:items-center md:justify-between md:p-10">

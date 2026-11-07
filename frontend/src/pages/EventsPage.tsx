@@ -38,7 +38,7 @@ export function EventsPage() {
             height={650}
             fetchPriority="high"
             decoding="async"
-            className="absolute top-1/2 right-0 h-[650px] w-[962px] max-w-none -translate-y-1/2"
+            className="absolute top-1/2 right-0 h-[650px] w-[962px] max-w-none grayscale max-lg:translate-x-[26rem] max-lg:-translate-y-[86%] lg:-translate-y-1/2"
             style={{
               maskImage:
                 "linear-gradient(90deg, transparent 0%, #000 30%, #000 74%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%)",
@@ -99,7 +99,7 @@ export function EventsPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="showcase-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="showcase-title">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <h2
@@ -134,7 +134,7 @@ export function EventsPage() {
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="timeline-title">
+      <section className="relative isolate overflow-hidden py-12 lg:py-32" aria-labelledby="timeline-title">
         <div className="absolute inset-0" aria-hidden="true">
           <Photo src="/assets/img/events/why-bg.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-contain" />
           <div className="absolute inset-0 bg-void/82" />
@@ -166,7 +166,7 @@ export function EventsPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="pricing-events-title">
+      <section className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="pricing-events-title">
         <div className="container-site grid items-start gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <h2
@@ -217,7 +217,7 @@ export function EventsPage() {
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden py-24 lg:py-32" aria-labelledby="why-drums-title">
+      <section className="relative isolate overflow-hidden py-12 lg:py-32" aria-labelledby="why-drums-title">
         <div className="absolute inset-0" aria-hidden="true">
           <Photo src="/assets/img/events/why-bg.webp" alt="" sizes="100vw" loading="lazy" className="h-full w-full object-contain" />
           <div className="absolute inset-0 bg-void/84" />
@@ -253,7 +253,7 @@ export function EventsPage() {
         </div>
       </section>
 
-      <section className="bg-void py-24 lg:py-32" aria-labelledby="gallery-title">
+      <section className="bg-void py-12 lg:py-32" aria-labelledby="gallery-title">
         <div className="container-site">
           <Reveal>
             <h2 id="gallery-title" className="font-display text-4xl font-extrabold tracking-[-0.03em] sm:text-5xl">

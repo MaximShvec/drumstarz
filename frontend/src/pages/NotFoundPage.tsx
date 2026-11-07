@@ -7,7 +7,7 @@ export function NotFoundPage() {
   useDocumentMeta(t.notFound.metaTitle, t.notFound.metaDescription, { noindex: true });
 
   return (
-    <section className="container-site flex min-h-svh flex-col justify-center pb-24 pt-32">
+    <section className="container-site flex min-h-svh flex-col justify-center pb-12 pt-32">
       <p className="text-xs font-semibold uppercase tracking-[0.28em] text-mint">404</p>
       <h1 className="mt-4 max-w-[12ch] font-display text-5xl font-extrabold leading-[0.92] tracking-[-0.04em] sm:text-7xl">
         {t.notFound.title}

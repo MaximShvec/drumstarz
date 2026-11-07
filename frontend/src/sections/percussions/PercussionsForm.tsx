@@ -55,7 +55,7 @@ export function PercussionsForm({ intent = "" }: { intent?: "lesson" | "jam" | "
   return (
     <section
       id="percussions-form"
-      className="relative isolate overflow-hidden py-24 lg:py-32"
+      className="relative isolate overflow-hidden py-12 lg:py-32"
       aria-labelledby="percussions-form-title"
     >
       <div className="absolute inset-0" aria-hidden="true">

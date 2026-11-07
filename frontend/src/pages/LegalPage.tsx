@@ -28,7 +28,7 @@ export function LegalPage({ kind }: { kind: LegalKind }) {
   const [title, ...rest] = text.split(/\n\n+/);
 
   return (
-    <article className="container-site pb-24 pt-32">
+    <article className="container-site pb-12 pt-32">
       <h1 className="max-w-3xl font-display text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl">
         {title}
       </h1>

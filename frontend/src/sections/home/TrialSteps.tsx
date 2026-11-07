@@ -9,7 +9,7 @@ export function TrialSteps() {
   const copy = useHome();
 
   return (
-    <section id="trial-steps" className="bg-paper py-24 text-ink lg:py-32" aria-labelledby="trial-steps-title">
+    <section id="trial-steps" className="bg-paper py-12 text-ink lg:py-32" aria-labelledby="trial-steps-title">
       <div className="container-site">
         <Reveal>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

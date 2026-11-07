@@ -66,7 +66,7 @@ export function CampForm() {
   return (
     <section
       id="camp-form"
-      className="relative isolate overflow-hidden py-24 lg:py-32"
+      className="relative isolate overflow-hidden py-12 lg:py-32"
       aria-labelledby="camp-form-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
